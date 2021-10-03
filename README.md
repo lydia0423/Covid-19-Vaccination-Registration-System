@@ -1,6 +1,6 @@
 # Covid-19-Vaccination-Registration-System
 
-##Things need to be paid attention
+## Things need to be paid attention
 1. Create a branch for your coding
 2. Always update from the main branch
 3. Resolve the conflict before merging into main branch
