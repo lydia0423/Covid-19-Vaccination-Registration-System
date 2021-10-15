@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 !ENTRY org.eclipse.egit.ui 4 0 2021-10-10 21:11:46.664
 !MESSAGE file:///C:\Users\Eric\Documents\GitHub\Covid-19-Vaccination-Registration-System\Covid-19 Vaccination Registration System: not found.
@@ -102,6 +103,9 @@ java.io.FileNotFoundException: C:\Users\Eric\Documents\GitHub\Covid-19-Vaccinati
 	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.lambda$1(IDEWorkbenchAdvisor.java:554)
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
 !SESSION 2021-10-10 21:25:21.236 -----------------------------------------------
+=======
+!SESSION 2021-10-10 20:56:59.863 -----------------------------------------------
+>>>>>>> Stashed changes
 eclipse.buildId=4.21.0.I20210906-0500
 java.version=16.0.2
 java.vendor=Oracle Corporation
@@ -109,15 +113,25 @@ BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_MY
 Framework arguments:  -product org.eclipse.epp.package.java.product
 Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
 
+<<<<<<< Updated upstream
 !ENTRY org.eclipse.jface 2 0 2021-10-10 21:38:22.880
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
 !SUBENTRY 1 org.eclipse.jface 2 0 2021-10-10 21:38:22.881
+=======
+!ENTRY org.eclipse.jface 2 0 2021-10-10 20:57:10.587
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-10-10 20:57:10.587
+>>>>>>> Stashed changes
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
 		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+<<<<<<< Updated upstream
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@595184d8,
+=======
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@25110bb9,
+>>>>>>> Stashed changes
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
@@ -125,12 +139,20 @@ Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
 		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+<<<<<<< Updated upstream
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7d49a1a0,
+=======
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@dbda472,
+>>>>>>> Stashed changes
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
 
+<<<<<<< Updated upstream
 !ENTRY org.eclipse.egit.ui 2 0 2021-10-10 21:38:30.856
+=======
+!ENTRY org.eclipse.egit.ui 2 0 2021-10-10 20:57:15.872
+>>>>>>> Stashed changes
 !MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
 user global configuration and to define the default location to store repositories: 'C:\Users\Eric'. If this is
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
