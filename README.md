@@ -5,4 +5,7 @@
 2. Always update from the main branch
 3. Resolve the conflict before merging into main branch
 4. Do not edit the main branch
-5. If do not how to solve the conflict, ask the work's owner
+5. If do not know how to solve the conflict, ask the work's owner
+
+## Wireframe
+https://framer.com/projects/oYaxgRIjhHihMLIFkDv2-gFXnw?node=xC7U3Efak-page
