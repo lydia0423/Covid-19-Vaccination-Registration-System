@@ -46,11 +46,17 @@ public class Login extends javax.swing.JFrame {
         btnSignIn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 <<<<<<< HEAD
+        txtPassword = new javax.swing.JPasswordField();
+        txtUsername = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+=======
+<<<<<<< HEAD
         jLabel7 = new javax.swing.JLabel();
 =======
         txtPassword = new javax.swing.JPasswordField();
         txtUsername = new javax.swing.JTextField();
 >>>>>>> 7efe774cc74e4c0296b0ff56dda3d366cb63bd2c
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -71,11 +77,11 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4213432_closed_lock_password_protect_secure_icon.png"))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel4.setText("Username");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel5.setText("Password");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -83,8 +89,13 @@ public class Login extends javax.swing.JFrame {
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
+<<<<<<< HEAD
+        btnForgetPassword.setText("Forget Password");
+        btnForgetPassword.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+=======
         btnForgetPassword.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         btnForgetPassword.setText("Forget Password");
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
 
         btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/211652_close_icon (1).png"))); // NOI18N
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -93,13 +104,28 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
+=======
         btnSignIn.setBackground(new java.awt.Color(84, 140, 131));
         btnSignIn.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
         btnSignIn.setText("Sign In");
+        btnSignIn.setBackground(new java.awt.Color(84, 140, 131));
         btnSignIn.setBorderPainted(false);
         btnSignIn.setFocusPainted(false);
+        btnSignIn.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/6351930_eye_password_see_view_icon.png"))); // NOI18N
+<<<<<<< HEAD
+
+        txtPassword.setBackground(new java.awt.Color(65, 198, 158));
+        txtPassword.setBorder(null);
+        txtPassword.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+
+        txtUsername.setBackground(new java.awt.Color(65, 198, 158));
+        txtUsername.setBorder(null);
+        txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+=======
 
         txtPassword.setBackground(new java.awt.Color(65, 198, 158));
         txtPassword.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -108,15 +134,19 @@ public class Login extends javax.swing.JFrame {
         txtUsername.setBackground(new java.awt.Color(65, 198, 158));
         txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtUsername.setBorder(null);
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
+=======
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(433, Short.MAX_VALUE)
                 .addComponent(btnClose)
                 .addGap(415, 415, 415))
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,11 +156,19 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
                         .addComponent(jLabel4))
+<<<<<<< HEAD
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+=======
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
                         .addComponent(jLabel2)
                         .addGap(31, 31, 31)
                         .addComponent(jLabel5))
@@ -140,11 +178,18 @@ public class Login extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
 <<<<<<< HEAD
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(516, Short.MAX_VALUE)
+                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(415, 415, 415))
+=======
+<<<<<<< HEAD
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(486, Short.MAX_VALUE)
                 .addComponent(btnClose)
                 .addGap(498, 498, 498))
 =======
 >>>>>>> 7efe774cc74e4c0296b0ff56dda3d366cb63bd2c
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,6 +201,11 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
 <<<<<<< HEAD
+                        .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel4)))
+=======
+<<<<<<< HEAD
                         .addGap(93, 93, 93)
                         .addComponent(jLabel4))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -166,6 +216,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel4)))
 >>>>>>> 7efe774cc74e4c0296b0ff56dda3d366cb63bd2c
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -196,9 +247,15 @@ public class Login extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(11, 11, 11)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+=======
                 .addGap(31, 31, 31)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -206,8 +263,13 @@ public class Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(128, 128, 128)
+                .addComponent(jLabel7)
+=======
                 .addGap(119, 119, 119)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> f08a7bcbe93ef9f5df670e4a7844b5691f6b29a6
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
