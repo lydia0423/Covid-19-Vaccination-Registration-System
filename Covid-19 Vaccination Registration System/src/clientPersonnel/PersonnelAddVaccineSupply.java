@@ -163,10 +163,10 @@ public class PersonnelAddVaccineSupply extends javax.swing.JFrame {
         txtAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txtAddress);
 
-        txtVaccinationCenterName.setBackground(new java.awt.Color(65, 198, 158));
         txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtVaccinationCenterName.setForeground(new java.awt.Color(0, 0, 0));
+        txtVaccinationCenterName.setBackground(new java.awt.Color(65, 198, 158));
         txtVaccinationCenterName.setBorder(null);
+        txtVaccinationCenterName.setForeground(new java.awt.Color(0, 0, 0));
 
         cmbState.setBackground(new java.awt.Color(65, 198, 158));
         cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -190,9 +190,9 @@ public class PersonnelAddVaccineSupply extends javax.swing.JFrame {
         txtQuantity.setForeground(new java.awt.Color(0, 0, 0));
         txtQuantity.setBorder(null);
 
+        btnAddNewSupply.setText("Add New ");
         btnAddNewSupply.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply.setText("Add New ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

@@ -4,6 +4,7 @@
  */
 package clientPersonnel;
 
+
 /**
  *
  * @author Lydia
@@ -52,6 +53,7 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 500));
         setMinimumSize(new java.awt.Dimension(800, 500));
+        setUndecorated(true);
         addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
@@ -65,22 +67,22 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(218, 500));
         jPanel2.setMinimumSize(new java.awt.Dimension(218, 500));
 
+        jLabel1.setText("Registrant Details");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Registrant Details");
 
+        btnDashboard.setText("Dashboard");
         btnDashboard.setBackground(new java.awt.Color(82, 137, 128));
         btnDashboard.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnDashboard.setText("Dashboard");
         btnDashboard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDashboardActionPerformed(evt);
             }
         });
 
+        btnBack.setText("Back");
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -121,40 +123,40 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Name");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Name");
 
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
         txtName.setForeground(new java.awt.Color(0, 0, 0));
 
+        jLabel4.setText("Email");
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Email");
 
+        jLabel6.setText("Close Contact");
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Close Contact");
 
+        jLabel8.setText("State");
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("State");
 
+        jLabel10.setText("NRIC/ Passport");
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("NRIC/ Passport");
 
+        jLabel12.setText("Contact Number");
         jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Contact Number");
 
+        jLabel14.setText("Health Condition");
         jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Health Condition");
 
+        jLabel16.setText("Preferred Vaccination Centre");
         jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Preferred Vaccination Centre");
 
         txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(0, 0, 0));
