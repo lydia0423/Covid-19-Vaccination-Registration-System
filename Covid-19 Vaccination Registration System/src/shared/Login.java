@@ -58,9 +58,6 @@ public class Login extends javax.swing.JFrame {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 formMouseDragged(evt);
             }
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                formMouseMoved(evt);
-            }
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -223,13 +220,6 @@ public class Login extends javax.swing.JFrame {
         
         this.setLocation(x, y);
     }//GEN-LAST:event_formMouseDragged
-
-    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formMouseMoved
 
     /**
      * @param args the command line arguments
