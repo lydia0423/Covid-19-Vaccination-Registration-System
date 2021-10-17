@@ -53,14 +53,14 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Vaccine Supply");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
 
+        btnBack.setText("Back");
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -98,25 +98,25 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/172546_search_icon.png"))); // NOI18N
 
         txtUsername.setBackground(new java.awt.Color(65, 198, 158));
+        txtUsername.setBorder(null);
         txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(0, 0, 0));
-        txtUsername.setBorder(null);
 
+        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "States", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
         cmbState.setBackground(new java.awt.Color(65, 198, 158));
         cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbState.setForeground(new java.awt.Color(0, 0, 0));
-        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "States", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu", " " }));
         cmbState.setOpaque(true);
 
+        cmbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaccine Type", "AstraZeneca", "Pfizer-BioNTech", "Sinovac", "Moderna", "CanSino", "Sinopharm", "Janssen" }));
         cmbVaccineType.setBackground(new java.awt.Color(65, 198, 158));
         cmbVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbVaccineType.setForeground(new java.awt.Color(0, 0, 0));
-        cmbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaccine Type", "AstraZeneca", "Pfizer-BioNTech", "Sinovac", "Moderna", "CanSino", "Sinopharm", "Janssen" }));
         cmbVaccineType.setOpaque(true);
 
+        btnAddNewVaccineSupply.setText("Add New");
         btnAddNewVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewVaccineSupply.setText("Add New");
         btnAddNewVaccineSupply.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewVaccineSupplyActionPerformed(evt);
