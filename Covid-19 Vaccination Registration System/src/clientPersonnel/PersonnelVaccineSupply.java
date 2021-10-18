@@ -56,7 +56,6 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Vaccine Supply");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
 
         btnBack.setText("Back");
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
@@ -83,7 +82,7 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(202, 202, 202)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -100,19 +99,14 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         txtUsername.setBackground(new java.awt.Color(65, 198, 158));
         txtUsername.setBorder(null);
         txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(0, 0, 0));
 
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "States", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
         cmbState.setBackground(new java.awt.Color(65, 198, 158));
         cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        cmbState.setForeground(new java.awt.Color(0, 0, 0));
-        cmbState.setOpaque(true);
 
         cmbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaccine Type", "AstraZeneca", "Pfizer-BioNTech", "Sinovac", "Moderna", "CanSino", "Sinopharm", "Janssen" }));
         cmbVaccineType.setBackground(new java.awt.Color(65, 198, 158));
         cmbVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        cmbVaccineType.setForeground(new java.awt.Color(0, 0, 0));
-        cmbVaccineType.setOpaque(true);
 
         btnAddNewVaccineSupply.setText("Add New");
         btnAddNewVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
@@ -135,7 +129,7 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                     .addComponent(jSeparator1))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

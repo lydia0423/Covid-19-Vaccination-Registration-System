@@ -32,7 +32,6 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnLogout = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         btnClose = new javax.swing.JLabel();
         btnVaccinationStatus = new javax.swing.JLabel();
         btnMyAccount1 = new javax.swing.JLabel();
@@ -64,8 +63,6 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo.png"))); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,17 +71,11 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(218, 218, 218))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(465, Short.MAX_VALUE)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -96,11 +87,11 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
-        btnVaccinationStatus.setBackground(new java.awt.Color(82, 137, 128));
-        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4230540_analysis_graph_report_icon.png"))); // NOI18N
         btnVaccinationStatus.setText("    Vaccination Status");
+        btnVaccinationStatus.setBackground(new java.awt.Color(82, 137, 128));
         btnVaccinationStatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setOpaque(true);
         btnVaccinationStatus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -108,18 +99,18 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
-        btnMyAccount1.setBackground(new java.awt.Color(82, 137, 128));
-        btnMyAccount1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnMyAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3643757_computer_desktop_monitor_pc_personal_icon.png"))); // NOI18N
         btnMyAccount1.setText("    My Account");
+        btnMyAccount1.setBackground(new java.awt.Color(82, 137, 128));
         btnMyAccount1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnMyAccount1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnMyAccount1.setOpaque(true);
 
-        btnVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
-        btnVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccineSupply.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4172394_goods_merchandise_stock_supply_vendibles_icon.png"))); // NOI18N
         btnVaccineSupply.setText("    Vaccine Supply");
+        btnVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
         btnVaccineSupply.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccineSupply.setOpaque(true);
         btnVaccineSupply.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,11 +118,11 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
-        btnManageVaccinationAppointment2.setBackground(new java.awt.Color(82, 137, 128));
-        btnManageVaccinationAppointment2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4335985_availability_calendar_custom_programme_schedule_icon.png"))); // NOI18N
         btnManageVaccinationAppointment2.setText("    Vaccination Appointment");
+        btnManageVaccinationAppointment2.setBackground(new java.awt.Color(82, 137, 128));
         btnManageVaccinationAppointment2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnManageVaccinationAppointment2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment2.setOpaque(true);
         btnManageVaccinationAppointment2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -147,17 +138,17 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 624, Short.MAX_VALUE)
+                        .addComponent(btnClose)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnManageVaccinationAppointment2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnMyAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnVaccinationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnVaccineSupply, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 122, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnClose)
-                        .addGap(26, 26, 26))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +156,7 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(26, 26, 26)
                 .addComponent(btnMyAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnManageVaccinationAppointment2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +164,7 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
                 .addComponent(btnVaccinationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnVaccineSupply, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -267,7 +258,6 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel btnMyAccount1;
     private javax.swing.JLabel btnVaccinationStatus;
     private javax.swing.JLabel btnVaccineSupply;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
