@@ -4,6 +4,8 @@
  */
 package clientPatient;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eric

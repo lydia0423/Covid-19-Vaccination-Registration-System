@@ -4,6 +4,9 @@
  */
 package clientPatient;
 
+import javax.swing.JOptionPane;
+import shared.VaccinationStatus;
+
 /**
  *
  * @author Eric

@@ -30,7 +30,6 @@ public class Register extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-<<<<<<< Updated upstream
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -171,45 +170,12 @@ public class Register extends javax.swing.JFrame {
         btnAddNewSupply1.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnAddNewSupply1.setText("Register");
-=======
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txt = new javax.swing.JLabel();
-        btnAddNewAppointment = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(66, 201, 161));
-        jPanel1.setMaximumSize(new java.awt.Dimension(800, 500));
-        jPanel1.setMinimumSize(new java.awt.Dimension(800, 500));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
->>>>>>> Stashed changes
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo.png"))); // NOI18N
-
-        txt.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-
-        btnAddNewAppointment.setBackground(new java.awt.Color(82, 137, 128));
-        btnAddNewAppointment.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewAppointment.setText("Add New");
-        btnAddNewAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewAppointmentActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-<<<<<<< Updated upstream
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -297,57 +263,10 @@ public class Register extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
-=======
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAddNewAppointment)
-                        .addGap(54, 54, 54)))
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAddNewAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel1)))
-                .addContainerGap(262, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
->>>>>>> Stashed changes
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< Updated upstream
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
@@ -371,11 +290,6 @@ public class Register extends javax.swing.JFrame {
     private void btnAddNewSupplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupplyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddNewSupplyActionPerformed
-=======
-    private void btnAddNewAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewAppointmentActionPerformed
-        //
-    }//GEN-LAST:event_btnAddNewAppointmentActionPerformed
->>>>>>> Stashed changes
 
     /**
      * @param args the command line arguments
@@ -388,7 +302,7 @@ public class Register extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("FlatLaf Light".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -413,7 +327,6 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< Updated upstream
     private javax.swing.JButton btnAddNewSupply;
     private javax.swing.JButton btnAddNewSupply1;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -437,12 +350,5 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtVaccinationCenterName4;
     private javax.swing.JTextField txtVaccinationCenterName5;
     private javax.swing.JTextField txtVaccinationCenterName6;
-=======
-    private javax.swing.JButton btnAddNewAppointment;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel txt;
->>>>>>> Stashed changes
     // End of variables declaration//GEN-END:variables
 }
