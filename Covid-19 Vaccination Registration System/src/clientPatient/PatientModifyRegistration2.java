@@ -4,6 +4,8 @@
  */
 package clientPatient;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eric
@@ -106,7 +108,7 @@ public class PatientModifyRegistration2 extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addComponent(btnLogout))
         );
 
