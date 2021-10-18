@@ -61,7 +61,6 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(65, 198, 158));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMaximumSize(new java.awt.Dimension(218, 500));
@@ -69,7 +68,6 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
 
         jLabel1.setText("Registrant Details");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
 
         btnDashboard.setText("Dashboard");
         btnDashboard.setBackground(new java.awt.Color(82, 137, 128));
@@ -99,7 +97,7 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(btnDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 112, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
@@ -125,62 +123,46 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
 
         jLabel2.setText("Name");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
 
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtName.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setText("Email");
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel6.setText("Close Contact");
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel8.setText("State");
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel10.setText("NRIC/ Passport");
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel12.setText("Contact Number");
         jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel14.setText("Health Condition");
         jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel16.setText("Preferred Vaccination Centre");
         jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
 
         txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(0, 0, 0));
         txtEmail.setMaximumSize(new java.awt.Dimension(201, 21));
         txtEmail.setMinimumSize(new java.awt.Dimension(201, 21));
         txtEmail.setPreferredSize(new java.awt.Dimension(201, 21));
 
         txtCloseContact.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtCloseContact.setForeground(new java.awt.Color(0, 0, 0));
 
         txtIC.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtIC.setForeground(new java.awt.Color(0, 0, 0));
 
         txtContactNumber.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtContactNumber.setForeground(new java.awt.Color(0, 0, 0));
 
         txtHealthondition.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtHealthondition.setForeground(new java.awt.Color(0, 0, 0));
 
         txtPreferredVaccinationCentre.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtPreferredVaccinationCentre.setForeground(new java.awt.Color(0, 0, 0));
 
         txtState.setFont(new java.awt.Font("Berlin Sans FB", 2, 18)); // NOI18N
-        txtState.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -201,7 +183,7 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel6)
                                     .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 14, Short.MAX_VALUE)))
+                                .addGap(0, 108, Short.MAX_VALUE)))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
@@ -268,7 +250,7 @@ public class PersonnelViewRegistration extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPreferredVaccinationCentre)
                     .addComponent(txtState))
-                .addGap(0, 117, Short.MAX_VALUE))
+                .addGap(0, 142, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
