@@ -4,6 +4,9 @@
  */
 package clientPersonnel;
 
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import shared.VaccinationStatus;
 
@@ -87,11 +90,11 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnVaccinationStatus.setBackground(new java.awt.Color(82, 137, 128));
+        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4230540_analysis_graph_report_icon.png"))); // NOI18N
         btnVaccinationStatus.setText("    Vaccination Status");
-        btnVaccinationStatus.setBackground(new java.awt.Color(82, 137, 128));
         btnVaccinationStatus.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setOpaque(true);
         btnVaccinationStatus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -99,18 +102,18 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnMyAccount1.setBackground(new java.awt.Color(82, 137, 128));
+        btnMyAccount1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnMyAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3643757_computer_desktop_monitor_pc_personal_icon.png"))); // NOI18N
         btnMyAccount1.setText("    My Account");
-        btnMyAccount1.setBackground(new java.awt.Color(82, 137, 128));
         btnMyAccount1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnMyAccount1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnMyAccount1.setOpaque(true);
 
+        btnVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
+        btnVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccineSupply.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4172394_goods_merchandise_stock_supply_vendibles_icon.png"))); // NOI18N
         btnVaccineSupply.setText("    Vaccine Supply");
-        btnVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
         btnVaccineSupply.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccineSupply.setOpaque(true);
         btnVaccineSupply.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,11 +121,11 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnManageVaccinationAppointment2.setBackground(new java.awt.Color(82, 137, 128));
+        btnManageVaccinationAppointment2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4335985_availability_calendar_custom_programme_schedule_icon.png"))); // NOI18N
         btnManageVaccinationAppointment2.setText("    Vaccination Appointment");
-        btnManageVaccinationAppointment2.setBackground(new java.awt.Color(82, 137, 128));
         btnManageVaccinationAppointment2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnManageVaccinationAppointment2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment2.setOpaque(true);
         btnManageVaccinationAppointment2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -186,22 +189,23 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
-        int n = JOptionPane.showConfirmDialog(null,"Would you like to logout?","Terminate System",JOptionPane.YES_NO_OPTION);
-        if(n==JOptionPane.YES_OPTION)
+        int n = JOptionPane.showConfirmDialog(null, "Would you like to logout?", "Terminate System", JOptionPane.YES_NO_OPTION);
+        if (n == JOptionPane.YES_OPTION)
             System.exit(0);
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        
+
         this.setLocation(x, y);
     }//GEN-LAST:event_formMouseDragged
-    
+
     private void btnManageVaccinationAppointment2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageVaccinationAppointment2MouseClicked
         PersonnelVaccinationAppointment a = new PersonnelVaccinationAppointment();
         a.setVisible(true);
         this.setVisible(false);
+
     }//GEN-LAST:event_btnManageVaccinationAppointment2MouseClicked
 
     private void btnVaccinationStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVaccinationStatusMouseClicked
