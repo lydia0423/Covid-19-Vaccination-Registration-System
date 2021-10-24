@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shared;
+package clientPersonnel;
 
 import javax.swing.JOptionPane;
 
@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author Eric
  */
-public class Register extends javax.swing.JFrame {
+public class PersonnelRegister extends javax.swing.JFrame {
 
     /**
      * Creates new form Register
      */
-    public Register() {
+    public PersonnelRegister() {
         initComponents();
     }
 
@@ -32,6 +32,8 @@ public class Register extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -54,6 +56,7 @@ public class Register extends javax.swing.JFrame {
         btnAddNewSupply1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(200, 100));
         setMaximumSize(new java.awt.Dimension(900, 530));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
@@ -68,51 +71,67 @@ public class Register extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
+        jLabel11.setText("Register");
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+
+        jLabel12.setText("Account");
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
+                .addGap(13, 13, 13))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel10)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel2.setText("Full Name as per IC / Passport");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel3.setText("Email");
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel4.setText("Confirm Password");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel5.setText("Contact Number");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel6.setText("Date of Birth");
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel7.setText("NRIC (Citizen) / Passport (Non-citizen)");
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel8.setText("Address");
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         datePicker1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtVaccinationCenterName.setBorder(null);
         txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName.setBorder(null);
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel9.setText("Password");
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         txtVaccinationCenterName4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName4.setBorder(null);
@@ -139,8 +158,8 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -158,18 +177,18 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        btnAddNewSupply.setText("Cancel");
         btnAddNewSupply.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply.setText("Cancel");
         btnAddNewSupply.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewSupplyActionPerformed(evt);
             }
         });
 
+        btnAddNewSupply1.setText("Register");
         btnAddNewSupply1.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply1.setText("Register");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -308,20 +327,21 @@ public class Register extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                new PersonnelRegister().setVisible(true);
             }
         });
     }
@@ -332,6 +352,8 @@ public class Register extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
