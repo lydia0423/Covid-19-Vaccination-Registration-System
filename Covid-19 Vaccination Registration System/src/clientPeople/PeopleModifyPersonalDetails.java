@@ -207,12 +207,12 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
 
         datePicker1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel13.setText("Password");
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
+        btnAddNewSupply6.setText("Change Password");
         btnAddNewSupply6.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply6.setText("Change Password");
         btnAddNewSupply6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewSupply6ActionPerformed(evt);

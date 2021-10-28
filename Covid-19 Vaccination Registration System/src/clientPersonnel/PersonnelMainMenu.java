@@ -49,11 +49,7 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(900, 530));
         setName("PersonnelMainMenu"); // NOI18N
         setUndecorated(true);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                formMouseDragged(evt);
-            }
-        });
+        setPreferredSize(new java.awt.Dimension(900, 530));
 
         jPanel2.setBackground(new java.awt.Color(186, 221, 212));
 
@@ -62,8 +58,8 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setText("Welcome,");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,8 +127,8 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -202,13 +198,6 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formMouseDragged
 
     private void btnManageVaccinationAppointment2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageVaccinationAppointment2MouseClicked
         PersonnelVaccinationAppointment a = new PersonnelVaccinationAppointment();

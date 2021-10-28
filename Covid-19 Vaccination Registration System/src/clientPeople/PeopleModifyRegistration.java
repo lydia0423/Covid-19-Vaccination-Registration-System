@@ -61,6 +61,7 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
+        setMaximumSize(new java.awt.Dimension(900, 530));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
 

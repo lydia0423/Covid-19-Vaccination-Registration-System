@@ -80,14 +80,14 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(220, 530));
         jPanel2.setPreferredSize(new java.awt.Dimension(220, 530));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setText("Registration");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel4.setText("Programme");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel5.setText("Vaccination");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 

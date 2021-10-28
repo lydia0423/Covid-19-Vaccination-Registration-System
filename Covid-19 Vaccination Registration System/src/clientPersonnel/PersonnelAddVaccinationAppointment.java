@@ -65,11 +65,6 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(900, 530));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                formMouseDragged(evt);
-            }
-        });
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -387,13 +382,6 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formMouseDragged
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         //Random generate a appointment Id

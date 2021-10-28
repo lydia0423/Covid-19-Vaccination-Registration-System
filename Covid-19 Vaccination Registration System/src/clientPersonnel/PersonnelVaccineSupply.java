@@ -49,20 +49,14 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(900, 530));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 530));
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                formMouseDragged(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(186, 221, 212));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Vaccine Supply");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -93,18 +87,18 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/172546_search_icon.png"))); // NOI18N
 
         txtUsername.setBackground(new java.awt.Color(186, 221, 212));
-        txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         txtUsername.setBorder(null);
+        txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "States", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
+        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
-        cmbVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaccine Type", "AstraZeneca", "Pfizer-BioNTech", "Sinovac", "Moderna", "CanSino", "Sinopharm", "Janssen" }));
+        cmbVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
+        btnAddNewVaccineSupply.setText("Add");
         btnAddNewVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewVaccineSupply.setText("Add");
         btnAddNewVaccineSupply.setPreferredSize(new java.awt.Dimension(100, 40));
         btnAddNewVaccineSupply.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,9 +108,9 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
 
         btnGeneratePDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/2133129_document_extension_file_format_pdf_icon.png"))); // NOI18N
 
+        btnBack.setText("Back");
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setText("Back");
         btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,8 +118,8 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -201,13 +195,6 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formMouseDragged
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         PersonnelVaccinationAppointment a = new PersonnelVaccinationAppointment();

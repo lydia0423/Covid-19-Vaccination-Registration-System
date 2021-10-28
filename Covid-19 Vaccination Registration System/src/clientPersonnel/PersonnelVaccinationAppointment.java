@@ -82,15 +82,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
-        setMaximumSize(null);
+        setMaximumSize(new java.awt.Dimension(900, 530));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 530));
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                formMouseDragged(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(900, 53));
@@ -104,9 +98,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         jSeparator1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         txtSearch.setBackground(new java.awt.Color(186, 221, 218));
         txtSearch.setBorder(null);
+        txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
@@ -259,13 +253,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formMouseDragged
-
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // Seach Booking Table
         RowSorter rowSorter = new RowSorter();
@@ -454,10 +441,6 @@ class AppointmentTableModel extends AbstractTableModel{
     private javax.swing.JButton btnPrint;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

@@ -56,11 +56,6 @@ public class PersonnelUpdateVaccinationAppointment extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(900, 530));
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                formMouseDragged(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(186, 221, 212));
         jPanel1.setMaximumSize(new java.awt.Dimension(900, 530));
@@ -355,13 +350,6 @@ public class PersonnelUpdateVaccinationAppointment extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formMouseDragged
 
     private void btnUpdateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAppointmentActionPerformed
 

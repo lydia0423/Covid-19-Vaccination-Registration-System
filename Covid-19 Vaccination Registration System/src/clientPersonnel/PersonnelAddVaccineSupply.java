@@ -56,11 +56,6 @@ public class PersonnelAddVaccineSupply extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(900, 530));
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                formMouseDragged(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(186, 221, 212));
 
@@ -129,8 +124,8 @@ public class PersonnelAddVaccineSupply extends javax.swing.JFrame {
         txtAddress.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txtAddress);
 
-        txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName.setBorder(null);
+        txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName.setPreferredSize(new java.awt.Dimension(1, 30));
 
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "States", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu", " " }));
@@ -156,8 +151,8 @@ public class PersonnelAddVaccineSupply extends javax.swing.JFrame {
         cmbVaccineType.setBackground(new java.awt.Color(65, 198, 158));
         cmbVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
-        txtQuantity.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtQuantity.setBorder(null);
+        txtQuantity.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtQuantity.setPreferredSize(new java.awt.Dimension(1, 30));
         txtQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,8 +170,8 @@ public class PersonnelAddVaccineSupply extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel10.setText("X");
+        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel10MouseClicked(evt);
@@ -297,13 +292,6 @@ public class PersonnelAddVaccineSupply extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        
-        this.setLocation(x, y);
-    }//GEN-LAST:event_formMouseDragged
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:

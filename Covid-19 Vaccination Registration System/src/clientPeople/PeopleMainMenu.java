@@ -55,14 +55,14 @@ public class PeopleMainMenu extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(218, 530));
 
-        jLabel2.setText("Welcome,");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel2.setText("Welcome,");
 
         jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("name");
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,19 +101,19 @@ public class PeopleMainMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("X");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
 
+        btnVaccinationStatus.setBackground(new java.awt.Color(135, 196, 180));
+        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4230540_analysis_graph_report_icon.png"))); // NOI18N
         btnVaccinationStatus.setText(" Vaccination Status");
-        btnVaccinationStatus.setBackground(new java.awt.Color(135, 196, 180));
         btnVaccinationStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setOpaque(true);
         btnVaccinationStatus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -128,18 +128,18 @@ public class PeopleMainMenu extends javax.swing.JFrame {
         btnManageVaccinationAppointment2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         btnManageVaccinationAppointment2.setOpaque(true);
 
+        btnManageVaccinationAppointment3.setBackground(new java.awt.Color(135, 196, 180));
+        btnManageVaccinationAppointment3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4335985_availability_calendar_custom_programme_schedule_icon.png"))); // NOI18N
         btnManageVaccinationAppointment3.setText(" Vaccination Appointment");
-        btnManageVaccinationAppointment3.setBackground(new java.awt.Color(135, 196, 180));
         btnManageVaccinationAppointment3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        btnManageVaccinationAppointment3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment3.setOpaque(true);
 
+        btnManageVaccinationAppointment4.setBackground(new java.awt.Color(135, 196, 180));
+        btnManageVaccinationAppointment4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/7738938_report_document_sheet_file_paper_icon.png"))); // NOI18N
         btnManageVaccinationAppointment4.setText("Personal Details");
-        btnManageVaccinationAppointment4.setBackground(new java.awt.Color(135, 196, 180));
         btnManageVaccinationAppointment4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        btnManageVaccinationAppointment4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment4.setOpaque(true);
 
         btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N

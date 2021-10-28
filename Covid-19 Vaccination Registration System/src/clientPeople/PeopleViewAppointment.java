@@ -57,11 +57,13 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(900, 530));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(186, 221, 212));
         jPanel1.setMaximumSize(new java.awt.Dimension(900, 530));
         jPanel1.setMinimumSize(new java.awt.Dimension(900, 530));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 530));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(220, 530));
@@ -111,19 +113,25 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         jLabel2.setText("Full Name");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 95, -1, -1));
 
         jLabel5.setText("Vaccination Centre");
         jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 178, -1, -1));
 
         jLabel7.setText("NRIC / Passport ");
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(577, 95, -1, -1));
 
         txtVaccinationCenterName.setEditable(false);
         txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName.setBorder(null);
+        jPanel1.add(txtVaccinationCenterName, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 122, 260, 34));
 
         jLabel1.setText("X");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
@@ -132,20 +140,25 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(875, 0, -1, -1));
 
         jLabel14.setText("Vaccine Type");
         jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 261, -1, -1));
 
         jLabel9.setText("Time");
         jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 344, -1, -1));
 
         jLabel11.setText("Date");
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 344, -1, -1));
 
         txtVaccinationCenterName1.setEditable(false);
         txtVaccinationCenterName1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName1.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName1.setBorder(null);
+        jPanel1.add(txtVaccinationCenterName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 205, 330, 34));
 
         txtVaccinationCenterName3.setEditable(false);
         txtVaccinationCenterName3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -156,21 +169,25 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                 txtVaccinationCenterName3ActionPerformed(evt);
             }
         });
+        jPanel1.add(txtVaccinationCenterName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 371, 260, 34));
 
         txtVaccinationCenterName10.setEditable(false);
         txtVaccinationCenterName10.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName10.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName10.setBorder(null);
+        jPanel1.add(txtVaccinationCenterName10, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 371, 260, 34));
 
         txtVaccinationCenterName12.setEditable(false);
         txtVaccinationCenterName12.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName12.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName12.setBorder(null);
+        jPanel1.add(txtVaccinationCenterName12, new org.netbeans.lib.awtextra.AbsoluteConstraints(577, 122, 260, 34));
 
         txtVaccinationCenterName4.setEditable(false);
         txtVaccinationCenterName4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName4.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName4.setBorder(null);
+        jPanel1.add(txtVaccinationCenterName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 288, 260, 34));
 
         btnAddNewSupply2.setText("Cancel Appointment");
         btnAddNewSupply2.setBackground(new java.awt.Color(82, 137, 128));
@@ -180,6 +197,7 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                 btnAddNewSupply2ActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAddNewSupply2, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 455, -1, 40));
 
         btnAddNewSupply3.setText("Confirm Appointment");
         btnAddNewSupply3.setBackground(new java.awt.Color(82, 137, 128));
@@ -189,116 +207,12 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                 btnAddNewSupply3ActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAddNewSupply3, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 455, -1, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 15, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(txtVaccinationCenterName, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(56, 56, 56)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtVaccinationCenterName12, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7)))
-                                    .addComponent(jLabel5)
-                                    .addComponent(txtVaccinationCenterName1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14)
-                                    .addComponent(txtVaccinationCenterName4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtVaccinationCenterName10, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(60, 60, 60)
-                                        .addComponent(txtVaccinationCenterName3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(277, 277, 277)
-                                        .addComponent(jLabel9))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(btnAddNewSupply2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAddNewSupply3)))
-                        .addGap(0, 49, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel8)))
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtVaccinationCenterName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtVaccinationCenterName12, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVaccinationCenterName1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVaccinationCenterName4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVaccinationCenterName10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtVaccinationCenterName3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddNewSupply2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddNewSupply3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 958, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 29, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 29, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -127,30 +127,30 @@ public class PersonnelRegister extends javax.swing.JFrame {
 
         datePicker1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName.setBorder(null);
+        txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         jLabel9.setText("Password");
         jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        txtVaccinationCenterName4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName4.setBorder(null);
+        txtVaccinationCenterName4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVaccinationCenterName4ActionPerformed(evt);
             }
         });
 
-        txtVaccinationCenterName5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName5.setBorder(null);
+        txtVaccinationCenterName5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVaccinationCenterName5ActionPerformed(evt);
             }
         });
 
-        txtVaccinationCenterName6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName6.setBorder(null);
+        txtVaccinationCenterName6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
