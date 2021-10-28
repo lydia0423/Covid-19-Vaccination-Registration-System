@@ -33,17 +33,18 @@ public class VaccinationStatus extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        btnClose = new javax.swing.JLabel();
         btnShowChart = new javax.swing.JButton();
         StatusPanel = new javax.swing.JPanel();
         btnGeneratePDF = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 500));
-        setMinimumSize(new java.awt.Dimension(800, 500));
+        setLocation(new java.awt.Point(200, 100));
+        setMaximumSize(new java.awt.Dimension(900, 530));
+        setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(65, 198, 158));
+        jPanel1.setBackground(new java.awt.Color(186, 221, 212));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 530));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -82,13 +83,6 @@ public class VaccinationStatus extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/211652_close_icon (1).png"))); // NOI18N
-        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCloseMouseClicked(evt);
-            }
-        });
-
         btnShowChart.setBackground(new java.awt.Color(82, 137, 128));
         btnShowChart.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnShowChart.setText("Show Chart");
@@ -98,7 +92,7 @@ public class VaccinationStatus extends javax.swing.JFrame {
             }
         });
 
-        StatusPanel.setBackground(new java.awt.Color(65, 198, 158));
+        StatusPanel.setBackground(new java.awt.Color(186, 221, 212));
 
         javax.swing.GroupLayout StatusPanelLayout = new javax.swing.GroupLayout(StatusPanel);
         StatusPanel.setLayout(StatusPanelLayout);
@@ -113,6 +107,14 @@ public class VaccinationStatus extends javax.swing.JFrame {
 
         btnGeneratePDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/2133129_document_extension_file_format_pdf_icon.png"))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        jLabel1.setText("X");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -125,20 +127,19 @@ public class VaccinationStatus extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 481, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnClose, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnGeneratePDF)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnShowChart)))))
+                                .addComponent(btnShowChart))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
                 .addComponent(StatusPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,10 +162,6 @@ public class VaccinationStatus extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        dispose();
-    }//GEN-LAST:event_btnCloseMouseClicked
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         PersonnelMainMenu a = new PersonnelMainMenu();
         a.setVisible(true);
@@ -174,6 +171,10 @@ public class VaccinationStatus extends javax.swing.JFrame {
     private void btnShowChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowChartActionPerformed
         
     }//GEN-LAST:event_btnShowChartActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -213,9 +214,9 @@ public class VaccinationStatus extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel StatusPanel;
     private javax.swing.JButton btnBack;
-    private javax.swing.JLabel btnClose;
     private javax.swing.JLabel btnGeneratePDF;
     private javax.swing.JButton btnShowChart;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
