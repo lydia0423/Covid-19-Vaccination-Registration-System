@@ -50,8 +50,8 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         txtVaccinationCenterName11 = new javax.swing.JTextField();
         txtVaccinationCenterName12 = new javax.swing.JTextField();
         txtVaccinationCenterName4 = new javax.swing.JTextField();
-        btnAddNewSupply2 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        btnmodifyregistration = new javax.swing.JButton();
+        btnback = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
@@ -183,16 +183,26 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         txtVaccinationCenterName4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName4.setBorder(null);
 
-        btnAddNewSupply2.setBackground(new java.awt.Color(82, 137, 128));
-        btnAddNewSupply2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply2.setText("Modify");
-        btnAddNewSupply2.addActionListener(new java.awt.event.ActionListener() {
+        btnmodifyregistration.setBackground(new java.awt.Color(82, 137, 128));
+        btnmodifyregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnmodifyregistration.setText("Modify");
+        btnmodifyregistration.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnmodifyregistrationMouseClicked(evt);
+            }
+        });
+        btnmodifyregistration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewSupply2ActionPerformed(evt);
+                btnmodifyregistrationActionPerformed(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbackMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -232,11 +242,11 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(276, 276, 276)
-                                .addComponent(btnAddNewSupply2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnmodifyregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(jLabel4)
+                                .addComponent(btnback)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1)))
                         .addContainerGap())))
@@ -249,7 +259,7 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel4)))
+                        .addComponent(btnback)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -283,7 +293,7 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                     .addComponent(txtVaccinationCenterName3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtVaccinationCenterName11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addComponent(btnAddNewSupply2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnmodifyregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
 
@@ -311,17 +321,32 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddNewSupply2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply2ActionPerformed
+    private void btnmodifyregistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodifyregistrationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddNewSupply2ActionPerformed
+    }//GEN-LAST:event_btnmodifyregistrationActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+    if(dialog == JOptionPane.YES_OPTION){
         dispose();
+    }
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void txtVaccinationCenterName12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVaccinationCenterName12ActionPerformed
+
+    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
+       PeopleMainMenu peoplemenu = new PeopleMainMenu();
+       peoplemenu.setVisible(true); 
+       this.setVisible(false);  
+    }//GEN-LAST:event_btnbackMouseClicked
+
+    private void btnmodifyregistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmodifyregistrationMouseClicked
+        PeopleModifyRegistration modifyregistration = new PeopleModifyRegistration();
+        modifyregistration.setVisible(true); 
+        this.setVisible(false);  
+    }//GEN-LAST:event_btnmodifyregistrationMouseClicked
 
     /**
      * @param args the command line arguments
@@ -366,7 +391,8 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNewSupply2;
+    private javax.swing.JLabel btnback;
+    private javax.swing.JButton btnmodifyregistration;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -374,7 +400,6 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
