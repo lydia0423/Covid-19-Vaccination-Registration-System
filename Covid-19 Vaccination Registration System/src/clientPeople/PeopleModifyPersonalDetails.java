@@ -47,7 +47,7 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
         txtVaccinationCenterName10 = new javax.swing.JTextField();
         txtVaccinationCenterName4 = new javax.swing.JTextField();
         btnAddNewSupply3 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        btnback = new javax.swing.JLabel();
         btnAddNewSupply4 = new javax.swing.JButton();
         txtVaccinationCenterName2 = new javax.swing.JTextField();
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
@@ -186,11 +186,21 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbackMouseClicked(evt);
+            }
+        });
 
         btnAddNewSupply4.setText("Cancel");
         btnAddNewSupply4.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnAddNewSupply4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddNewSupply4MouseClicked(evt);
+            }
+        });
         btnAddNewSupply4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewSupply4ActionPerformed(evt);
@@ -230,7 +240,7 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(jLabel8)
+                                .addComponent(btnback)
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel1))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -276,7 +286,7 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jLabel8)))
+                        .addComponent(btnback)))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -378,7 +388,10 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVaccinationCenterName3ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+    if(dialog == JOptionPane.YES_OPTION){
         dispose();
+    }
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void txtVaccinationCenterNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterNameActionPerformed
@@ -388,6 +401,22 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
     private void btnAddNewSupply6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddNewSupply6ActionPerformed
+
+    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
+        PeopleMainMenu peoplemenu = new PeopleMainMenu();
+        peoplemenu.setVisible(true);
+        this.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbackMouseClicked
+
+    private void btnAddNewSupply4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewSupply4MouseClicked
+    int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
+    if(dialog == JOptionPane.YES_OPTION){
+        PeopleViewPersonalDetails viewpersonaldetails = new PeopleViewPersonalDetails();
+        viewpersonaldetails.setVisible(true);
+        this.setVisible(false);
+    }    
+    }//GEN-LAST:event_btnAddNewSupply4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -429,6 +458,7 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
     private javax.swing.JButton btnAddNewSupply3;
     private javax.swing.JButton btnAddNewSupply4;
     private javax.swing.JButton btnAddNewSupply6;
+    private javax.swing.JLabel btnback;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -441,7 +471,6 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

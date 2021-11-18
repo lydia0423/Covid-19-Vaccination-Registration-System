@@ -47,7 +47,7 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
         txtVaccinationCenterName12 = new javax.swing.JTextField();
         txtVaccinationCenterName4 = new javax.swing.JTextField();
         btnAddNewSupply3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        btnback = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
@@ -166,13 +166,23 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
         btnAddNewSupply3.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnAddNewSupply3.setText("Update");
+        btnAddNewSupply3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddNewSupply3MouseClicked(evt);
+            }
+        });
         btnAddNewSupply3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewSupply3ActionPerformed(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbackMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -185,7 +195,7 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(jLabel4)
+                                .addComponent(btnback)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -226,7 +236,7 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(jLabel4)))
+                        .addComponent(btnback)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -277,7 +287,10 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+    if(dialog == JOptionPane.YES_OPTION){
         dispose();
+    }
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void btnAddNewSupply3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply3ActionPerformed
@@ -287,6 +300,18 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
     private void txtVaccinationCenterName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVaccinationCenterName3ActionPerformed
+
+    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
+        PeopleMainMenu peoplemenu = new PeopleMainMenu();
+        peoplemenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnbackMouseClicked
+
+    private void btnAddNewSupply3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewSupply3MouseClicked
+       PeopleModifyPersonalDetails modifypersonaldetails = new PeopleModifyPersonalDetails();
+       modifypersonaldetails.setVisible(true);
+       this.setVisible(false);    
+    }//GEN-LAST:event_btnAddNewSupply3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -328,6 +353,7 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewSupply3;
+    private javax.swing.JLabel btnback;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -335,7 +361,6 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;

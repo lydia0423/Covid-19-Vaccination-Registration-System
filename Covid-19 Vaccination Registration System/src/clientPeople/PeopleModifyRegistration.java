@@ -56,7 +56,7 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         cmbState = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         cmbState1 = new javax.swing.JComboBox<>();
-        btnAddNewSupply = new javax.swing.JButton();
+        Cancelregistration = new javax.swing.JButton();
         btnAddNewSupply1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,14 +76,14 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(220, 530));
         jPanel2.setPreferredSize(new java.awt.Dimension(220, 530));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setText("Registration");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel4.setText("Programme");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel5.setText("Vaccination");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -119,8 +119,8 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 530));
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -261,19 +261,24 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         });
         jPanel1.add(cmbState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
 
-        btnAddNewSupply.setBackground(new java.awt.Color(82, 137, 128));
-        btnAddNewSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply.setText("Cancel");
-        btnAddNewSupply.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewSupplyActionPerformed(evt);
+        Cancelregistration.setText("Cancel");
+        Cancelregistration.setBackground(new java.awt.Color(82, 137, 128));
+        Cancelregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        Cancelregistration.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CancelregistrationMouseClicked(evt);
             }
         });
-        jPanel1.add(btnAddNewSupply, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 100, 40));
+        Cancelregistration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelregistrationActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Cancelregistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 100, 40));
 
+        btnAddNewSupply1.setText("Submit");
         btnAddNewSupply1.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply1.setText("Submit");
         btnAddNewSupply1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewSupply1ActionPerformed(evt);
@@ -306,7 +311,10 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        dispose();
+        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            dispose();
+        }
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void txtVaccinationCenterName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName2ActionPerformed
@@ -345,13 +353,22 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbState1ActionPerformed
 
-    private void btnAddNewSupplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupplyActionPerformed
+    private void CancelregistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelregistrationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddNewSupplyActionPerformed
+    }//GEN-LAST:event_CancelregistrationActionPerformed
 
     private void btnAddNewSupply1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddNewSupply1ActionPerformed
+
+    private void CancelregistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelregistrationMouseClicked
+       int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            PeopleMainMenu peoplemenu = new PeopleMainMenu();
+            peoplemenu.setVisible(true);
+            this.setVisible(false);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_CancelregistrationMouseClicked
 
     /**
      * @param args the command line arguments
@@ -396,7 +413,7 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNewSupply;
+    private javax.swing.JButton Cancelregistration;
     private javax.swing.JButton btnAddNewSupply1;
     private javax.swing.JComboBox<String> cmbState;
     private javax.swing.JComboBox<String> cmbState1;

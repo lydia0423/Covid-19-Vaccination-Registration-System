@@ -59,7 +59,7 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         cmbState = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         cmbState1 = new javax.swing.JComboBox<>();
-        btnAddNewSupply = new javax.swing.JButton();
+        btncancelregistration = new javax.swing.JButton();
         btnAddNewSupply1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,14 +80,14 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(220, 530));
         jPanel2.setPreferredSize(new java.awt.Dimension(220, 530));
 
-        jLabel2.setText("Registration");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel2.setText("Registration");
 
-        jLabel4.setText("Programme");
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel4.setText("Programme");
 
-        jLabel5.setText("Vaccination");
         jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel5.setText("Vaccination");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -190,10 +190,10 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         jLabel15.setText("14 days?");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
-        healthcondition.add(jRadioButton3);
-        jRadioButton3.setText("No");
         jRadioButton3.setBackground(new java.awt.Color(186, 221, 212));
+        healthcondition.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jRadioButton3.setText("No");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton3ActionPerformed(evt);
@@ -201,10 +201,10 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         });
         jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
 
-        healthcondition.add(jRadioButton4);
-        jRadioButton4.setText("Yes (Please Specify)");
         jRadioButton4.setBackground(new java.awt.Color(186, 221, 212));
+        healthcondition.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jRadioButton4.setText("Yes (Please Specify)");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton4ActionPerformed(evt);
@@ -212,10 +212,10 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         });
         jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
 
-        closecontact.add(jRadioButton5);
-        jRadioButton5.setText("No");
         jRadioButton5.setBackground(new java.awt.Color(186, 221, 212));
+        closecontact.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jRadioButton5.setText("No");
         jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton5ActionPerformed(evt);
@@ -223,10 +223,10 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         });
         jPanel1.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
 
-        closecontact.add(jRadioButton6);
-        jRadioButton6.setText("Yes");
         jRadioButton6.setBackground(new java.awt.Color(186, 221, 212));
+        closecontact.add(jRadioButton6);
         jRadioButton6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jRadioButton6.setText("Yes");
         jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton6ActionPerformed(evt);
@@ -269,15 +269,20 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         });
         jPanel1.add(cmbState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
 
-        btnAddNewSupply.setBackground(new java.awt.Color(82, 137, 128));
-        btnAddNewSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply.setText("Cancel");
-        btnAddNewSupply.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewSupplyActionPerformed(evt);
+        btncancelregistration.setBackground(new java.awt.Color(82, 137, 128));
+        btncancelregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btncancelregistration.setText("Cancel");
+        btncancelregistration.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncancelregistrationMouseClicked(evt);
             }
         });
-        jPanel1.add(btnAddNewSupply, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 100, 40));
+        btncancelregistration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelregistrationActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btncancelregistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 100, 40));
 
         btnAddNewSupply1.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -319,7 +324,10 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVaccinationCenterName2ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+    if(dialog == JOptionPane.YES_OPTION){
         dispose();
+    }
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void txtVaccinationCenterName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName3ActionPerformed
@@ -338,9 +346,19 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddNewSupply1ActionPerformed
 
-    private void btnAddNewSupplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupplyActionPerformed
+    private void btncancelregistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelregistrationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddNewSupplyActionPerformed
+    }//GEN-LAST:event_btncancelregistrationActionPerformed
+
+    private void btncancelregistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelregistrationMouseClicked
+        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want cancel registration?", "Cancel Registration", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            PeopleMainMenu peoplemenu = new PeopleMainMenu();
+            peoplemenu.setVisible(true);
+            this.setVisible(false);
+        }  
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncancelregistrationMouseClicked
 
     /**
      * @param args the command line arguments
@@ -409,8 +427,8 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNewSupply;
     private javax.swing.JButton btnAddNewSupply1;
+    private javax.swing.JButton btncancelregistration;
     private javax.swing.ButtonGroup closecontact;
     private javax.swing.JComboBox<String> cmbState;
     private javax.swing.JComboBox<String> cmbState1;
