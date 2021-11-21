@@ -10,8 +10,15 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import Classes.VaccinationAppointment;
+import Classes.VaccinationCenter;
+import HelperClasses.State;
+import HelperClasses.Validation;
+import java.util.ArrayList;
+import java.util.Collection;
+import javax.swing.DefaultComboBoxModel;
 
 public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
+    private boolean reset = false;
 
     public PersonnelAddVaccinationAppointment() {
         initComponents();
@@ -45,10 +52,9 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         appointmentTimeSettings.generatePotentialMenuTimes(TimeIncrement.ThirtyMinutes, LocalTime.of(8, 00), LocalTime.of(19, 00));
         btnAddNewAppointment = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtVaccineType = new javax.swing.JTextField();
         txtIC = new javax.swing.JTextField();
         cmbVaccinationCenter = new javax.swing.JComboBox<>();
-        cmbVaccineType = new javax.swing.JComboBox<>();
         rbtnYes = new javax.swing.JRadioButton();
         rbtnNo = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
@@ -57,6 +63,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         txtHealthCondition = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
         cmbState = new javax.swing.JComboBox<>();
+        txtName = new javax.swing.JTextField();
 
         jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel13.setText("jLabel10");
@@ -96,6 +103,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         lblAppointmentId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAppointmentId.setText("Appointment ID");
         lblAppointmentId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblAppointmentId.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -178,39 +186,34 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         jLabel10.setText("Vaccine Type");
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtName.setBorder(null);
-        txtName.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
+        txtVaccineType.setBorder(null);
+        txtVaccineType.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
         txtIC.setBorder(null);
         txtIC.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         txtIC.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
-        cmbVaccinationCenter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbVaccinationCenter.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        cmbVaccinationCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbVaccinationCenterActionPerformed(evt);
+        cmbVaccinationCenter.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbVaccinationCenterItemStateChanged(evt);
             }
         });
-
-        cmbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        cmbVaccinationCenter.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                cmbVaccinationCenterPopupMenuWillBecomeVisible(evt);
+            }
+        });
 
         CloseContactGroup.add(rbtnYes);
         rbtnYes.setText("Yes");
         rbtnYes.setBackground(new java.awt.Color(186, 221, 212));
         rbtnYes.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        rbtnYes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnYesActionPerformed(evt);
-            }
-        });
 
         CloseContactGroup.add(rbtnNo);
         rbtnNo.setText("No");
@@ -242,12 +245,11 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         jLabel11.setText("State");
 
         cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbState.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbStateActionPerformed(evt);
-            }
-        });
+        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Negeri Sembilan", "Malacca", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah ", "Sarawak" }));
+
+        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        txtName.setBorder(null);
+        txtName.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -270,10 +272,16 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 282, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(dpAppointmentDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(cmbState, 0, 260, Short.MAX_VALUE)
+                                                    .addComponent(cmbVaccinationCenter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -281,20 +289,9 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                                                         .addGap(32, 32, 32)
                                                         .addComponent(rbtnYes))
                                                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(cmbState, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                                                    .addComponent(cmbVaccinationCenter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addGap(61, 61, 61)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(cmbVaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addContainerGap())
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +302,12 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                                                 .addComponent(jLabel10)
                                                 .addComponent(jLabel9)
                                                 .addComponent(tpAppointmentTime, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(47, 47, 47))))
+                                        .addGap(47, 47, 47))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtVaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addContainerGap())))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(181, 181, 181)
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,8 +326,8 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIC, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -350,7 +352,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbVaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtVaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -395,24 +397,29 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void btnAddNewAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewAppointmentActionPerformed
+        //Validate vaccination center (check if selected)
+        if (cmbVaccinationCenter.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "Please select a vaccination center", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         //Retrive data from form
         String appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, healthCondition, closeContact, appointmentStatus, appointmentDateString, appointmentTimeString, registeredDateString;
         LocalDate registeredDate, appointmentDate;
         LocalTime appointmentTime;
 
         appointmentId = lblAppointmentId.getText();
-        patientName = txtName.getText();
+        patientName = txtVaccineType.getText();
         patientId = txtIC.getText();
         state = cmbState.getSelectedItem().toString();
         vaccinationCenter = cmbVaccinationCenter.getSelectedItem().toString();
-        vaccineType = cmbVaccineType.getSelectedItem().toString();
+        vaccineType = txtVaccineType.getText();
         registeredDate = LocalDate.now();
         appointmentDate = dpAppointmentDate.getDate();
         appointmentTime = tpAppointmentTime.getTime();
         healthCondition = txtHealthCondition.getText();
         appointmentStatus = "Pending";
-
-
+        
         if(rbtnNo.isSelected()){
             closeContact = rbtnNo.getText();
         }else{
@@ -420,7 +427,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         }
 
         //Verify that all input are filled
-        if(patientName.isEmpty() || patientId.isEmpty() || state.isEmpty() || vaccinationCenter.isEmpty() || vaccineType.isEmpty() || healthCondition.isEmpty() || closeContact.isEmpty()){
+        if(patientName.isEmpty() || patientId.isEmpty() || state.isEmpty() || vaccineType.isEmpty() || healthCondition.isEmpty() || closeContact.isEmpty()){
             JOptionPane.showMessageDialog(null, "Please ensure that all fields have been filled in", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -442,12 +449,14 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
 
         int n = JOptionPane.showConfirmDialog(null, "Appointment has been saved. Add another appointment?", "Appointment created", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(n == JOptionPane.YES_NO_OPTION){
+            reset = true;
             //If yes, reset the form
             txtName.setText("");
+            txtVaccineType.setText("");
             txtIC.setText("");
             cmbState.setSelectedIndex(-1);
             cmbVaccinationCenter.setSelectedIndex(-1);
-            cmbVaccineType.setSelectedIndex(-1);
+            txtVaccineType.setText("");
             dpAppointmentDate.setDateToToday();
             tpAppointmentTime.setText("");
             txtHealthCondition.setText("");
@@ -457,7 +466,6 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
             appointmentManagementPage.setVisible(true);
             this.setVisible(false);
         }
-
     }//GEN-LAST:event_btnAddNewAppointmentActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -466,21 +474,51 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
+    private void cmbVaccinationCenterPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterPopupMenuWillBecomeVisible
+        ArrayList<String> centerList = new ArrayList<>();
+        ArrayList<VaccinationCenter> allCenter = new ArrayList<>();
+        Collection<String> availableCenter;
 
-    private void rbtnYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnYesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnYesActionPerformed
+        //Retrieve the file path based on the state
+        String state = cmbState.getSelectedItem().toString();
+        String filePath = State.getStateFileDirectory(state, "VaccinationCenter");
 
-    private void cmbVaccinationCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbVaccinationCenterActionPerformed
+        //Retrive all files in the respective state folder
+        allCenter = VaccinationCenter.getAllVaccinationCenters(filePath);
+        for (VaccinationCenter vc : allCenter) {
+            //Add all relevant vaccination center name into array list
+            centerList.add(vc.getVaccinationCenterName());
+        }
+        
+        availableCenter = centerList; 
 
-    private void cmbStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbStateActionPerformed
+        //Add Vaccination Center Name List to combo box
+        DefaultComboBoxModel<String> centerSelector = new DefaultComboBoxModel();
+        centerSelector.addAll(availableCenter);
+        cmbVaccinationCenter.setModel(centerSelector);
+ 
+    }//GEN-LAST:event_cmbVaccinationCenterPopupMenuWillBecomeVisible
+
+    private void cmbVaccinationCenterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterItemStateChanged
+        if (reset == false) {
+            ArrayList<VaccinationCenter> allCenter = new ArrayList<>();
+            String selectedVaccinationCenter = evt.getItem().toString();
+
+            //Retrieve the file path based on the state
+            String state = cmbState.getSelectedItem().toString();
+            String filePath = State.getStateFileDirectory(state, "VaccinationCenter");
+
+            //Retrive all files in the respective state folder
+            allCenter = VaccinationCenter.getAllVaccinationCenters(filePath);
+
+            //Retrieve the vaccine provided by the selected vaccination center
+            for (VaccinationCenter vc : allCenter) {
+                if (selectedVaccinationCenter.equals(vc.getVaccinationCenterName())) {
+                    txtVaccineType.setText(vc.getVaccineType());
+                }
+            }
+        }       
+    }//GEN-LAST:event_cmbVaccinationCenterItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -520,7 +558,6 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JComboBox<String> cmbState;
     private javax.swing.JComboBox<String> cmbVaccinationCenter;
-    private javax.swing.JComboBox<String> cmbVaccineType;
     private com.github.lgooddatepicker.components.DatePicker dpAppointmentDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -548,5 +585,6 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     public javax.swing.JLabel txtRegisteredDate;
     public javax.swing.JLabel txtUserId;
+    private javax.swing.JTextField txtVaccineType;
     // End of variables declaration//GEN-END:variables
 }
