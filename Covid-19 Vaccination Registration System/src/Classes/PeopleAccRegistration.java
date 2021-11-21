@@ -84,13 +84,13 @@ public class PeopleAccRegistration extends Register{
 
         File myFile = FileHandler.createFilePath("Credentials", fileName);
         try ( FileWriter fw = new FileWriter(myFile, true);  BufferedWriter bw = new BufferedWriter(fw);) {
-            bw.write(register.getEmail() + " | ");
-            bw.write(register.getPassword() + " | ");
-            bw.write(register.getCitizen() + " | ");
-            bw.write(register.getName() + " | ");
-            bw.write(register.getIcpassport() + " | ");
-            bw.write(register.getContact() + " | ");
-            bw.write(register.getAddress() + " | ");
+            bw.write(register.getEmail() + "\n");
+            bw.write(register.getPassword() + "\n");
+            bw.write(register.getCitizen() + "\n");
+            bw.write(register.getName() + "\n");
+            bw.write(register.getIcpassport() + "\n");
+            bw.write(register.getContact() + "\n");
+            bw.write(register.getAddress() + "\n");
             bw.write(register.getDob() + "\n");
             bw.close();
             
