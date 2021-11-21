@@ -364,7 +364,14 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         
         PersonnelAccRegistration register = new PersonnelAccRegistration(email, passwordstring, id, name);
         PersonnelAccRegistration.saveRegistration(register);
-        // TODO add your handling code here:
+        
+        // Clear text field
+        txtid.setText(null);
+        txtname.setText(null);
+        txtemail.setText(null);
+        txtpassword.setText(null);
+        txtpasswordconfirm.setText(null);
+        
     }//GEN-LAST:event_btnAddNewSupply1MouseClicked
 
     /**

@@ -38,10 +38,10 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnVaccinationStatus = new javax.swing.JLabel();
         btnMyAccount1 = new javax.swing.JLabel();
-        btnVaccineSupply = new javax.swing.JLabel();
         btnManageVaccinationAppointment2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnLogout = new javax.swing.JLabel();
+        btnviewregistration = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
@@ -56,8 +56,8 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        jLabel2.setText("Welcome,");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel2.setText("Welcome,");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -82,11 +82,11 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnVaccinationStatus.setBackground(new java.awt.Color(135, 196, 180));
+        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4230540_analysis_graph_report_icon.png"))); // NOI18N
         btnVaccinationStatus.setText("    Vaccination Status");
-        btnVaccinationStatus.setBackground(new java.awt.Color(135, 196, 180));
         btnVaccinationStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        btnVaccinationStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccinationStatus.setOpaque(true);
         btnVaccinationStatus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,30 +94,18 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
+        btnMyAccount1.setBackground(new java.awt.Color(135, 196, 180));
+        btnMyAccount1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnMyAccount1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3643757_computer_desktop_monitor_pc_personal_icon.png"))); // NOI18N
         btnMyAccount1.setText("    My Account");
-        btnMyAccount1.setBackground(new java.awt.Color(135, 196, 180));
         btnMyAccount1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        btnMyAccount1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnMyAccount1.setOpaque(true);
 
-        btnVaccineSupply.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4172394_goods_merchandise_stock_supply_vendibles_icon.png"))); // NOI18N
-        btnVaccineSupply.setText("    Vaccine Supply");
-        btnVaccineSupply.setBackground(new java.awt.Color(135, 196, 180));
-        btnVaccineSupply.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        btnVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        btnVaccineSupply.setOpaque(true);
-        btnVaccineSupply.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVaccineSupplyMouseClicked(evt);
-            }
-        });
-
+        btnManageVaccinationAppointment2.setBackground(new java.awt.Color(135, 196, 180));
+        btnManageVaccinationAppointment2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4335985_availability_calendar_custom_programme_schedule_icon.png"))); // NOI18N
         btnManageVaccinationAppointment2.setText("    Vaccination Appointment");
-        btnManageVaccinationAppointment2.setBackground(new java.awt.Color(135, 196, 180));
         btnManageVaccinationAppointment2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        btnManageVaccinationAppointment2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnManageVaccinationAppointment2.setOpaque(true);
         btnManageVaccinationAppointment2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,8 +113,8 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("X");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -137,6 +125,18 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
         btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnLogoutMouseClicked(evt);
+            }
+        });
+
+        btnviewregistration.setBackground(new java.awt.Color(135, 196, 180));
+        btnviewregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        btnviewregistration.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/7738938_report_document_sheet_file_paper_icon.png"))); // NOI18N
+        btnviewregistration.setText("    Vaccine Details");
+        btnviewregistration.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        btnviewregistration.setOpaque(true);
+        btnviewregistration.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnviewregistrationMouseClicked(evt);
             }
         });
 
@@ -153,15 +153,16 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(159, 159, 159)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnManageVaccinationAppointment2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMyAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnVaccinationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnVaccineSupply, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(btnLogout)))
+                                .addComponent(btnLogout))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(159, 159, 159)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnviewregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnManageVaccinationAppointment2, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnMyAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnVaccinationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 152, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -175,7 +176,7 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(btnManageVaccinationAppointment2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(btnVaccineSupply, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnviewregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btnVaccinationStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -210,12 +211,6 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVaccinationStatusMouseClicked
 
-    private void btnVaccineSupplyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVaccineSupplyMouseClicked
-        PersonnelVaccineSupply a = new PersonnelVaccineSupply();
-        a.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnVaccineSupplyMouseClicked
-
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
@@ -225,6 +220,12 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
         if(n==JOptionPane.YES_OPTION)
         System.exit(0);
     }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void btnviewregistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnviewregistrationMouseClicked
+        PersonnelVaccineDetailsMenu vaccinemenu = new PersonnelVaccineDetailsMenu();
+        vaccinemenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnviewregistrationMouseClicked
 
     /**
      * @param args the command line arguments
@@ -266,7 +267,7 @@ public class PersonnelMainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel btnManageVaccinationAppointment2;
     private javax.swing.JLabel btnMyAccount1;
     private javax.swing.JLabel btnVaccinationStatus;
-    private javax.swing.JLabel btnVaccineSupply;
+    private javax.swing.JLabel btnviewregistration;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Eric/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/PersonnelGUI/PersonnelRegisterPeople.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/Database/Credentials/peoplecredentials.txt</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/PersonnelGUI/PersonnelMainMenu.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/CommonGUI/Login.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/Classes/VerifyLogin.java</file>
+            <file>file:/C:/Users/Eric/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/Classes/PeopleAccRegistration.java</file>
+        </group>
     </open-files>
 </project-private>

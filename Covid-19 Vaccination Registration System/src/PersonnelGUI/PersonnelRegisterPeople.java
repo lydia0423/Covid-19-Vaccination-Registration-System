@@ -428,6 +428,16 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         
         PeopleAccRegistration register = new PeopleAccRegistration(email, passwordstring, citizen, name, icpassport, contact, address, dobstring);
         PeopleAccRegistration.saveRegistration(register);
+        
+        // Clear text field
+        txtname.setText(null);
+        txticpassport.setText(null);
+        txtcontact.setText(null);
+        txtemail.setText(null);
+        dpdob.setDate(null);
+        txtaddress.setText(null);
+        txtpassword.setText(null);
+        txtpasswordconfirm.setText(null);
     }//GEN-LAST:event_btnregisteraccMouseClicked
 
     private void btncancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelMouseClicked
