@@ -7,8 +7,9 @@ import java.util.*;
 import javax.swing.JOptionPane;
 import HelperClasses.FileHandler;
 import HelperClasses.FileHandler;
+import HelperClasses.FileMethods;
 
-public class VaccinationAppointment {
+public class VaccinationAppointment implements FileMethods{
 
     protected String appointmentId, patientName, patientIdentification, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus;
 
@@ -26,7 +27,7 @@ public class VaccinationAppointment {
         this.closeContact = closeContact;
         this.appointmentStatus = appointmentStatus;
     }
-
+   
     public String getAppointmentId() {
         return appointmentId;
     }
@@ -125,48 +126,8 @@ public class VaccinationAppointment {
     
     
 
-    //Generate appointment ID
+    //Generate random combination of number and alphabet for appointment Id
     public static String generateAppointmentId() {
-//        ArrayList<String> existingAppointmentId = new ArrayList<>();
-//        String prefix = "A0";
-//
-//        //Check if the booking id has already been used, regenerate id if in use
-//        String[] appointmentFolder = FileHandler.retrievePath("Appointment", "null").list();
-//        for (String appointmentFolderFiles : appointmentFolder) {
-//            try ( Scanner readFiles = new Scanner(appointmentFolderFiles)) {
-//                while (readFiles.hasNext()) {
-//                    String[] fileName = readFiles.nextLine().split(Pattern.quote("."));
-//                    existingAppointmentId.add(fileName[0]);
-//                }
-//            } catch (Exception e) {
-//                System.err.println("Error retrieving files: " + e);
-//            }
-//        }
-//        //Get the last used ID and increment by 1
-//        int lastIndex = existingAppointmentId.size() - 1;
-//        String idChar = existingAppointmentId.get(lastIndex);
-//        String[] idNum = idChar.split("A");
-//
-//        int lastId = Integer.valueOf(idNum[1]);//Integer.parseInt(idNum[1]);
-//        int appointmentNum = lastId + 1;
-//        if (appointmentNum < 10) {
-//            prefix = "A000";
-//        } else if (appointmentNum < 100) {
-//            prefix = "A00";
-//        }
-//        if (existingAppointmentId.isEmpty()) {
-//            appointmentNum = 1;
-//        }
-//        String appointmentId = prefix + appointmentNum;
-//
-//        for (String id : existingAppointmentId) {
-//            while (appointmentId.equals(id)) {
-//                appointmentNum++;
-//                appointmentId = prefix + appointmentNum;
-//            }
-//        }
-
-        //Generate random combination of number and alphabet for appointment Id
         String appointmentId = "APT_" + UUID.randomUUID().toString();
         return appointmentId;
     }
@@ -206,7 +167,7 @@ public class VaccinationAppointment {
     public static VaccinationAppointment getVaccinationAppointment(String fileName) {
         //Retrieve from folder
         File appointmentFile = FileHandler.retrievePath("Appointment", fileName);
-
+       
         try ( Scanner readFile = new Scanner(appointmentFile)) {
             while (readFile.hasNext()) {
                 VaccinationAppointment appointment = new VaccinationAppointment(
@@ -234,7 +195,7 @@ public class VaccinationAppointment {
 
     //Save Appointment
     public static void saveAppointment(VaccinationAppointment appointment) {
-        String fileName = appointment.appointmentId + ".txt";
+        String fileName = appointment.setFileName() + ".txt";
 
         File myFile = FileHandler.createFilePath("Appointment", fileName);
         try ( FileWriter fw = new FileWriter(myFile);  BufferedWriter bw = new BufferedWriter(fw);) {
@@ -267,5 +228,15 @@ public class VaccinationAppointment {
         }
 
         JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Register Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    public String setFileName() {
+        return appointmentId;
+    }
+    
+    @Override
+    public String getFileName() {
+        return "Appointment/" + appointmentId + ".txt";
     }
 }
