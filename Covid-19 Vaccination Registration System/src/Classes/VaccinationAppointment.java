@@ -194,7 +194,7 @@ public class VaccinationAppointment implements FileMethods{
     }
 
     //Save Appointment
-    public static void saveAppointment(VaccinationAppointment appointment) {
+    public static void saveAppointment(VaccinationAppointment appointment, String type) {
         String fileName = appointment.setFileName() + ".txt";
 
         File myFile = FileHandler.createFilePath("Appointment", fileName);
@@ -226,8 +226,14 @@ public class VaccinationAppointment implements FileMethods{
             JOptionPane.showMessageDialog(null, "Failed to save appointment. Please try again.", "Register Vaccination Appointment Failed", JOptionPane.ERROR_MESSAGE);
             System.out.println("Error occurred: " + e);
         }
-
-        JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Register Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
+        
+        if(type == "Add"){
+            JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Register Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Update Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
+        }
+                
+                
     }
 
     @Override
