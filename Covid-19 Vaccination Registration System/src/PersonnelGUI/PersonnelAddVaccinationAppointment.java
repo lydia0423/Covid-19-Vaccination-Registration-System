@@ -409,7 +409,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         LocalTime appointmentTime;
 
         appointmentId = lblAppointmentId.getText();
-        patientName = txtVaccineType.getText();
+        patientName = txtName.getText();
         patientId = txtIC.getText();
         state = cmbState.getSelectedItem().toString();
         vaccinationCenter = cmbVaccinationCenter.getSelectedItem().toString();
@@ -445,7 +445,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
 
         //Creates an instance of VaccinationAppointment and saves it to the database
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, registeredDateString, appointmentDateString, appointmentTimeString, healthCondition, closeContact, appointmentStatus);
-        VaccinationAppointment.saveAppointment(appointment);
+        VaccinationAppointment.saveAppointment(appointment, "Add");
 
         int n = JOptionPane.showConfirmDialog(null, "Appointment has been saved. Add another appointment?", "Appointment created", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(n == JOptionPane.YES_NO_OPTION){
