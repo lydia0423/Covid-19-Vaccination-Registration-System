@@ -48,10 +48,11 @@ public class PersonnelAccRegistration extends Register{
 
         File myFile = FileHandler.createFilePath("Credentials", fileName);
         try ( FileWriter fw = new FileWriter(myFile, true);  BufferedWriter bw = new BufferedWriter(fw);) {
-            bw.write(register.getEmail() + "\n");
-            bw.write(register.getPassword() + "\n");
+            bw.write("Personnel\n");
             bw.write(register.getId() + "\n");
             bw.write(register.getName() + "\n");
+            bw.write(register.getEmail() + "\n");
+            bw.write(register.getPassword() + "\n");
             bw.close();
             
         } catch (IOException e) {

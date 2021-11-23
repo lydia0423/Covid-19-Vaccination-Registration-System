@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PersonnelGUI;
 
-import PersonnelGUI.PersonnelMainMenu;
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -403,11 +397,12 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         passwordstring = new String(password);
         confirmpassword = txtpasswordconfirm.getPassword();
         confirmpasswordstring = new String(confirmpassword);
-
+        citizen = "";
+        
         if(citizenno.isSelected()){
+            citizen = "Non-Citizen"; 
+        }else if (citizenyes.isSelected()){
             citizen = "Citizen";
-        }else{
-            citizen = "Non-Citizen";
         }
         
         

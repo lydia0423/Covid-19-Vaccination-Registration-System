@@ -61,11 +61,11 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(220, 530));
         jPanel2.setMinimumSize(new java.awt.Dimension(220, 530));
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel4.setText("Account");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel5.setText("Register");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -97,16 +97,16 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
                 .addContainerGap(180, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel12.setText("Staff ID");
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         txtemail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtemail.setBorder(null);
@@ -116,8 +116,8 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel13.setText("Staff Email");
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         txtid.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtid.setBorder(null);
@@ -127,9 +127,9 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
+        btncancelregistration.setText("Cancel");
         btncancelregistration.setBackground(new java.awt.Color(82, 137, 128));
         btncancelregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btncancelregistration.setText("Cancel");
         btncancelregistration.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btncancelregistrationMouseClicked(evt);
@@ -141,9 +141,9 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
+        btnAddNewSupply1.setText("Register");
         btnAddNewSupply1.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply1.setText("Register");
         btnAddNewSupply1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddNewSupply1MouseClicked(evt);
@@ -155,8 +155,8 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel14.setText("Staff Name");
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         txtname.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtname.setBorder(null);
@@ -173,15 +173,6 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(215, 215, 215)
-                            .addComponent(btncancelregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(btnAddNewSupply1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(660, 660, 660)
-                            .addComponent(jLabel1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,18 +184,31 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14)
                             .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47))))
+                        .addGap(47, 47, 47))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btncancelregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(btnAddNewSupply1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(250, 250, 250))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addContainerGap())))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel12)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(jLabel14))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel12)))
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,9 +223,7 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
                     .addComponent(btnAddNewSupply1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -241,11 +243,11 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel9.setText("Password");
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel10.setText("Confirm Password");
+        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

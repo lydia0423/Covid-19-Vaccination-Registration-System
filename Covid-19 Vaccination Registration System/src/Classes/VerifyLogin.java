@@ -1,11 +1,22 @@
+/**
+ * Does not pop out dialog box when credentials is invalid.
+ * 
+ * Although successful login, the login page will still be there.
+ * (How to make it disappear?)
+ * 
+ */
+
+
+
+
 package Classes;
      
 import HelperClasses.FileHandler;
-import java.io.BufferedReader;
+import PersonnelGUI.PersonnelMainMenu;
+import PeopleGUI.PeopleMainMenu;
+import CommonGUI.Login;
 import java.io.File;
-import java.io.FileReader;
 import java.util.Scanner;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.io.FileNotFoundException; 
 
@@ -37,27 +48,73 @@ public class VerifyLogin {
     public static void setRole(VerifyLogin credentials) {
         
         try {
-            String fileName = "peoplecredentials.txt";
-            File readcredentials = FileHandler.retrievePath("Credentials", fileName);
-        
-            Scanner scan = new Scanner(readcredentials);
             
-            for (int i = 0; i < readcredentials.length(); i++) 
-            {
-                if (credentials.userId.equals(scan.nextLine())) 
-                {
-                    if (credentials.userPassword.equals(scan.nextLine()))
-                    {
-                        System.out.println(credentials.userId);
-                    }        
+            // Set role as personnel if User Id contains "helpacquire.com"
+            
+            if ((credentials.userId).contains("helpacquire.com")) {
+            
+                String fileName = "personnelcredentials.txt";
+                File readcredentials = FileHandler.retrievePath("Credentials", fileName);
+        
+                Scanner scan = new Scanner(readcredentials);
+            
+                while (readcredentials != null) {
+                    String personnelrole = scan.nextLine();
+                    String personnelid = scan.nextLine();
+                    String personnelname = scan.nextLine();
+                    String personnelemail = scan.nextLine();
+                    String personnelpassword = scan.nextLine(); 
+
+                    if (personnelemail.equals(credentials.userId) && personnelpassword.equals(credentials.userPassword)) {
+                        credentials.userRole = "Personnel"; 
+                        PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
+                        personnelmenu.setVisible(true);
+                        Login login = new Login();
+                        login.setVisible(false);                    
+                    }
                 }
             }
-            scan.close();
-            } catch (FileNotFoundException e) 
+            
+            // if it does not contain "helpacquire.com", then read credentials from people txt file
+            else if (!(credentials.userId.contains("helpacquire.com"))){
+                String fileName = "peoplecredentials.txt";
+                File readcredentials = FileHandler.retrievePath("Credentials", fileName);
+        
+                Scanner scan = new Scanner(readcredentials);
+                     
+                while (readcredentials != null) {
+                    String peoplerole = scan.nextLine();
+                    String peoplenationality = scan.nextLine();
+                    String peoplename = scan.nextLine();
+                    String peopleidentification = scan.nextLine();
+                    String peoplecontact = scan.nextLine(); 
+                    String peopleladdress = scan.nextLine(); 
+                    String peopledob = scan.nextLine(); 
+                    String peopleemail = scan.nextLine(); 
+                    String peoplepassword = scan.nextLine(); 
+                    
+                    if (peopleemail.equals(credentials.userId) && peoplepassword.equals(credentials.userPassword)) {
+                        credentials.userRole = "People"; 
+                        PeopleMainMenu peoplemenu = new PeopleMainMenu();
+                        peoplemenu.setVisible(true);
+                        Login login = new Login();
+                        login.setVisible(false);                    
+                    }
+                } 
+            }  
+            // no matching email and password in personnel credential or people credential
+            else {
+                JOptionPane.showMessageDialog(null, "Invalid Credentials.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+        
+        catch (FileNotFoundException e) 
             {
                 System.out.println("File Not Found.");
                 e.printStackTrace();
             }
+
     };
     
 }
