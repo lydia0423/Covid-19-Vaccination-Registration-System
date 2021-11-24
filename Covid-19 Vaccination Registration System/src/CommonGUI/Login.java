@@ -1,5 +1,6 @@
 package CommonGUI;
 
+import Classes.Logger;
 import Classes.VerifyLogin;
 import javax.swing.JOptionPane;
 
@@ -231,7 +232,10 @@ public class Login extends javax.swing.JFrame {
         
         VerifyLogin credentials = new VerifyLogin(id, passwordstring);
         VerifyLogin.setRole(credentials);
-        
+
+      //  Logger log = new Logger();
+        Logger.writeLog();
+
     }//GEN-LAST:event_btnLoginMouseClicked
 
     /**

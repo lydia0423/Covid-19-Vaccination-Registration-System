@@ -127,7 +127,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(13, 13, 13))
         );
@@ -209,6 +209,11 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                 cmbVaccinationCenterPopupMenuWillBecomeVisible(evt);
             }
         });
+        cmbVaccinationCenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbVaccinationCenterActionPerformed(evt);
+            }
+        });
 
         CloseContactGroup.add(rbtnYes);
         rbtnYes.setText("Yes");
@@ -244,8 +249,8 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel11.setText("State");
 
-        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Negeri Sembilan", "Malacca", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah ", "Sarawak" }));
+        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtName.setBorder(null);
@@ -519,6 +524,10 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
             }
         }       
     }//GEN-LAST:event_cmbVaccinationCenterItemStateChanged
+
+    private void cmbVaccinationCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbVaccinationCenterActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
