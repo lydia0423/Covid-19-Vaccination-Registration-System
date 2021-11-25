@@ -15,7 +15,7 @@ import HelperClasses.FileHandler;
  *
  * @author Eric
  */
-public class PersonnelAccRegistration extends Register{
+public class PersonnelAccRegistration extends Registration{
     
     protected String id, name;
     

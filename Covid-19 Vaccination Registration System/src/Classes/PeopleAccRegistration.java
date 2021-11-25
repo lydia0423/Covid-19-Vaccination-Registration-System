@@ -15,7 +15,7 @@ import HelperClasses.FileHandler;
  *
  * @author Eric
  */
-public class PeopleAccRegistration extends Register{
+public class PeopleAccRegistration extends Registration{
     
     protected String citizen, name, icpassport, contact, address, dob;
     

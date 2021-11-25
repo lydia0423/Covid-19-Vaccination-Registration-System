@@ -17,11 +17,11 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.io.FileNotFoundException;
 
-public class VerifyLogin {
+public class LoginVerification {
 
     protected String userName, userPassword, userRole;
 
-    public VerifyLogin(String userName, String userPassword) {
+    public LoginVerification(String userName, String userPassword) {
         this.userName = userName;
         this.userPassword = userPassword;
     }
@@ -42,7 +42,7 @@ public class VerifyLogin {
         this.userPassword = userPassword;
     }
 
-    public static void setRole(VerifyLogin credentials) {
+    public static void setRole(LoginVerification credentials) {
 
         try {
 

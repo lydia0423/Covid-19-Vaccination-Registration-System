@@ -1,10 +1,10 @@
 package Classes;
 
-public class Register {
+public class Registration {
     
     protected String email, password, confirmpassword;
     
-    public Register(String email, String password) {
+    public Registration(String email, String password) {
         super();
         this.email = email;
         this.password = password;

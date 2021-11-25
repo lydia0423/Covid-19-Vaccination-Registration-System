@@ -1,13 +1,13 @@
 package CommonGUI;
 
 import Classes.Logger;
-import Classes.VerifyLogin;
+import Classes.LoginVerification;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
     /**
-     * Creates new form VerifyLogin
+     * Creates new form LoginVerification
      */
     public Login() {
         initComponents();
@@ -230,8 +230,8 @@ public class Login extends javax.swing.JFrame {
 
         // Check their credentials
         
-        VerifyLogin credentials = new VerifyLogin(id, passwordstring);
-        VerifyLogin.setRole(credentials);
+        LoginVerification credentials = new LoginVerification(id, passwordstring);
+        LoginVerification.setRole(credentials);
 
       //  Logger log = new Logger();
         Logger.writeLog();
@@ -255,14 +255,22 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerifyLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVerification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerifyLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVerification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerifyLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVerification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerifyLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginVerification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
