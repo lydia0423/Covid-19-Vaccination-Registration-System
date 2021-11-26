@@ -2,20 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package PeopleGUI;
+package PersonnelGUI;
 
+import PeopleGUI.PeopleMainMenu;
+import PeopleGUI.PeopleViewPersonalDetails;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Eric
  */
-public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
+public class PersonnelModifyPeople extends javax.swing.JFrame {
 
     /**
      * Creates new form PatientModifyPersonalDetails
      */
-    public PeopleModifyPersonalDetails() {
+    public PersonnelModifyPeople() {
         initComponents();
     }
 
@@ -47,7 +49,6 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
         txtVaccinationCenterName10 = new javax.swing.JTextField();
         txtVaccinationCenterName4 = new javax.swing.JTextField();
         btnAddNewSupply3 = new javax.swing.JButton();
-        btnback = new javax.swing.JLabel();
         btnAddNewSupply4 = new javax.swing.JButton();
         txtVaccinationCenterName2 = new javax.swing.JTextField();
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
@@ -76,10 +77,10 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 32)); // NOI18N
 
-        jLabel10.setText("Details");
+        jLabel10.setText("People Details");
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel15.setText("Personal");
+        jLabel15.setText("Modify");
         jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
@@ -95,16 +96,15 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel12)))
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 70, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel10))
-                    .addComponent(jLabel15))
-                .addGap(67, 67, 67))
+                .addGap(0, 78, Short.MAX_VALUE)
+                .addComponent(jLabel15)
+                .addGap(75, 75, 75))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,21 +184,9 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
             }
         });
 
-        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
-        btnback.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnbackMouseClicked(evt);
-            }
-        });
-
         btnAddNewSupply4.setText("Cancel");
         btnAddNewSupply4.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAddNewSupply4MouseClicked(evt);
-            }
-        });
         btnAddNewSupply4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewSupply4ActionPerformed(evt);
@@ -237,9 +225,7 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(btnback)
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(15, 655, Short.MAX_VALUE)
                                 .addComponent(jLabel1))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
@@ -280,12 +266,8 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(btnback)))
-                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel7))
@@ -370,7 +352,9 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_txtVaccinationCenterName2ActionPerformed
 
     private void btnAddNewSupply4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply4ActionPerformed
-        // TODO add your handling code here:
+        PersonnelManagePeople managepeople = new PersonnelManagePeople();
+        managepeople.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnAddNewSupply4ActionPerformed
 
     private void btnAddNewSupply3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply3ActionPerformed
@@ -400,22 +384,6 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddNewSupply6ActionPerformed
 
-    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
-        PeopleMainMenu peoplemenu = new PeopleMainMenu();
-        peoplemenu.setVisible(true);
-        this.setVisible(false);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnbackMouseClicked
-
-    private void btnAddNewSupply4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewSupply4MouseClicked
-    int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
-    if(dialog == JOptionPane.YES_OPTION){
-        PeopleViewPersonalDetails viewpersonaldetails = new PeopleViewPersonalDetails();
-        viewpersonaldetails.setVisible(true);
-        this.setVisible(false);
-    }    
-    }//GEN-LAST:event_btnAddNewSupply4MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -433,21 +401,23 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PeopleModifyPersonalDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelModifyPeople.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PeopleModifyPersonalDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelModifyPeople.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PeopleModifyPersonalDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelModifyPeople.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PeopleModifyPersonalDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelModifyPeople.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PeopleModifyPersonalDetails().setVisible(true);
+                new PersonnelModifyPeople().setVisible(true);
             }
         });
     }
@@ -456,7 +426,6 @@ public class PeopleModifyPersonalDetails extends javax.swing.JFrame {
     private javax.swing.JButton btnAddNewSupply3;
     private javax.swing.JButton btnAddNewSupply4;
     private javax.swing.JButton btnAddNewSupply6;
-    private javax.swing.JLabel btnback;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

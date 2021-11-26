@@ -47,7 +47,6 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(900, 530));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 530));
 
         jPanel5.setBackground(new java.awt.Color(186, 221, 212));
 
@@ -241,8 +240,8 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
     private void btncancelnewvaccineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelnewvaccineMouseClicked
         int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
-            PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
-            personnelmenu.setVisible(true);
+            PersonnelVaccineDetailsMenu vaccinemenu = new PersonnelVaccineDetailsMenu();
+            vaccinemenu.setVisible(true);
             this.setVisible(false);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btncancelnewvaccineMouseClicked
@@ -266,7 +265,7 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("FlatLaf Light".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -294,27 +293,13 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
     private javax.swing.JButton btnAddNewSupply1;
     private javax.swing.JButton btncancelnewvaccine;
     private javax.swing.JComboBox<String> cmbState;
-    private javax.swing.JComboBox<String> cmbState1;
-    private javax.swing.JComboBox<String> cmbState2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField txtvaccineid;

@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
  *
  * @author Eric
  */
-public class PersonnelAddAccountMenu extends javax.swing.JFrame {
+public class PersonnelAccountMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form PersonnelAddAccountMenu
      */
-    public PersonnelAddAccountMenu() {
+    public PersonnelAccountMenu() {
         initComponents();
     }
 
@@ -94,7 +94,7 @@ public class PersonnelAddAccountMenu extends javax.swing.JFrame {
 
         btnnewpersonnelacc.setBackground(new java.awt.Color(135, 196, 180));
         btnnewpersonnelacc.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        btnnewpersonnelacc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/7738938_report_document_sheet_file_paper_icon.png"))); // NOI18N
+        btnnewpersonnelacc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4280503_new_outlined_window_browser_new window_icon.png"))); // NOI18N
         btnnewpersonnelacc.setText("    New Personnel Account");
         btnnewpersonnelacc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         btnnewpersonnelacc.setOpaque(true);
@@ -106,8 +106,8 @@ public class PersonnelAddAccountMenu extends javax.swing.JFrame {
 
         btnnewpeopleacc.setBackground(new java.awt.Color(135, 196, 180));
         btnnewpeopleacc.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        btnnewpeopleacc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4280503_new_outlined_window_browser_new window_icon.png"))); // NOI18N
-        btnnewpeopleacc.setText("    New People Account");
+        btnnewpeopleacc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/7738938_report_document_sheet_file_paper_icon.png"))); // NOI18N
+        btnnewpeopleacc.setText("    People Account");
         btnnewpeopleacc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         btnnewpeopleacc.setOpaque(true);
         btnnewpeopleacc.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,8 +197,8 @@ public class PersonnelAddAccountMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnewpersonnelaccMouseClicked
 
     private void btnnewpeopleaccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnewpeopleaccMouseClicked
-        PersonnelRegisterPeople registerpeople = new PersonnelRegisterPeople();
-        registerpeople.setVisible(true);
+        PersonnelManagePeople managepeople = new PersonnelManagePeople();
+        managepeople.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnnewpeopleaccMouseClicked
 
@@ -219,26 +219,27 @@ public class PersonnelAddAccountMenu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("FlatLaf Light".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAccountMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelAddAccountMenu().setVisible(true);
+                new PersonnelAccountMenu().setVisible(true);
             }
         });
     }

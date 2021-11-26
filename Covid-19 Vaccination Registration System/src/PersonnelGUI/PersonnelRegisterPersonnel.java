@@ -311,8 +311,8 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
     private void btncancelregistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelregistrationMouseClicked
         int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
-            PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
-            personnelmenu.setVisible(true);
+            PersonnelAccountMenu addaccountmenu = new PersonnelAccountMenu();
+            addaccountmenu.setVisible(true);
             this.setVisible(false);
         }  
         // TODO add your handling code here:
@@ -387,7 +387,7 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("FlatLaf Light".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

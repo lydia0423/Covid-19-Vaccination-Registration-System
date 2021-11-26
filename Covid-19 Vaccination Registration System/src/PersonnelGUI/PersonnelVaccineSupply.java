@@ -41,8 +41,8 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         cmbVaccineType = new javax.swing.JComboBox<>();
         btnAddNewVaccineSupply = new javax.swing.JButton();
         btnGeneratePDF = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btncancelnewvaccine = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
@@ -53,9 +53,9 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Vaccine Supply");
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -86,19 +86,24 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/172546_search_icon.png"))); // NOI18N
 
         txtUsername.setBackground(new java.awt.Color(186, 221, 212));
-        txtUsername.setBorder(null);
         txtUsername.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        txtUsername.setBorder(null);
 
-        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "States", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
         cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "States", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
 
-        cmbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaccine Type", "AstraZeneca", "Pfizer-BioNTech", "Sinovac", "Moderna", "CanSino", "Sinopharm", "Janssen" }));
         cmbVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        cmbVaccineType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaccine Type", "AstraZeneca", "Pfizer-BioNTech", "Sinovac", "Moderna", "CanSino", "Sinopharm", "Janssen" }));
 
-        btnAddNewVaccineSupply.setText("Add");
         btnAddNewVaccineSupply.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnAddNewVaccineSupply.setText("Add");
         btnAddNewVaccineSupply.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnAddNewVaccineSupply.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddNewVaccineSupplyMouseClicked(evt);
+            }
+        });
         btnAddNewVaccineSupply.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewVaccineSupplyActionPerformed(evt);
@@ -107,21 +112,25 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
 
         btnGeneratePDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/2133129_document_extension_file_format_pdf_icon.png"))); // NOI18N
 
-        btnBack.setText("Back");
-        btnBack.setBackground(new java.awt.Color(82, 137, 128));
-        btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("X");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
+            }
+        });
+
+        btncancelnewvaccine.setBackground(new java.awt.Color(82, 137, 128));
+        btncancelnewvaccine.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btncancelnewvaccine.setText("Back");
+        btncancelnewvaccine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncancelnewvaccineMouseClicked(evt);
+            }
+        });
+        btncancelnewvaccine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelnewvaccineActionPerformed(evt);
             }
         });
 
@@ -137,16 +146,16 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
                             .addComponent(jSeparator1))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cmbState, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbVaccineType, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 220, Short.MAX_VALUE)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btncancelnewvaccine, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAddNewVaccineSupply, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(182, 182, 182)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +185,7 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnAddNewVaccineSupply, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btncancelnewvaccine, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnGeneratePDF))
                 .addGap(21, 21, 21))
         );
@@ -195,13 +204,6 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        PersonnelVaccinationAppointment a = new PersonnelVaccinationAppointment();
-        a.setVisible(true);
-        this.setVisible(false);
-
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnAddNewVaccineSupplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewVaccineSupplyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddNewVaccineSupplyActionPerformed
@@ -209,6 +211,22 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void btnAddNewVaccineSupplyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewVaccineSupplyMouseClicked
+        PersonnelAddVaccineSupply addsupply = new PersonnelAddVaccineSupply();
+        addsupply.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAddNewVaccineSupplyMouseClicked
+
+    private void btncancelnewvaccineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelnewvaccineMouseClicked
+            PersonnelVaccineDetailsMenu vaccinemenu = new PersonnelVaccineDetailsMenu();
+            vaccinemenu.setVisible(true);
+            this.setVisible(false);
+    }//GEN-LAST:event_btncancelnewvaccineMouseClicked
+
+    private void btncancelnewvaccineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelnewvaccineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncancelnewvaccineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,8 +265,8 @@ public class PersonnelVaccineSupply extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewVaccineSupply;
-    private javax.swing.JButton btnBack;
     private javax.swing.JLabel btnGeneratePDF;
+    private javax.swing.JButton btncancelnewvaccine;
     private javax.swing.JComboBox<String> cmbState;
     private javax.swing.JComboBox<String> cmbVaccineType;
     private javax.swing.JLabel jLabel1;
