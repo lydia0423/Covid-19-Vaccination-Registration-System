@@ -208,7 +208,6 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
 
-<<<<<<< HEAD
     private void txtvaccineidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvaccineidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtvaccineidActionPerformed
@@ -221,10 +220,6 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbStateActionPerformed
 
-    private void btncancelnewvaccineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelnewvaccineMouseClicked
-        int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
-=======
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         PersonnelVaccineDetailsMenu vaccinemenu = new PersonnelVaccineDetailsMenu();
         vaccinemenu.setVisible(true);
@@ -259,7 +254,6 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
             spinQuantity.setValue(0);
             dpSupplyDate.setDateToToday();
         }else{
->>>>>>> main
             PersonnelVaccineDetailsMenu vaccinemenu = new PersonnelVaccineDetailsMenu();
             vaccinemenu.setVisible(true);
             this.setVisible(false);
@@ -303,15 +297,6 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
-    private javax.swing.JButton btnAddNewSupply1;
-    private javax.swing.JButton btncancelnewvaccine;
-    private javax.swing.JComboBox<String> cmbState;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-=======
     private javax.swing.JButton btnAddNewVaccine;
     private javax.swing.JButton btnBack;
     private javax.swing.JComboBox<String> cmbVaccineType;
@@ -320,7 +305,6 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
->>>>>>> main
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
