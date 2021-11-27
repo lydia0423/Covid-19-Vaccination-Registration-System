@@ -707,13 +707,12 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCloseMouseClicked
 
-<<<<<<< HEAD
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
         personnelmenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
-=======
+
     private void cmbVaccinationCenterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterItemStateChanged
         ArrayList<VaccinationCenter> allCenter = new ArrayList<>();
         String selectedVaccinationCenter = evt.getItem().toString();
@@ -819,7 +818,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         dispose();
     }//GEN-LAST:event_jLabel16MouseClicked
->>>>>>> main
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
