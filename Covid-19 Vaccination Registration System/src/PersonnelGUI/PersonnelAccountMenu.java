@@ -107,7 +107,7 @@ public class PersonnelAccountMenu extends javax.swing.JFrame {
         btnnewpeopleacc.setBackground(new java.awt.Color(135, 196, 180));
         btnnewpeopleacc.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnnewpeopleacc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/7738938_report_document_sheet_file_paper_icon.png"))); // NOI18N
-        btnnewpeopleacc.setText("    People Account");
+        btnnewpeopleacc.setText("    People Account ");
         btnnewpeopleacc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         btnnewpeopleacc.setOpaque(true);
         btnnewpeopleacc.addMouseListener(new java.awt.event.MouseAdapter() {

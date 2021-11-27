@@ -217,7 +217,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/image/7738938_report_document_sheet_file_paper_icon.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="    People Account"/>
+            <Property name="text" type="java.lang.String" value="    People Account "/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3"/>
