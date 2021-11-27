@@ -174,7 +174,7 @@ public class PersonnelVaccineDetailsMenu extends javax.swing.JFrame {
                 .addComponent(btnnewvaccine, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(btnVaccineSupply, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(btnLogout)
                 .addGap(15, 15, 15))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
@@ -226,7 +226,7 @@ public class PersonnelVaccineDetailsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void btnVaccineSupplyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVaccineSupplyMouseClicked
-        PersonnelVaccineSupply a = new PersonnelVaccineSupply();
+        PersonnelVaccineCenter a = new PersonnelVaccineCenter();
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVaccineSupplyMouseClicked

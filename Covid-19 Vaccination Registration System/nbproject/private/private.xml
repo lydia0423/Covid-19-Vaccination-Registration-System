@@ -5,8 +5,12 @@
         <group>
             <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/PersonnelGUI/PersonnelVaccinationAppointment.java</file>
             <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/PersonnelGUI/PersonnelAddVaccinationAppointment.java</file>
+            <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/PersonnelGUI/PersonnelAddVaccineCenter.java</file>
             <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/Classes/VaccinationAppointment.java</file>
-            <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/HelperClasses/FileHandler.java</file>
+            <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/PersonnelGUI/PersonnelVaccineCenter.java</file>
+            <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/Classes/Vaccine.java</file>
+            <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/Classes/VaccinationCenter.java</file>
+            <file>file:/C:/Users/Lydia/Documents/GitHub/Covid-19-Vaccination-Registration-System/Covid-19%20Vaccination%20Registration%20System/src/PersonnelGUI/PersonnelNewVaccine.java</file>
         </group>
     </open-files>
 </project-private>
