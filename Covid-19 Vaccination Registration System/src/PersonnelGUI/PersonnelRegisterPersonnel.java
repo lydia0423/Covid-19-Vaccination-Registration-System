@@ -35,13 +35,15 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        txtemail = new javax.swing.JTextField();
+        txtic = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
         btncancelregistration = new javax.swing.JButton();
         btnAddNewSupply1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txtname = new javax.swing.JTextField();
+        txtemail = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         txtpasswordconfirm = new javax.swing.JPasswordField();
         txtpassword = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
@@ -61,11 +63,11 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(220, 530));
         jPanel2.setMinimumSize(new java.awt.Dimension(220, 530));
 
-        jLabel4.setText("Account");
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel4.setText("Account");
 
-        jLabel5.setText("Register");
         jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel5.setText("Register");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -97,27 +99,27 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
                 .addContainerGap(180, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("X");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
 
-        jLabel12.setText("Staff ID");
         jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel12.setText("Staff ID");
 
-        txtemail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtemail.setBorder(null);
-        txtemail.addActionListener(new java.awt.event.ActionListener() {
+        txtic.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtic.setBorder(null);
+        txtic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtemailActionPerformed(evt);
+                txticActionPerformed(evt);
             }
         });
 
-        jLabel13.setText("Staff Email");
         jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel13.setText("Staff Email");
 
         txtid.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtid.setBorder(null);
@@ -127,9 +129,9 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        btncancelregistration.setText("Cancel");
         btncancelregistration.setBackground(new java.awt.Color(82, 137, 128));
         btncancelregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btncancelregistration.setText("Cancel");
         btncancelregistration.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btncancelregistrationMouseClicked(evt);
@@ -141,9 +143,9 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        btnAddNewSupply1.setText("Register");
         btnAddNewSupply1.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnAddNewSupply1.setText("Register");
         btnAddNewSupply1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAddNewSupply1MouseClicked(evt);
@@ -155,8 +157,8 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Staff Name");
         jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel14.setText("Staff Name");
 
         txtname.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtname.setBorder(null);
@@ -166,6 +168,17 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
+        txtemail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtemail.setBorder(null);
+        txtemail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtemailActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel15.setText("Staff IC");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -173,18 +186,6 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -195,28 +196,44 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
                                 .addGap(250, 250, 250))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addContainerGap())))))
+                                .addContainerGap())))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14)
+                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel13)
+                            .addComponent(txtic, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(jLabel14))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel12)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel15)))
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addComponent(jLabel13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtic, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btncancelregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,11 +260,11 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Password");
         jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel9.setText("Password");
 
-        jLabel10.setText("Confirm Password");
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel10.setText("Confirm Password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -300,9 +317,9 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+    private void txticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txticActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtemailActionPerformed
+    }//GEN-LAST:event_txticActionPerformed
 
     private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
         // TODO add your handling code here:
@@ -341,10 +358,11 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
     private void btnAddNewSupply1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewSupply1MouseClicked
         
 //Retrive data from form
-        String id, name, email, passwordstring, confirmpasswordstring;
+        String id, ic, name, email, passwordstring, confirmpasswordstring;
         char[] password, confirmpassword;
         
         id = txtid.getText();
+        ic = txtic.getText();
         name = txtname.getText();
         email = txtemail.getText();
         password = txtpassword.getPassword();
@@ -353,7 +371,7 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         confirmpasswordstring = new String(confirmpassword);
              
         // Verify all input are filled
-        if(id.isEmpty() || name.isEmpty() || email.isEmpty() || passwordstring.isEmpty() || confirmpasswordstring.isEmpty()){
+        if(id.isEmpty() || ic.isEmpty() || name.isEmpty() || email.isEmpty() || passwordstring.isEmpty() || confirmpasswordstring.isEmpty()){
             JOptionPane.showMessageDialog(null, "Please ensure that all fields have been filled in", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -364,17 +382,22 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             return;
         }
         
-        PersonnelAccRegistration register = new PersonnelAccRegistration(email, passwordstring, id, name);
+        PersonnelAccRegistration register = new PersonnelAccRegistration(email, passwordstring, id, name, ic);
         PersonnelAccRegistration.saveRegistration(register);
         
         // Clear text field
         txtid.setText(null);
+        txtic.setText(null);
         txtname.setText(null);
         txtemail.setText(null);
         txtpassword.setText(null);
         txtpasswordconfirm.setText(null);
         
     }//GEN-LAST:event_btnAddNewSupply1MouseClicked
+
+    private void txtemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtemailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -421,12 +444,14 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtemail;
+    private javax.swing.JTextField txtic;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtname;
     private javax.swing.JPasswordField txtpassword;
