@@ -58,7 +58,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
 
         jSeparator1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        txtSearch.setBackground(new java.awt.Color(186, 221, 218));
+        txtSearch.setBackground(new java.awt.Color(186, 221, 212));
         txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         txtSearch.setBorder(null);
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
