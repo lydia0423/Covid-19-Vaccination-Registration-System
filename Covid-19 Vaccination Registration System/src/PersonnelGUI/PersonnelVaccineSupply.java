@@ -12,12 +12,12 @@ import java.util.logging.Logger;
  *
  * @author Lydia
  */
-public class PersonnelVaccineCenter extends javax.swing.JFrame {
+public class PersonnelVaccineSupply extends javax.swing.JFrame {
 
     /**
      * Creates new form PersonnelVaccineSupply
      */
-    public PersonnelVaccineCenter() {
+    public PersonnelVaccineSupply() {
         initComponents();
     }
 
@@ -112,19 +112,6 @@ public class PersonnelVaccineCenter extends javax.swing.JFrame {
 
         btnGeneratePDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/2133129_document_extension_file_format_pdf_icon.png"))); // NOI18N
 
-<<<<<<< HEAD:Covid-19 Vaccination Registration System/src/PersonnelGUI/PersonnelVaccineSupply.java
-=======
-        btnBack.setBackground(new java.awt.Color(82, 137, 128));
-        btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setText("Back");
-        btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
->>>>>>> main:Covid-19 Vaccination Registration System/src/PersonnelGUI/PersonnelVaccineCenter.java
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -258,21 +245,20 @@ public class PersonnelVaccineCenter extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonnelVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelVaccineSupply.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonnelVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelVaccineSupply.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonnelVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelVaccineSupply.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonnelVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelVaccineSupply.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelVaccineCenter().setVisible(true);
+                new PersonnelVaccineSupply().setVisible(true);
             }
         });
     }

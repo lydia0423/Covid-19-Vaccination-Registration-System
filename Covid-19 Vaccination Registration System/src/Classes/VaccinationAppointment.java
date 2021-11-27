@@ -1,8 +1,11 @@
 package Classes;
 
+import java.time.LocalDate;
+import java.util.regex.Pattern;
 import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
+import HelperClasses.FileHandler;
 import HelperClasses.FileHandler;
 import HelperClasses.FileMethods;
 
@@ -191,7 +194,7 @@ public class VaccinationAppointment implements FileMethods{
     }
 
     //Save Appointment
-    public static void saveAppointment(VaccinationAppointment appointment, String type) {
+    public static void saveAppointment(VaccinationAppointment appointment) {
         String fileName = appointment.setFileName() + ".txt";
 
         File myFile = FileHandler.createFilePath("Appointment", fileName);
@@ -223,14 +226,8 @@ public class VaccinationAppointment implements FileMethods{
             JOptionPane.showMessageDialog(null, "Failed to save appointment. Please try again.", "Register Vaccination Appointment Failed", JOptionPane.ERROR_MESSAGE);
             System.out.println("Error occurred: " + e);
         }
-        
-        if(type == "Add"){
-            JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Register Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Update Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
-        }
-                
-                
+
+        JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Register Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
