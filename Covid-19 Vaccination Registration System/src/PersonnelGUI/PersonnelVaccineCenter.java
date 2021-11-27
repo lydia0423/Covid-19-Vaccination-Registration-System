@@ -1,6 +1,5 @@
 package PersonnelGUI;
 
-import Classes.VaccinationAppointment;
 import Classes.VaccinationCenter;
 import java.util.ArrayList;
 import javax.swing.RowFilter;
@@ -509,97 +508,97 @@ public class PersonnelVaccineCenter extends javax.swing.JFrame {
     }
     
     //Model for populating the Vaccination Center Table display
-class VaccinationCenterTableModel extends AbstractTableModel{
-    final private String[] columnNames = {"Vaccination Center ID", "Name", "Start Time", "End Time", "State", "Address", "Vaccine", "Quantity"};
-        final private ArrayList<VaccinationCenter> vaccinationCenterList = VaccinationCenter.getAllVaccinationCenters(filePath);
-
-        @Override
-        public int getColumnCount() {
-            return columnNames.length;
-        }
-
-        @Override
-        public int getRowCount() {
-            return vaccinationCenterList.size();
-        }
-
-        @Override
-        public String getColumnName(int col) {
-            return columnNames[col];
-        }
-
-        @Override
-        public Object getValueAt(int row, int col) {
-            Object temp = null;
-            switch (col) {
-                case 0 ->
-                    temp = vaccinationCenterList.get(row).getVaccinationCenterId();
-                case 1 ->
-                    temp = vaccinationCenterList.get(row).getVaccinationCenterName();
-                case 2 ->
-                    temp = vaccinationCenterList.get(row).getVaccinationCenterStartTime();
-                case 3 ->
-                    temp = vaccinationCenterList.get(row).getVaccinationCenterEndTime();
-                case 4 ->
-                    temp = vaccinationCenterList.get(row).getState();
-                case 5 ->
-                    temp = vaccinationCenterList.get(row).getAddress();
-                case 6 ->
-                    temp = vaccinationCenterList.get(row).getVaccineSupplyQuantity();
-            }
-            return temp;
-        }
-
-        @Override
-        public Class getColumnClass(int c) {
-            return getValueAt(0, c).getClass();
-        }
-
-        public void removeRow(int row) {
-            vaccinationCenterList.remove(row);
-        }
-}
-
-//RowSorter for searching the table
-    class RowSorter extends TableRowSorter<TableModel> {
-
-        final private TableRowSorter<TableModel> rowSorter;
-
-        RowSorter() {
-            rowSorter = new TableRowSorter<>(tblVaccinationCenter.getModel());
-            tblVaccinationCenter.setRowSorter(rowSorter);
-        }
-
-        public void searchTable() {
-            txtSearch.getDocument().addDocumentListener(new DocumentListener() {
-
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    throw new UnsupportedOperationException("Not supported yet.");
-                }
-            });
-        }
-    }
+//class VaccinationCenterTableModel extends AbstractTableModel{
+//    final private String[] columnNames = {"Vaccination Center ID", "Name", "Start Time", "End Time", "State", "Address", "Vaccine", "Quantity"};
+//        final private ArrayList<VaccinationCenter> vaccinationCenterList = VaccinationCenter.getAllVaccinationCenters(filePath);
+//
+//        @Override
+//        public int getColumnCount() {
+//            return columnNames.length;
+//        }
+//
+//        @Override
+//        public int getRowCount() {
+//            return vaccinationCenterList.size();
+//        }
+//
+//        @Override
+//        public String getColumnName(int col) {
+//            return columnNames[col];
+//        }
+//
+//        @Override
+//        public Object getValueAt(int row, int col) {
+//            Object temp = null;
+//            switch (col) {
+//                case 0 ->
+//                    temp = vaccinationCenterList.get(row).getVaccinationCenterId();
+//                case 1 ->
+//                    temp = vaccinationCenterList.get(row).getVaccinationCenterName();
+//                case 2 ->
+//                    temp = vaccinationCenterList.get(row).getVaccinationCenterStartTime();
+//                case 3 ->
+//                    temp = vaccinationCenterList.get(row).getVaccinationCenterEndTime();
+//                case 4 ->
+//                    temp = vaccinationCenterList.get(row).getState();
+//                case 5 ->
+//                    temp = vaccinationCenterList.get(row).getAddress();
+//                case 6 ->
+//                    temp = vaccinationCenterList.get(row).getVaccineSupplyQuantity();
+//            }
+//            return temp;
+//        }
+//
+//        @Override
+//        public Class getColumnClass(int c) {
+//            return getValueAt(0, c).getClass();
+//        }
+//
+//        public void removeRow(int row) {
+//            vaccinationCenterList.remove(row);
+//        }
+//}
+//
+////RowSorter for searching the table
+//    class RowSorter extends TableRowSorter<TableModel> {
+//
+//        final private TableRowSorter<TableModel> rowSorter;
+//
+//        RowSorter() {
+//            rowSorter = new TableRowSorter<>(tblVaccinationCenter.getModel());
+//            tblVaccinationCenter.setRowSorter(rowSorter);
+//        }
+//
+//        public void searchTable() {
+//            txtSearch.getDocument().addDocumentListener(new DocumentListener() {
+//
+//                @Override
+//                public void insertUpdate(DocumentEvent e) {
+//                    String searchText = txtSearch.getText();
+//                    if (searchText.trim().length() == 0) {
+//                        rowSorter.setRowFilter(null);
+//                    } else {
+//                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
+//                    }
+//                }
+//
+//                @Override
+//                public void removeUpdate(DocumentEvent e) {
+//                    String searchText = txtSearch.getText();
+//                    if (searchText.trim().length() == 0) {
+//                        rowSorter.setRowFilter(null);
+//                    } else {
+//                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
+//                    }
+//                }
+//
+//                @Override
+//                public void changedUpdate(DocumentEvent e) {
+//                    throw new UnsupportedOperationException("Not supported yet.");
+//                }
+//            });
+//        }
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewVaccineSupply;
