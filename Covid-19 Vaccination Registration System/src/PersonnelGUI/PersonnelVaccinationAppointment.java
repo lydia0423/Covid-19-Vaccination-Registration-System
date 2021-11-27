@@ -955,11 +955,7 @@ class AppointmentTableModel extends AbstractTableModel{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-<<<<<<< HEAD
-    private javax.swing.JButton btnBack;
-=======
     private javax.swing.JButton btnCancel;
->>>>>>> main
     private javax.swing.JLabel btnClose;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;

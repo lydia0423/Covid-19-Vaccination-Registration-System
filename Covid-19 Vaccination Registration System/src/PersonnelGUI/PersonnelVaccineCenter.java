@@ -112,8 +112,6 @@ public class PersonnelVaccineCenter extends javax.swing.JFrame {
 
         btnGeneratePDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/2133129_document_extension_file_format_pdf_icon.png"))); // NOI18N
 
-<<<<<<< HEAD:Covid-19 Vaccination Registration System/src/PersonnelGUI/PersonnelVaccineSupply.java
-=======
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnBack.setText("Back");
@@ -124,7 +122,6 @@ public class PersonnelVaccineCenter extends javax.swing.JFrame {
             }
         });
 
->>>>>>> main:Covid-19 Vaccination Registration System/src/PersonnelGUI/PersonnelVaccineCenter.java
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
