@@ -5,6 +5,12 @@
 package PeopleGUI;
 
 import javax.swing.JOptionPane;
+import Classes.VaccineRegistration;
+import HelperClasses.State;
+import Classes.VaccinationCenter;
+import java.util.ArrayList;
+import java.util.Collection;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -37,35 +43,39 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        lblRegistrationId = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtVaccinationCenterName = new javax.swing.JTextField();
+        txtContact = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtVaccinationCenterName1 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtVaccinationCenterName2 = new javax.swing.JTextField();
+        txtIcPassport = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        txtVaccinationCenterName5 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        txtVaccinationCenterName3 = new javax.swing.JTextField();
+        closecontactno = new javax.swing.JRadioButton();
+        closecontactyes = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
-        cmbState = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
-        cmbState1 = new javax.swing.JComboBox<>();
         btncancelregistration = new javax.swing.JButton();
-        btnAddNewSupply1 = new javax.swing.JButton();
+        txtHealthCondition = new javax.swing.JTextField();
+        cmbVaccinationCenter = new javax.swing.JComboBox<>();
+        cmbState = new javax.swing.JComboBox<>();
+        btnsubmitregistration = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(186, 221, 212));
@@ -90,14 +100,15 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
+        lblRegistrationId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblRegistrationId.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegistrationId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRegistrationId.setText("Appointment ID");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,6 +116,15 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
                 .addGap(47, 47, 47))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblRegistrationId, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +137,9 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblRegistrationId, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, -1));
@@ -131,9 +153,9 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(875, 0, -1, -1));
 
-        txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtVaccinationCenterName.setBorder(null);
-        jPanel1.add(txtVaccinationCenterName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 260, 34));
+        txtContact.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtContact.setBorder(null);
+        jPanel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 260, 30));
 
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 16)); // NOI18N
         jLabel6.setText("Notifications for appointment booking and reminders will be sent to your number and email.");
@@ -147,35 +169,35 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         jLabel10.setText("Email");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, -1, -1));
 
-        txtVaccinationCenterName1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtVaccinationCenterName1.setBorder(null);
-        jPanel1.add(txtVaccinationCenterName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 260, 34));
+        txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtEmail.setBorder(null);
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 260, 30));
 
         jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel12.setText("Full Name as per IC / Passport");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
-        txtVaccinationCenterName2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtVaccinationCenterName2.setBorder(null);
-        txtVaccinationCenterName2.addActionListener(new java.awt.event.ActionListener() {
+        txtIcPassport.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtIcPassport.setBorder(null);
+        txtIcPassport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVaccinationCenterName2ActionPerformed(evt);
+                txtIcPassportActionPerformed(evt);
             }
         });
-        jPanel1.add(txtVaccinationCenterName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 260, 34));
+        jPanel1.add(txtIcPassport, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 260, 30));
 
         jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel13.setText("NRIC (Citizen) / Passport (Non-citizen)");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, -1, -1));
 
-        txtVaccinationCenterName5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtVaccinationCenterName5.setBorder(null);
-        txtVaccinationCenterName5.addActionListener(new java.awt.event.ActionListener() {
+        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtName.setBorder(null);
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVaccinationCenterName5ActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
-        jPanel1.add(txtVaccinationCenterName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 260, 34));
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 260, 30));
 
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel8.setText("Do you have any health condition?");
@@ -189,84 +211,35 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         jLabel15.setText("14 days?");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
-        healthcondition.add(jRadioButton3);
-        jRadioButton3.setText("No");
-        jRadioButton3.setBackground(new java.awt.Color(186, 221, 212));
-        jRadioButton3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        closecontactno.setBackground(new java.awt.Color(186, 221, 212));
+        closecontact.add(closecontactno);
+        closecontactno.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        closecontactno.setText("No");
+        closecontactno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                closecontactnoActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        jPanel1.add(closecontactno, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
 
-        healthcondition.add(jRadioButton4);
-        jRadioButton4.setText("Yes (Please Specify)");
-        jRadioButton4.setBackground(new java.awt.Color(186, 221, 212));
-        jRadioButton4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        closecontactyes.setBackground(new java.awt.Color(186, 221, 212));
+        closecontact.add(closecontactyes);
+        closecontactyes.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        closecontactyes.setText("Yes");
+        closecontactyes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                closecontactyesActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
-
-        closecontact.add(jRadioButton5);
-        jRadioButton5.setText("No");
-        jRadioButton5.setBackground(new java.awt.Color(186, 221, 212));
-        jRadioButton5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, -1, -1));
-
-        closecontact.add(jRadioButton6);
-        jRadioButton6.setText("Yes");
-        jRadioButton6.setBackground(new java.awt.Color(186, 221, 212));
-        jRadioButton6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
-
-        txtVaccinationCenterName3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtVaccinationCenterName3.setBorder(null);
-        txtVaccinationCenterName3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVaccinationCenterName3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtVaccinationCenterName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, 142, 25));
+        jPanel1.add(closecontactyes, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel7.setText("Preferred Vaccination Centre");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 390, -1, -1));
-
-        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
-        cmbState.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbStateActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmbState, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel17.setText("State");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, -1, -1));
-
-        cmbState1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        cmbState1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
-        cmbState1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbState1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmbState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
 
         btncancelregistration.setBackground(new java.awt.Color(82, 137, 128));
         btncancelregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -283,44 +256,66 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         });
         jPanel1.add(btncancelregistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 100, 40));
 
-        btnAddNewSupply1.setBackground(new java.awt.Color(82, 137, 128));
-        btnAddNewSupply1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply1.setText("Submit");
-        btnAddNewSupply1.addActionListener(new java.awt.event.ActionListener() {
+        txtHealthCondition.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtHealthCondition.setBorder(null);
+        txtHealthCondition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewSupply1ActionPerformed(evt);
+                txtHealthConditionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAddNewSupply1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 100, 40));
+        jPanel1.add(txtHealthCondition, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 260, 30));
+
+        cmbVaccinationCenter.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        cmbVaccinationCenter.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                cmbVaccinationCenterPopupMenuWillBecomeVisible(evt);
+            }
+        });
+        cmbVaccinationCenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbVaccinationCenterActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmbVaccinationCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 220, -1));
+
+        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Negeri Sembilan", "Malacca", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah ", "Sarawak" }));
+        jPanel1.add(cmbState, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 410, 150, 30));
+
+        btnsubmitregistration.setBackground(new java.awt.Color(82, 137, 128));
+        btnsubmitregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnsubmitregistration.setText("Submit");
+        btnsubmitregistration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsubmitregistrationActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnsubmitregistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, 100, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+    private void closecontactyesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closecontactyesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    }//GEN-LAST:event_closecontactyesActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void closecontactnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closecontactnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_closecontactnoActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void txtIcPassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIcPassportActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
-    private void txtVaccinationCenterName5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVaccinationCenterName5ActionPerformed
-
-    private void txtVaccinationCenterName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVaccinationCenterName2ActionPerformed
+    }//GEN-LAST:event_txtIcPassportActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
     int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
@@ -328,22 +323,6 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         dispose();
     }
     }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void txtVaccinationCenterName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVaccinationCenterName3ActionPerformed
-
-    private void cmbStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbStateActionPerformed
-
-    private void cmbState1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbState1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbState1ActionPerformed
-
-    private void btnAddNewSupply1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddNewSupply1ActionPerformed
 
     private void btncancelregistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelregistrationActionPerformed
         // TODO add your handling code here:
@@ -358,6 +337,84 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         }  
         // TODO add your handling code here:
     }//GEN-LAST:event_btncancelregistrationMouseClicked
+
+    private void txtHealthConditionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHealthConditionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHealthConditionActionPerformed
+
+    private void cmbVaccinationCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbVaccinationCenterActionPerformed
+
+    private void btnsubmitregistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitregistrationActionPerformed
+        //Validate vaccination center (check if selected)
+        if (cmbVaccinationCenter.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "Please select a vaccination center", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+                
+        //Retrive data from form
+        String registrationId, name, icpassport, contact, email, closecontact, healthcondition, state, preferredcentre;
+
+        registrationId = lblRegistrationId.getText();
+        name = txtName.getText();
+        icpassport = txtIcPassport.getText();
+        contact = txtContact.getText();
+        email = txtEmail.getText();
+        healthcondition = txtHealthCondition.getText();
+        state = cmbState.getSelectedItem().toString();
+        preferredcentre = cmbVaccinationCenter.getSelectedItem().toString();
+
+        if(closecontactno.isSelected()){
+            closecontact = closecontactno.getText();
+        }else{
+            closecontact = closecontactyes.getText();
+        }
+
+        //Verify that all input are filled
+        if(name.isEmpty() || icpassport.isEmpty() || contact.isEmpty() || email.isEmpty() || healthcondition.isEmpty() || closecontact.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please ensure that all fields have been filled in", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //Creates an instance of VaccinationAppointment and save it to database
+        VaccineRegistration registervaccine = new VaccineRegistration(registrationId, name, icpassport, contact, email, closecontact, healthcondition, state, preferredcentre);
+        VaccineRegistration.saveRegistration(registervaccine);
+
+        PeopleMainMenu peoplemenu = new PeopleMainMenu();
+        peoplemenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnsubmitregistrationActionPerformed
+
+    private void cmbVaccinationCenterPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterPopupMenuWillBecomeVisible
+        ArrayList<String> centerList = new ArrayList<>();
+        ArrayList<VaccinationCenter> allCenter = new ArrayList<>();
+        Collection<String> availableCenter;
+
+        //Retrieve the file path based on the state
+        String state = cmbState.getSelectedItem().toString();
+        String filePath = State.getStateFileDirectory(state, "VaccinationCenter");
+
+        //Retrive all files in the respective state folder
+        allCenter = VaccinationCenter.getAllVaccinationCenters(filePath);
+        for (VaccinationCenter vc : allCenter) {
+            //Add all relevant vaccination center name into array list
+            centerList.add(vc.getVaccinationCenterName());
+        }
+        
+        availableCenter = centerList; 
+
+        //Add Vaccination Center Name List to combo box
+        DefaultComboBoxModel<String> centerSelector = new DefaultComboBoxModel();
+        centerSelector.addAll(availableCenter);
+        cmbVaccinationCenter.setModel(centerSelector);
+ 
+    }//GEN-LAST:event_cmbVaccinationCenterPopupMenuWillBecomeVisible
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        lblRegistrationId.setText(VaccineRegistration.generateRegistrationId());
+        System.out.println(lblRegistrationId.getText());
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments
@@ -426,11 +483,13 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNewSupply1;
     private javax.swing.JButton btncancelregistration;
+    private javax.swing.JButton btnsubmitregistration;
     private javax.swing.ButtonGroup closecontact;
+    private javax.swing.JRadioButton closecontactno;
+    private javax.swing.JRadioButton closecontactyes;
     private javax.swing.JComboBox<String> cmbState;
-    private javax.swing.JComboBox<String> cmbState1;
+    private javax.swing.JComboBox<String> cmbVaccinationCenter;
     private javax.swing.ButtonGroup healthcondition;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -449,15 +508,12 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JLabel lblRegistrationId;
     private javax.swing.ButtonGroup registerfor;
-    private javax.swing.JTextField txtVaccinationCenterName;
-    private javax.swing.JTextField txtVaccinationCenterName1;
-    private javax.swing.JTextField txtVaccinationCenterName2;
-    private javax.swing.JTextField txtVaccinationCenterName3;
-    private javax.swing.JTextField txtVaccinationCenterName5;
+    private javax.swing.JTextField txtContact;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtHealthCondition;
+    private javax.swing.JTextField txtIcPassport;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

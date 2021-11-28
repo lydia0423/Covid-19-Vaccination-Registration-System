@@ -208,6 +208,18 @@ public class PersonnelNewVaccine extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel9MouseClicked
 
+    private void txtvaccineidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvaccineidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtvaccineidActionPerformed
+
+    private void txtvaccinenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtvaccinenameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtvaccinenameActionPerformed
+
+    private void cmbStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbStateActionPerformed
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         PersonnelVaccineDetailsMenu vaccinemenu = new PersonnelVaccineDetailsMenu();
         vaccinemenu.setVisible(true);
