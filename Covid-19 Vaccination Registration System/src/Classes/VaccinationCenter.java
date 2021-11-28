@@ -154,7 +154,7 @@ public class VaccinationCenter implements FileMethods{
         return null;
     }
 
-    //Save Appointment
+    //Save Vaccination Center
     public static void saveVaccinationCenter(VaccinationCenter center) {
         String fileName = center.setFileName() + ".txt";
         String vaccinationCenterState = center.getState();

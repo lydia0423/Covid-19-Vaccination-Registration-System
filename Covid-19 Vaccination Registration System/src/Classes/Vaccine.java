@@ -33,10 +33,6 @@ public class Vaccine implements FileMethods {
         this.quantity = quantity;
     }
     
-    public Vaccine(String quantity){
-        this.quantity = quantity;
-    }
-    
     public String getvaccineBatchNumber() {
         return vaccineBatchNumber;
     }

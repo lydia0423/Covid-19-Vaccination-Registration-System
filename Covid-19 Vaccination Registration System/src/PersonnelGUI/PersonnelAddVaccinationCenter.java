@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
-public class PersonnelAddVaccineCenter extends javax.swing.JFrame{
+public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
 
     private boolean reset = false;
     private String quantityReminder, quantity, vaccineBatchNumber, originCountry, supplyDate, dosRequired, requiredWaitTime, fileName;
 
-    public PersonnelAddVaccineCenter() {
+    public PersonnelAddVaccinationCenter() {
         initComponents();
     }
 
@@ -84,12 +84,12 @@ public class PersonnelAddVaccineCenter extends javax.swing.JFrame{
         lblVaccineId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVaccineId.setText("ID");
         lblVaccineId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        lblVaccineId.setForeground(new java.awt.Color(0, 0, 0));
+        lblVaccineId.setForeground(new java.awt.Color(255, 255, 255));
 
         lblVaccinationCenterId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVaccinationCenterId.setText("ID");
         lblVaccinationCenterId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        lblVaccinationCenterId.setForeground(new java.awt.Color(0, 0, 0));
+        lblVaccinationCenterId.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -416,7 +416,6 @@ public class PersonnelAddVaccineCenter extends javax.swing.JFrame{
                     
                     break;
                 }
-
                 continue;
             }
         }
@@ -452,21 +451,23 @@ public class PersonnelAddVaccineCenter extends javax.swing.JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAddVaccinationCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAddVaccinationCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAddVaccinationCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PersonnelAddVaccineCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PersonnelAddVaccinationCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PersonnelAddVaccineCenter().setVisible(true);
+                new PersonnelAddVaccinationCenter().setVisible(true);
             }
         });
     }

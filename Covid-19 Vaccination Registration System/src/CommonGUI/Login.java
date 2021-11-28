@@ -2,6 +2,7 @@ package CommonGUI;
 
 import Classes.Logger;
 import Classes.LoginVerification;
+import CommonGUI.ResetPassword;
 import java.awt.Color;
 
 public class Login extends javax.swing.JFrame {

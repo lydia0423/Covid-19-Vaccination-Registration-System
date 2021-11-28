@@ -1,37 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Classes;
 
+import Classes.Registration;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import HelperClasses.FileHandler;
+import HelperClasses.FileMethods;
+import java.util.UUID;
 
-/**
- *
- * @author Eric
- */
-public class PersonnelAccRegistration extends Registration{
+
+public class PersonnelAccRegistration extends Registration implements FileMethods{
     
-    protected String id, name, ic;
+    private String personnelId, name, ic;
     
-    public PersonnelAccRegistration(String email, String password, String id, String name, String ic) {
+    public PersonnelAccRegistration(String email, String password, String personnelId, String name, String ic) {
         super(email, password);
-        this.id = id;
+        this.personnelId = personnelId;
         this.name = name;
         this.ic = ic;
     }
 
-    public String getId() {
-        return id;
+    public String getPerseonnelId() {
+        return personnelId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setPersonnelId(String personnelId) {
+        this.personnelId = personnelId;
     }
     
     public String getName() {
@@ -50,27 +46,41 @@ public class PersonnelAccRegistration extends Registration{
         this.ic = ic;
     }
     
+    //Generate random combination of number and alphabet for personnel Id
+    public static String generatePersonnelId(){
+        String personnelId = "PNL" + UUID.randomUUID().toString();
+        return personnelId;
+    }
+    
     //Save New Registration into File
-    public static void saveRegistration(PersonnelAccRegistration register) {
+    public static void saveRegistration(PersonnelAccRegistration personnelRegistration) {
         
-        String fileName = "personnelcredentials.txt";
+        String fileName = personnelRegistration.setFileName() + ".txt";
 
-        File myFile = FileHandler.createFilePath("Credentials", fileName);
-        try ( FileWriter fw = new FileWriter(myFile, true);  BufferedWriter bw = new BufferedWriter(fw);) {
-            bw.write("Personnel\n");
-            bw.write(register.getId() + "\n");
-            bw.write(register.getIc() + "\n");
-            bw.write(register.getName() + "\n");
-            bw.write(register.getEmail() + "\n");
-            bw.write(register.getPassword() + "\n");
-            bw.close();
-            
+        File myFile = FileHandler.createFilePath("Personnel", fileName);
+        try ( FileWriter fw = new FileWriter(myFile);  BufferedWriter bw = new BufferedWriter(fw);) {
+            bw.write(personnelRegistration.getPerseonnelId());
+            bw.newLine();
+            bw.write(personnelRegistration.getName());
+            bw.newLine();
+            bw.write(personnelRegistration.getIc());
+            bw.newLine();
+            bw.write(personnelRegistration.getEmail());
+            bw.newLine();
+            bw.write(personnelRegistration.getPassword());
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Failed to save registration. Please try again.", "Account Registration Failed", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Failed to save appointment. Please try again.", "Register Vaccination Appointment Failed", JOptionPane.ERROR_MESSAGE);
             System.out.println("Error occurred: " + e);
-            return;
         }
+    }
 
-        JOptionPane.showMessageDialog(null, "Account registered successfully.", "Account Registration Success!", JOptionPane.INFORMATION_MESSAGE);
+    @Override
+    public String setFileName() {
+        return personnelId;
+    }
+
+    @Override
+    public String getFileName() {
+        return "Personnel/" + personnelId + ".txt";
     }
 }
