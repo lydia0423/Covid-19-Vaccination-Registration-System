@@ -1,15 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PersonnelGUI;
 
-import PersonnelGUI.PersonnelMainMenu;
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import Classes.PeopleAccRegistration;
+import PersonnelGUI.PersonnelAccountMenu;
+import PersonnelGUI.PersonnelAccountMenu;
+import PersonnelGUI.PersonnelAccountMenu;
+import PersonnelGUI.PersonnelAccountMenu;
 
 /**
  *
@@ -78,18 +76,18 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        jLabel11.setText("Register");
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel11.setText("Register");
 
-        jLabel12.setText("Account");
         jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel12.setText("Account");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(7, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(13, 13, 13))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -111,53 +109,53 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("Full Name as per IC / Passport");
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel2.setText("Full Name as per IC / Passport");
 
-        jLabel3.setText("Email");
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel3.setText("Email");
 
-        jLabel4.setText("Confirm Password");
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel4.setText("Confirm Password");
 
-        jLabel5.setText("Contact Number");
         jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel5.setText("Contact Number");
 
-        jLabel6.setText("Date of Birth");
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel6.setText("Date of Birth");
 
-        jLabel7.setText("NRIC (Citizen) / Passport (Non-citizen)");
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel7.setText("NRIC (Citizen) / Passport (Non-citizen)");
 
-        jLabel8.setText("Address");
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel8.setText("Address");
 
         dpdob.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtname.setBorder(null);
         txtname.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtname.setBorder(null);
 
-        jLabel9.setText("Password");
         jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel9.setText("Password");
 
-        txtcontact.setBorder(null);
         txtcontact.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtcontact.setBorder(null);
         txtcontact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcontactActionPerformed(evt);
             }
         });
 
-        txticpassport.setBorder(null);
         txticpassport.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txticpassport.setBorder(null);
         txticpassport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txticpassportActionPerformed(evt);
             }
         });
 
-        txtemail.setBorder(null);
         txtemail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtemail.setBorder(null);
 
         txtpasswordconfirm.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         txtpasswordconfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -166,8 +164,8 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("X");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -186,9 +184,9 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
             }
         });
 
-        btncancel.setText("Cancel");
         btncancel.setBackground(new java.awt.Color(82, 137, 128));
         btncancel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btncancel.setText("Cancel");
         btncancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btncancelMouseClicked(evt);
@@ -200,9 +198,9 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
             }
         });
 
-        btnregisteracc.setText("Register");
         btnregisteracc.setBackground(new java.awt.Color(82, 137, 128));
         btnregisteracc.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnregisteracc.setText("Register");
         btnregisteracc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnregisteraccMouseClicked(evt);
@@ -214,8 +212,8 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setText("Citizen");
         jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel13.setText("Citizen");
 
         buttonGroup1.add(citizenyes);
         citizenyes.setText("Yes");
@@ -270,7 +268,7 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
@@ -403,11 +401,12 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         passwordstring = new String(password);
         confirmpassword = txtpasswordconfirm.getPassword();
         confirmpasswordstring = new String(confirmpassword);
-
+        citizen = "";
+        
         if(citizenno.isSelected()){
+            citizen = "Non-Citizen"; 
+        }else if (citizenyes.isSelected()){
             citizen = "Citizen";
-        }else{
-            citizen = "Non-Citizen";
         }
         
         
@@ -426,8 +425,8 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         // After verification
         dobstring = dob.format(DateTimeFormatter.ISO_DATE);
         
-        PeopleAccRegistration register = new PeopleAccRegistration(email, passwordstring, citizen, name, icpassport, contact, address, dobstring);
-        PeopleAccRegistration.saveRegistration(register);
+//        PeopleAccRegistration register = new PeopleAccRegistration(email, passwordstring, citizen, name, icpassport, contact, address, dobstring);
+//        PeopleAccRegistration.saveRegistration(register);
         
         // Clear text field
         txtname.setText(null);
@@ -443,8 +442,8 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
     private void btncancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelMouseClicked
         int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
-            PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
-            personnelmenu.setVisible(true);
+            PersonnelAccountMenu addaccountmenu = new PersonnelAccountMenu();
+            addaccountmenu.setVisible(true);
             this.setVisible(false);
         }  
         // TODO add your handling code here:
@@ -461,7 +460,7 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("FlatLaf Light".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
