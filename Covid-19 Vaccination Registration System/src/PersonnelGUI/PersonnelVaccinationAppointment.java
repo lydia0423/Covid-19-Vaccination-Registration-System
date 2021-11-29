@@ -446,6 +446,10 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         jSeparator1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
+<<<<<<< HEAD
+=======
+        txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+>>>>>>> parent of af19265 (Merge branch 'main' into Test)
         txtSearch.setBackground(new java.awt.Color(186, 221, 218));
         txtSearch.setBorder(null);
         txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
@@ -691,12 +695,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
         dispose();
     }//GEN-LAST:event_btnCloseMouseClicked
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
-        personnelmenu.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbVaccinationCenterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterItemStateChanged
         ArrayList<VaccinationCenter> allCenter = new ArrayList<>();

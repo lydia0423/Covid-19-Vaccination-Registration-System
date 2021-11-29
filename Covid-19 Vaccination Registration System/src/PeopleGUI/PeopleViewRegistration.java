@@ -1,10 +1,15 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package PeopleGUI;
 
-import Classes.VaccineRegistration;
-import HelperClasses.FileHandler;
 import javax.swing.JOptionPane;
 
-
+/**
+ *
+ * @author Eric
+ */
 public class PeopleViewRegistration extends javax.swing.JFrame {
 
     /**
@@ -32,33 +37,26 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        txtVaccinationCenterName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtContact = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        txtState = new javax.swing.JTextField();
-        txtHealthCondition = new javax.swing.JTextField();
-        txtPreferredCentre = new javax.swing.JTextField();
-        txtIcPassport = new javax.swing.JTextField();
-        txtCloseContact = new javax.swing.JTextField();
+        txtVaccinationCenterName1 = new javax.swing.JTextField();
+        txtVaccinationCenterName2 = new javax.swing.JTextField();
+        txtVaccinationCenterName3 = new javax.swing.JTextField();
+        txtVaccinationCenterName10 = new javax.swing.JTextField();
+        txtVaccinationCenterName11 = new javax.swing.JTextField();
+        txtVaccinationCenterName12 = new javax.swing.JTextField();
+        txtVaccinationCenterName4 = new javax.swing.JTextField();
         btnmodifyregistration = new javax.swing.JButton();
-        btnAddNewSupply3 = new javax.swing.JButton();
+        btnback = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
-        setMaximumSize(new java.awt.Dimension(900, 530));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(900, 530));
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                formComponentShown(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(186, 221, 212));
         jPanel1.setMaximumSize(new java.awt.Dimension(900, 530));
@@ -119,10 +117,10 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel7.setText("NRIC (Citizen) / Passport (Non-citizen)");
 
-        txtName.setEditable(false);
-        txtName.setBackground(new java.awt.Color(186, 221, 212));
-        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtName.setBorder(null);
+        txtVaccinationCenterName.setEditable(false);
+        txtVaccinationCenterName.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName.setBorder(null);
 
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
@@ -144,45 +142,45 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel11.setText("Health Condition");
 
-        txtContact.setEditable(false);
-        txtContact.setBackground(new java.awt.Color(186, 221, 212));
-        txtContact.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtContact.setBorder(null);
+        txtVaccinationCenterName1.setEditable(false);
+        txtVaccinationCenterName1.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName1.setBorder(null);
 
-        txtEmail.setEditable(false);
-        txtEmail.setBackground(new java.awt.Color(186, 221, 212));
-        txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtEmail.setBorder(null);
+        txtVaccinationCenterName2.setEditable(false);
+        txtVaccinationCenterName2.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName2.setBorder(null);
 
-        txtState.setEditable(false);
-        txtState.setBackground(new java.awt.Color(186, 221, 212));
-        txtState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtState.setBorder(null);
+        txtVaccinationCenterName3.setEditable(false);
+        txtVaccinationCenterName3.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName3.setBorder(null);
 
-        txtHealthCondition.setEditable(false);
-        txtHealthCondition.setBackground(new java.awt.Color(186, 221, 212));
-        txtHealthCondition.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtHealthCondition.setBorder(null);
+        txtVaccinationCenterName10.setEditable(false);
+        txtVaccinationCenterName10.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName10.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName10.setBorder(null);
 
-        txtPreferredCentre.setEditable(false);
-        txtPreferredCentre.setBackground(new java.awt.Color(186, 221, 212));
-        txtPreferredCentre.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtPreferredCentre.setBorder(null);
+        txtVaccinationCenterName11.setEditable(false);
+        txtVaccinationCenterName11.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName11.setBorder(null);
 
-        txtIcPassport.setEditable(false);
-        txtIcPassport.setBackground(new java.awt.Color(186, 221, 212));
-        txtIcPassport.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtIcPassport.setBorder(null);
-        txtIcPassport.addActionListener(new java.awt.event.ActionListener() {
+        txtVaccinationCenterName12.setEditable(false);
+        txtVaccinationCenterName12.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName12.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName12.setBorder(null);
+        txtVaccinationCenterName12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIcPassportActionPerformed(evt);
+                txtVaccinationCenterName12ActionPerformed(evt);
             }
         });
 
-        txtCloseContact.setEditable(false);
-        txtCloseContact.setBackground(new java.awt.Color(186, 221, 212));
-        txtCloseContact.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtCloseContact.setBorder(null);
+        txtVaccinationCenterName4.setEditable(false);
+        txtVaccinationCenterName4.setBackground(new java.awt.Color(186, 221, 212));
+        txtVaccinationCenterName4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName4.setBorder(null);
 
         btnmodifyregistration.setBackground(new java.awt.Color(82, 137, 128));
         btnmodifyregistration.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -198,17 +196,10 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
             }
         });
 
-        btnAddNewSupply3.setBackground(new java.awt.Color(82, 137, 128));
-        btnAddNewSupply3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAddNewSupply3.setText("Back");
-        btnAddNewSupply3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAddNewSupply3MouseClicked(evt);
-            }
-        });
-        btnAddNewSupply3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddNewSupply3ActionPerformed(evt);
+                btnbackMouseClicked(evt);
             }
         });
 
@@ -223,81 +214,85 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(44, 44, 44))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnAddNewSupply3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(jLabel2)
+                                .addGap(44, 44, 44)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel11)
                                     .addComponent(jLabel8)
-                                    .addComponent(txtPreferredCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtHealthCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnmodifyregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtVaccinationCenterName11, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtVaccinationCenterName10, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel5)
                             .addComponent(jLabel14)
-                            .addComponent(txtCloseContact, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVaccinationCenterName4, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtVaccinationCenterName1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtVaccinationCenterName2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9)
-                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtVaccinationCenterName3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtVaccinationCenterName, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtIcPassport, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtVaccinationCenterName12, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 54, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 655, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(276, 276, 276)
+                                .addComponent(btnmodifyregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(btnback)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btnback)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIcPassport, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVaccinationCenterName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVaccinationCenterName12, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVaccinationCenterName1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVaccinationCenterName2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtHealthCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCloseContact, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVaccinationCenterName10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVaccinationCenterName4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPreferredCentre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVaccinationCenterName3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVaccinationCenterName11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnmodifyregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddNewSupply3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnmodifyregistration, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
 
@@ -336,29 +331,21 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void txtIcPassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIcPassportActionPerformed
+    private void txtVaccinationCenterName12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIcPassportActionPerformed
+    }//GEN-LAST:event_txtVaccinationCenterName12ActionPerformed
+
+    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
+       PeopleMainMenu peoplemenu = new PeopleMainMenu();
+       peoplemenu.setVisible(true); 
+       this.setVisible(false);  
+    }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnmodifyregistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmodifyregistrationMouseClicked
         PeopleModifyRegistration modifyregistration = new PeopleModifyRegistration();
         modifyregistration.setVisible(true); 
         this.setVisible(false);  
     }//GEN-LAST:event_btnmodifyregistrationMouseClicked
-
-    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-
-    }//GEN-LAST:event_formComponentShown
-
-    private void btnAddNewSupply3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddNewSupply3MouseClicked
-        PeopleMainMenu peoplemenu = new PeopleMainMenu();
-        peoplemenu.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnAddNewSupply3MouseClicked
-
-    private void btnAddNewSupply3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupply3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddNewSupply3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,7 +390,7 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNewSupply3;
+    private javax.swing.JLabel btnback;
     private javax.swing.JButton btnmodifyregistration;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -419,13 +406,13 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtCloseContact;
-    private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtHealthCondition;
-    private javax.swing.JTextField txtIcPassport;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPreferredCentre;
-    private javax.swing.JTextField txtState;
+    private javax.swing.JTextField txtVaccinationCenterName;
+    private javax.swing.JTextField txtVaccinationCenterName1;
+    private javax.swing.JTextField txtVaccinationCenterName10;
+    private javax.swing.JTextField txtVaccinationCenterName11;
+    private javax.swing.JTextField txtVaccinationCenterName12;
+    private javax.swing.JTextField txtVaccinationCenterName2;
+    private javax.swing.JTextField txtVaccinationCenterName3;
+    private javax.swing.JTextField txtVaccinationCenterName4;
     // End of variables declaration//GEN-END:variables
 }

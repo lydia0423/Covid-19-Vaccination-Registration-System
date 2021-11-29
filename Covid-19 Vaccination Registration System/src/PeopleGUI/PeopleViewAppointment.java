@@ -49,6 +49,7 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         txtVaccinationCenterName4 = new javax.swing.JTextField();
         btnAddNewSupply2 = new javax.swing.JButton();
         btnAddNewSupply3 = new javax.swing.JButton();
+        btnback = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
@@ -107,28 +108,28 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 550));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel2.setText("Full Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 95, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel5.setText("Vaccination Centre");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 178, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel7.setText("NRIC / Passport ");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(577, 95, -1, -1));
 
         txtVaccinationCenterName.setEditable(false);
-        txtVaccinationCenterName.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName.setBorder(null);
-        jPanel1.add(txtVaccinationCenterName, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 260, 34));
+        jPanel1.add(txtVaccinationCenterName, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 122, 260, 34));
 
         jLabel1.setText("X");
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
@@ -139,52 +140,52 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(875, 0, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel14.setText("Vaccine Type");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 261, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel9.setText("Time");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 344, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel11.setText("Date");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, -1, -1));
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 344, -1, -1));
 
         txtVaccinationCenterName1.setEditable(false);
-        txtVaccinationCenterName1.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName1.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName1.setBorder(null);
-        jPanel1.add(txtVaccinationCenterName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 330, 34));
+        jPanel1.add(txtVaccinationCenterName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 205, 330, 34));
 
         txtVaccinationCenterName3.setEditable(false);
-        txtVaccinationCenterName3.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName3.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName3.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName3.setBorder(null);
         txtVaccinationCenterName3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVaccinationCenterName3ActionPerformed(evt);
             }
         });
-        jPanel1.add(txtVaccinationCenterName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 260, 34));
+        jPanel1.add(txtVaccinationCenterName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 371, 260, 34));
 
         txtVaccinationCenterName10.setEditable(false);
-        txtVaccinationCenterName10.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName10.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName10.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName10.setBorder(null);
-        jPanel1.add(txtVaccinationCenterName10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 260, 34));
+        jPanel1.add(txtVaccinationCenterName10, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 371, 260, 34));
 
         txtVaccinationCenterName12.setEditable(false);
-        txtVaccinationCenterName12.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName12.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName12.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName12.setBorder(null);
-        jPanel1.add(txtVaccinationCenterName12, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, 260, 34));
+        jPanel1.add(txtVaccinationCenterName12, new org.netbeans.lib.awtextra.AbsoluteConstraints(577, 122, 260, 34));
 
         txtVaccinationCenterName4.setEditable(false);
-        txtVaccinationCenterName4.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtVaccinationCenterName4.setBackground(new java.awt.Color(186, 221, 212));
         txtVaccinationCenterName4.setBorder(null);
-        jPanel1.add(txtVaccinationCenterName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 260, 34));
+        jPanel1.add(txtVaccinationCenterName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 288, 260, 34));
 
         btnAddNewSupply2.setBackground(new java.awt.Color(82, 137, 128));
         btnAddNewSupply2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -206,7 +207,15 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         });
         jPanel1.add(btnAddNewSupply3, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 455, -1, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 550));
+        btnback.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/back.png"))); // NOI18N
+        btnback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbackMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 15, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -229,6 +238,12 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
     private void txtVaccinationCenterName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVaccinationCenterName3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVaccinationCenterName3ActionPerformed
+
+    private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
+        PeopleMainMenu peoplemenu = new PeopleMainMenu();
+        peoplemenu.setVisible(true); 
+        this.setVisible(false);       
+    }//GEN-LAST:event_btnbackMouseClicked
 
     /**
      * @param args the command line arguments
@@ -269,6 +284,7 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewSupply2;
     private javax.swing.JButton btnAddNewSupply3;
+    private javax.swing.JLabel btnback;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
