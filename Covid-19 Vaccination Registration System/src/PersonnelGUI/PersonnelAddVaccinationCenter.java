@@ -6,6 +6,8 @@ import Classes.Vaccine;
 import com.github.lgooddatepicker.components.TimePicker;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
+
+import java.awt.event.ActionEvent;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -162,6 +164,9 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbStateActionPerformed(evt);
             }
+
+            private void cmbStateActionPerformed(ActionEvent evt) {
+            }
         });
 
         tpStartTime.setMinimumSize(new java.awt.Dimension(80, 30));
@@ -214,7 +219,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBackMouseClicked(evt);
+                mouseClicked(evt);
             }
         });
         btnBack.addActionListener(new java.awt.event.ActionListener() {
