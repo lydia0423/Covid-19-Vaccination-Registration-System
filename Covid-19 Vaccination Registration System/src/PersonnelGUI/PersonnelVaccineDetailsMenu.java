@@ -226,7 +226,7 @@ public class PersonnelVaccineDetailsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void btnVaccineSupplyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVaccineSupplyMouseClicked
-        PersonnelVaccineCenter a = new PersonnelVaccineCenter();
+        PersonnelVaccinationCenter a = new PersonnelVaccinationCenter();
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVaccineSupplyMouseClicked
@@ -242,7 +242,7 @@ public class PersonnelVaccineDetailsMenu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("FlatLaf Light".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

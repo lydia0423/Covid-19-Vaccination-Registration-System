@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import Classes.PeopleAccRegistration;
+import Classes.VaccinationCenter;
+import HelperClasses.EncryptAndDecrypt;
 import PersonnelGUI.PersonnelAccountMenu;
 import PersonnelGUI.PersonnelAccountMenu;
 import PersonnelGUI.PersonnelAccountMenu;
@@ -36,35 +38,37 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblPeopleId = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        dpdob = new com.github.lgooddatepicker.components.DatePicker();
-        txtname = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtcontact = new javax.swing.JTextField();
-        txticpassport = new javax.swing.JTextField();
-        txtemail = new javax.swing.JTextField();
-        txtpasswordconfirm = new javax.swing.JPasswordField();
+        dpDOB = new com.github.lgooddatepicker.components.DatePicker();
+        txtName = new javax.swing.JTextField();
+        txtContact = new javax.swing.JTextField();
+        txtICOrPassport = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtaddress = new javax.swing.JTextArea();
-        txtpassword = new javax.swing.JPasswordField();
-        btncancel = new javax.swing.JButton();
-        btnregisteracc = new javax.swing.JButton();
+        txtAddress = new javax.swing.JTextArea();
+        btnCancel = new javax.swing.JButton();
+        btnRegister = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        citizenyes = new javax.swing.JRadioButton();
-        citizenno = new javax.swing.JRadioButton();
+        rbtnYes = new javax.swing.JRadioButton();
+        rbtnNo = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(200, 100));
         setMinimumSize(new java.awt.Dimension(900, 530));
         setUndecorated(true);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(186, 221, 212));
         jPanel1.setMaximumSize(new java.awt.Dimension(900, 530));
@@ -76,11 +80,15 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel11.setText("Register");
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel12.setText("Account");
+        lblPeopleId.setText("Account");
+        lblPeopleId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblPeopleId.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel14.setText("Account");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -91,10 +99,15 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addGap(13, 13, 13))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPeopleId, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel11))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -104,136 +117,93 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14)
+                .addGap(44, 44, 44)
+                .addComponent(lblPeopleId)
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel2.setText("Full Name as per IC / Passport");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel3.setText("Email");
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
-        jLabel4.setText("Confirm Password");
-
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel5.setText("Contact Number");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel6.setText("Date of Birth");
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel7.setText("NRIC (Citizen) / Passport (Non-citizen)");
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel8.setText("Address");
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        dpdob.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        dpDOB.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtname.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtname.setBorder(null);
+        txtName.setBorder(null);
+        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
-        jLabel9.setText("Password");
+        txtContact.setBorder(null);
+        txtContact.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtcontact.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtcontact.setBorder(null);
-        txtcontact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcontactActionPerformed(evt);
-            }
-        });
+        txtICOrPassport.setBorder(null);
+        txtICOrPassport.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txticpassport.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txticpassport.setBorder(null);
-        txticpassport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txticpassportActionPerformed(evt);
-            }
-        });
+        txtEmail.setBorder(null);
+        txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtemail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtemail.setBorder(null);
-
-        txtpasswordconfirm.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
-        txtpasswordconfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtpasswordconfirmActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.setText("X");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
 
-        txtaddress.setColumns(20);
-        txtaddress.setRows(5);
-        txtaddress.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        jScrollPane1.setViewportView(txtaddress);
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        txtAddress.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        jScrollPane1.setViewportView(txtAddress);
 
-        txtpassword.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
-        txtpassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtpasswordActionPerformed(evt);
-            }
-        });
-
-        btncancel.setBackground(new java.awt.Color(82, 137, 128));
-        btncancel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btncancel.setText("Cancel");
-        btncancel.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCancel.setText("Cancel");
+        btnCancel.setBackground(new java.awt.Color(82, 137, 128));
+        btnCancel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btncancelMouseClicked(evt);
+                btnCancelMouseClicked(evt);
             }
         });
-        btncancel.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncancelActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
-        btnregisteracc.setBackground(new java.awt.Color(82, 137, 128));
-        btnregisteracc.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnregisteracc.setText("Register");
-        btnregisteracc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnregisteraccMouseClicked(evt);
-            }
-        });
-        btnregisteracc.addActionListener(new java.awt.event.ActionListener() {
+        btnRegister.setText("Register");
+        btnRegister.setBackground(new java.awt.Color(82, 137, 128));
+        btnRegister.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregisteraccActionPerformed(evt);
+                btnRegisterActionPerformed(evt);
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel13.setText("Citizen");
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        buttonGroup1.add(citizenyes);
-        citizenyes.setText("Yes");
-        citizenyes.setBackground(new java.awt.Color(186, 221, 212));
-        citizenyes.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        citizenyes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                citizenyesActionPerformed(evt);
-            }
-        });
+        buttonGroup1.add(rbtnYes);
+        rbtnYes.setText("Yes");
+        rbtnYes.setBackground(new java.awt.Color(186, 221, 212));
+        rbtnYes.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        buttonGroup1.add(citizenno);
-        citizenno.setText("No");
-        citizenno.setBackground(new java.awt.Color(186, 221, 212));
-        citizenno.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        citizenno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                citizennoActionPerformed(evt);
-            }
-        });
+        buttonGroup1.add(rbtnNo);
+        rbtnNo.setText("No");
+        rbtnNo.setBackground(new java.awt.Color(186, 221, 212));
+        rbtnNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -248,27 +218,25 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(222, 222, 222)
-                        .addComponent(btncancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnregisteracc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(citizenno)
+                                .addComponent(rbtnNo)
                                 .addGap(12, 12, 12)
-                                .addComponent(citizenyes))
+                                .addComponent(rbtnYes))
                             .addComponent(jLabel2)
                             .addComponent(jLabel5)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
-                            .addComponent(dpdob, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9)
-                            .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dpDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
@@ -276,12 +244,10 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
-                                    .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(txtpasswordconfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txticpassport, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtICOrPassport, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap())))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -294,49 +260,39 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txticpassport, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtICOrPassport, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcontact, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(dpdob, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dpDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(citizenyes)
-                            .addComponent(citizenno))
-                        .addGap(18, 18, 18)))
+                            .addComponent(rbtnYes)
+                            .addComponent(rbtnNo))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtpasswordconfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnregisteracc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btncancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -352,102 +308,67 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void txtpasswordconfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordconfirmActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtpasswordconfirmActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void txticpassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txticpassportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txticpassportActionPerformed
-
-    private void txtcontactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcontactActionPerformed
-
-    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtpasswordActionPerformed
-
-    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btncancelActionPerformed
-
-    private void citizenyesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_citizenyesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_citizenyesActionPerformed
-
-    private void citizennoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_citizennoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_citizennoActionPerformed
-
-    private void btnregisteraccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregisteraccActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnregisteraccActionPerformed
-
-    private void btnregisteraccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnregisteraccMouseClicked
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        //Retrieve data from form
+        String peopleId, name, icOrPassport, dob, contact, address, citizen, email, password, encryptedPassword;
         
-        //Retrive data from form
-        String name, icpassport, contact, email, address, citizen, dobstring, passwordstring, confirmpasswordstring;
-        LocalDate dob;
-        char[] password, confirmpassword;
+        peopleId = lblPeopleId.getText();
+        name = txtName.getText();
+        icOrPassport = txtICOrPassport.getText();
+        dob = String.valueOf(dpDOB.getDate());
+        contact = txtContact.getText();
+        address = txtAddress.getText();
+        email = txtEmail.getText();
+        password = "password";
         
-        name = txtname.getText();
-        icpassport = txticpassport.getText();
-        contact = txtcontact.getText();
-        email = txtemail.getText();
-        dob = dpdob.getDate();
-        address = txtaddress.getText();
-        password = txtpassword.getPassword();
-        passwordstring = new String(password);
-        confirmpassword = txtpasswordconfirm.getPassword();
-        confirmpasswordstring = new String(confirmpassword);
-        citizen = "";
-        
-        if(citizenno.isSelected()){
-            citizen = "Non-Citizen"; 
-        }else if (citizenyes.isSelected()){
-            citizen = "Citizen";
+        if(rbtnNo.isSelected()){
+            citizen = rbtnNo.getText();
+        }else{
+            citizen = rbtnYes.getText();
         }
         
-        
-        // Verify all input are filled
-        if(name.isEmpty() || icpassport.isEmpty() || contact.isEmpty() || email.isEmpty() || address.isEmpty() || citizen.isEmpty() || passwordstring.isEmpty() || confirmpasswordstring.isEmpty()){
+        //Verify all the inputs are filled
+        if(name.isEmpty() || icOrPassport.isEmpty() || dob.isEmpty() || contact.isEmpty() || address.isEmpty() || email.isEmpty()){
             JOptionPane.showMessageDialog(null, "Please ensure that all fields have been filled in", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
             return;
         }
         
-        // Verify password
-        if(!(passwordstring.equals(confirmpasswordstring))){
-            JOptionPane.showMessageDialog(null, "Password Does Not Match!", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        //Encrypt the password
+        encryptedPassword = EncryptAndDecrypt.encryptPassword(password);
         
-        // After verification
-        dobstring = dob.format(DateTimeFormatter.ISO_DATE);
+        //Creates an instance PeopleAccRegistration and saves it to the database
+        PeopleAccRegistration register = new PeopleAccRegistration(peopleId, name, icOrPassport, contact, dob, address, citizen, email, encryptedPassword);
+        PeopleAccRegistration.saveRegistration(register, "save");
         
-//        PeopleAccRegistration register = new PeopleAccRegistration(email, passwordstring, citizen, name, icpassport, contact, address, dobstring);
-//        PeopleAccRegistration.saveRegistration(register);
-        
-        // Clear text field
-        txtname.setText(null);
-        txticpassport.setText(null);
-        txtcontact.setText(null);
-        txtemail.setText(null);
-        dpdob.setDate(null);
-        txtaddress.setText(null);
-        txtpassword.setText(null);
-        txtpasswordconfirm.setText(null);
-    }//GEN-LAST:event_btnregisteraccMouseClicked
+        int n = JOptionPane.showConfirmDialog(null, "Registration has been saved. Add another people account?", "people account added", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (n == JOptionPane.YES_NO_OPTION) {
+            //If yes, reset the form
 
-    private void btncancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncancelMouseClicked
+            lblPeopleId.setText(VaccinationCenter.generateVaccinationId());
+        } else {
+            PersonnelMainMenu mainMenu = new PersonnelMainMenu();
+            mainMenu.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
             PersonnelAccountMenu addaccountmenu = new PersonnelAccountMenu();
             addaccountmenu.setVisible(true);
             this.setVisible(false);
         }  
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btncancelMouseClicked
+    }//GEN-LAST:event_btnCancelMouseClicked
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        lblPeopleId.setText(PeopleAccRegistration.generatePeopleId());
+        System.out.println(lblPeopleId.getText());
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments
@@ -488,34 +409,31 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncancel;
-    private javax.swing.JButton btnregisteracc;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnRegister;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton citizenno;
-    private javax.swing.JRadioButton citizenyes;
-    private com.github.lgooddatepicker.components.DatePicker dpdob;
+    private com.github.lgooddatepicker.components.DatePicker dpDOB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtaddress;
-    private javax.swing.JTextField txtcontact;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txticpassport;
-    private javax.swing.JTextField txtname;
-    private javax.swing.JPasswordField txtpassword;
-    private javax.swing.JPasswordField txtpasswordconfirm;
+    private javax.swing.JLabel lblPeopleId;
+    private javax.swing.JRadioButton rbtnNo;
+    private javax.swing.JRadioButton rbtnYes;
+    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextField txtContact;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtICOrPassport;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

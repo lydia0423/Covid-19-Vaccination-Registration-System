@@ -8,17 +8,16 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import HelperClasses.FileHandler;
 import HelperClasses.FileMethods;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.UUID;
 
-/**
- *
- * @author Eric
- */
 public class PeopleAccRegistration extends Registration implements FileMethods{
     
    private String peopleId, citizen, name, icOrPassport, contact, address, dob;
     
-    public PeopleAccRegistration(String email, String password, String peopleId, String citizen, String name, String icOrPassport, String contact, String address, String dob) {
+    public PeopleAccRegistration(String peopleId, String name, String icOrPassport, String contact, String address, String dob, String citizen, String email, String password) {
         super(email, password);
         this.peopleId = peopleId;
         this.citizen = citizen;
@@ -90,9 +89,37 @@ public class PeopleAccRegistration extends Registration implements FileMethods{
         String peopleId = "PLP" + UUID.randomUUID().toString();
         return peopleId;
     }
+    
+    //Retrieve all people account
+    public static ArrayList<PeopleAccRegistration> getAllPeopleAccounts() {
+        //Retrive from folder
+        File peopleFolder = FileHandler.retrievePath("People", "null");
+        File[] peopleFiles = peopleFolder.listFiles();
+        ArrayList<PeopleAccRegistration> allPeoples = new ArrayList<>();
+        for (File peopleFile : peopleFiles) {
+            try ( Scanner readFile = new Scanner(peopleFile)) {
+                while (readFile.hasNext()) {
+                    allPeoples.add(new PeopleAccRegistration(
+                            readFile.nextLine(),
+                            readFile.nextLine(),
+                            readFile.nextLine(),
+                            readFile.nextLine(),
+                            readFile.nextLine(),
+                            readFile.nextLine(),
+                            readFile.nextLine(),
+                            readFile.nextLine(),
+                            readFile.nextLine()
+                    ));
+                }
+            } catch (FileNotFoundException e) {
+                System.err.println(e);
+            }
+        }
+        return allPeoples;
+    }
 
     //Save New Registration into File
-    public static void saveRegistration(PeopleAccRegistration peopleRegistration) {
+    public static void saveRegistration(PeopleAccRegistration peopleRegistration, String type) {
         String fileName = peopleRegistration.setFileName() + ".txt";
 
         File myFile = FileHandler.createFilePath("People", fileName);
@@ -115,10 +142,15 @@ public class PeopleAccRegistration extends Registration implements FileMethods{
             bw.newLine();
             bw.write(peopleRegistration.getPassword());
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Failed to save appointment. Please try again.", "Register Vaccination Appointment Failed", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Failed to save registration. Please try again.", "Register People Account Failed", JOptionPane.ERROR_MESSAGE);
             System.out.println("Error occurred: " + e);
         }
-       
+        
+        if(type.equals("save")){
+            JOptionPane.showMessageDialog(null, "People Registration successfully saved.", "Register People Account Success!", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "People Account successfully saved.", "Update People Account Success!", JOptionPane.INFORMATION_MESSAGE);
+        }  
     }
 
     @Override

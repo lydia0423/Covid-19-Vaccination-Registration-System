@@ -1,23 +1,34 @@
 package PersonnelGUI;
 
+import Classes.PeopleAccRegistration;
 import HelperClasses.FileHandler;
 import Classes.VaccinationAppointment;
 import Classes.VaccinationCenter;
 import HelperClasses.State;
+import HelperClasses.TableFilter;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePicker;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
@@ -31,7 +42,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
-    
+
     public PersonnelVaccinationAppointment() {
         initComponents();
         txtName.setEditable(false);
@@ -124,6 +135,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         tblVaccinationAppointment.getTableHeader().setReorderingAllowed(false);
         btnClose = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        cmbStatus = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
@@ -132,27 +144,26 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         dialogEditAppointment.setLocationByPlatform(true);
-        dialogEditAppointment.setMaximumSize(new java.awt.Dimension(900, 530));
         dialogEditAppointment.setMinimumSize(new java.awt.Dimension(900, 530));
         dialogEditAppointment.setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(186, 221, 212));
         jPanel3.setForeground(new java.awt.Color(186, 221, 212));
 
-        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Negeri Sembilan", "Malacca", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah ", "Sarawak" }));
+        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel9.setText("Heath Condition");
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         tpAppointmentTime.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel14.setText("Time");
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
+        btnUpdateAppointment.setText("Confirm");
         btnUpdateAppointment.setBackground(new java.awt.Color(82, 137, 128));
         btnUpdateAppointment.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnUpdateAppointment.setText("Confirm");
         btnUpdateAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateAppointmentActionPerformed(evt);
@@ -163,12 +174,12 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         txtVaccineType.setBorder(null);
         txtVaccineType.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel6.setText("Date");
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
+        btnCancel.setText("Cancel");
         btnCancel.setBackground(new java.awt.Color(82, 137, 128));
         btnCancel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
@@ -179,22 +190,22 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         jPanel5.setMaximumSize(new java.awt.Dimension(220, 530));
         jPanel5.setMinimumSize(new java.awt.Dimension(220, 530));
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Update");
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         txtUserId.setBackground(new java.awt.Color(255, 255, 255));
 
         txtRegisteredDate.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Appointment");
+        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        lblAppointmentId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        lblAppointmentId.setForeground(new java.awt.Color(255, 255, 255));
         lblAppointmentId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAppointmentId.setText("Appointment ID");
+        lblAppointmentId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblAppointmentId.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -242,20 +253,20 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         dpAppointmentDate.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel8.setText("Name");
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtName.setBorder(null);
         txtName.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
+        rbtnNo.setText("No");
         rbtnNo.setBackground(new java.awt.Color(186, 221, 212));
         rbtnNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        rbtnNo.setText("No");
 
+        rbtnYes.setText("Yes");
         rbtnYes.setBackground(new java.awt.Color(186, 221, 212));
         rbtnYes.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        rbtnYes.setText("Yes");
 
         cmbVaccinationCenter.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         cmbVaccinationCenter.addItemListener(new java.awt.event.ItemListener() {
@@ -275,26 +286,27 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         txtHealthCondition.setColumns(20);
         txtHealthCondition.setRows(5);
+        txtHealthCondition.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jScrollPane2.setViewportView(txtHealthCondition);
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel5.setText("Vaccination Centre");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel7.setText("NRIC / Passport");
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         txtIC.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtIC.setBorder(null);
         txtIC.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel4.setText("Close Contact");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel13.setText("Vaccine Type");
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel11.setText("State");
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         jLabel16.setText("X");
         jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
@@ -447,8 +459,8 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         jSeparator1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        txtSearch.setBackground(new java.awt.Color(186, 221, 212));
         txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        txtSearch.setBackground(new java.awt.Color(186, 221, 218));
         txtSearch.setBorder(null);
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -476,27 +488,39 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
             }
         });
 
+        cmbStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Status-", "Registered", "Pending", "Confirmed", "Completed", "Cancelled" }));
+        cmbStatus.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbStatusItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnClose))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68))
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(89, 89, 89)
+                .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClose)
+                .addGap(28, 28, 28))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(305, 305, 305)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(276, 276, 276)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -507,50 +531,52 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(btnClose))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel1.setText("View Registrants");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.setBackground(new java.awt.Color(82, 137, 128));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.setBackground(new java.awt.Color(82, 137, 128));
         btnEdit.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
 
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.setBackground(new java.awt.Color(82, 137, 128));
         btnDelete.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.setBackground(new java.awt.Color(82, 137, 128));
         btnPrint.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
@@ -571,17 +597,21 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAdd)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEdit))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnDelete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPrint))
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnAdd)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnEdit))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnDelete)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnPrint)))))
                         .addGap(29, 29, 29)))
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,7 +620,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addGap(49, 49, 49)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAdd)
                     .addComponent(btnEdit))
@@ -598,7 +628,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPrint)
                     .addComponent(btnDelete))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
         );
 
@@ -615,9 +645,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        // Seach Booking Table
+        // Seach Appointment Table
         RowSorter rowSorter = new RowSorter();
         rowSorter.searchTable();
     }//GEN-LAST:event_txtSearchKeyReleased
@@ -635,7 +665,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please select a row to edit", "Select Appointment", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        
+
         String appointmentId = tblVaccinationAppointment.getValueAt(selectedRow, 0).toString();
         String patientName = tblVaccinationAppointment.getValueAt(selectedRow, 1).toString();
         String patientId = tblVaccinationAppointment.getValueAt(selectedRow, 2).toString();
@@ -646,32 +676,31 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         String appointmentTime = tblVaccinationAppointment.getValueAt(selectedRow, 8).toString();
         String healthCondition = tblVaccinationAppointment.getValueAt(selectedRow, 9).toString();
         String closeContact = tblVaccinationAppointment.getValueAt(selectedRow, 10).toString();
-        
+
         //Open PersonnelUpdateVaccinationAppointment window
         dialogEditAppointment.setVisible(true);
-        
+
         //Display all the data from the selected row
         lblAppointmentId.setText(appointmentId);
         txtName.setText(patientName);
         txtIC.setText(patientId);
         cmbState.setSelectedItem(state);
-        //cmbVaccinationCenter.setSelectedItem(vaccinationCenter);
         txtVaccineType.setText(vaccineType);
         dpAppointmentDate.setDate(LocalDate.parse(appointmentDate));
         tpAppointmentTime.setTime(LocalTime.parse(appointmentTime));
         txtHealthCondition.setText(healthCondition);
-        
+
         if (closeContact.equals("No")) {
             rbtnNo.setSelected(true);
         } else {
             rbtnYes.setSelected(true);
         }
-        
+
         //Populates the combo box
         DefaultComboBoxModel<String> centerSelectorList = new DefaultComboBoxModel<>();
         centerSelectorList.addElement(vaccinationCenter);
         cmbVaccinationCenter.setModel(centerSelectorList);
-        
+
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -700,18 +729,67 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        // TODO add your handling code here:
+        String folderDirectory = "";
+        String fileName = System.getProperty("file.separator") + "VaccinationAppointment " + LocalDate.now().toString() + ".pdf";
+        String[] headers = {"Appointment ID", "Name", "Identification", "State", "Vaccination Center", "Vaccine Type", "Registered Date", "Appointment Date", "Appointment Time", "Health Condition", "Close Contact", "Appointment Status"};
+
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int n = chooser.showSaveDialog(this);
+
+        if (n == JFileChooser.APPROVE_OPTION) {
+            folderDirectory = chooser.getSelectedFile().getPath();
+        }
+
+        Document doc = new Document();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(folderDirectory + fileName));
+
+            doc.open();
+            PdfPTable tbl = new PdfPTable(10);
+
+            for (String header : headers) {
+                tbl.addCell(header);
+            }
+
+            for (int i = 0; i < tblVaccinationAppointment.getRowCount(); i++) {
+                String appointmentId = tblVaccinationAppointment.getValueAt(i, 0).toString();
+                String patientName = tblVaccinationAppointment.getValueAt(i, 1).toString();
+                String patientId = tblVaccinationAppointment.getValueAt(i, 2).toString();
+                String state = tblVaccinationAppointment.getValueAt(i, 3).toString();
+                String vaccinationCenter = tblVaccinationAppointment.getValueAt(i, 4).toString();
+                String vaccineType = tblVaccinationAppointment.getValueAt(i, 5).toString();
+                String appointmentDate = tblVaccinationAppointment.getValueAt(i, 7).toString();
+                String appointmentTime = tblVaccinationAppointment.getValueAt(i, 8).toString();
+                String healthCondition = tblVaccinationAppointment.getValueAt(i, 9).toString();
+                String closeContact = tblVaccinationAppointment.getValueAt(i, 10).toString();
+                
+                tbl.addCell(appointmentId);
+                tbl.addCell(patientName);
+                tbl.addCell(patientId);
+                tbl.addCell(state);
+                tbl.addCell(vaccinationCenter);
+                tbl.addCell(vaccineType);
+                tbl.addCell(appointmentDate);
+                tbl.addCell(appointmentTime);
+                tbl.addCell(healthCondition);
+                tbl.addCell(closeContact);
+                
+            }
+
+            doc.add(tbl);
+
+        } catch (FileNotFoundException | DocumentException ex) {
+            Logger.getLogger(PersonnelVaccinationAppointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        doc.close();
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
         dispose();
     }//GEN-LAST:event_btnCloseMouseClicked
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
-        personnelmenu.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbVaccinationCenterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterItemStateChanged
         ArrayList<VaccinationCenter> allCenter = new ArrayList<>();
@@ -768,7 +846,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         }
 
         //Retrive data from form
-        String appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, healthCondition, closeContact, appointmentStatus, appointmentDateString, appointmentTimeString, registeredDateString;
+        String appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, healthCondition, closeContact, appointmentStatus, appointmentDateString, appointmentTimeString, registeredDateString, userId = null;
         LocalDate registeredDate, appointmentDate;
         LocalTime appointmentTime;
 
@@ -783,6 +861,12 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         appointmentTime = tpAppointmentTime.getTime();
         healthCondition = txtHealthCondition.getText();
         appointmentStatus = "Pending";
+
+        if (rbtnNo.isSelected()) {
+            closeContact = rbtnNo.getText();
+        } else {
+            closeContact = rbtnYes.getText();
+        }
 
         if (rbtnNo.isSelected()) {
             closeContact = rbtnNo.getText();
@@ -819,6 +903,16 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel16MouseClicked
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        PersonnelAccountMenu accountmenu = new PersonnelAccountMenu();
+        accountmenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void cmbStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbStatusItemStateChanged
+        TableFilter.filter(tblVaccinationAppointment, "--Status--", cmbStatus.getSelectedItem().toString());
+    }//GEN-LAST:event_cmbStatusItemStateChanged
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -849,10 +943,11 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
             new PersonnelVaccinationAppointment().setVisible(true);
         });
     }
-    
+
 //Model for populating the Appointment Table display
-class AppointmentTableModel extends AbstractTableModel{
-    final private String[] columnNames = {"Appointment ID", "Name", "Identification", "State", "Vaccination Center", "Vaccine Type", "Registered Date", "Appointment Date", "Appointment Time", "Health Condition", "Close Contact", "Appointment Status"};
+    class AppointmentTableModel extends AbstractTableModel {
+
+        final private String[] columnNames = {"Appointment ID", "Name", "Identification", "State", "Vaccination Center", "Vaccine Type", "Registered Date", "Appointment Date", "Appointment Time", "Health Condition", "Close Contact", "Appointment Status"};
         final private ArrayList<VaccinationAppointment> appointmentList = VaccinationAppointment.getAllVaccinationAppointments();
 
         @Override
@@ -910,7 +1005,7 @@ class AppointmentTableModel extends AbstractTableModel{
         public void removeRow(int row) {
             appointmentList.remove(row);
         }
-}
+    }
 
 //RowSorter for searching the table
     class RowSorter extends TableRowSorter<TableModel> {
@@ -955,6 +1050,7 @@ class AppointmentTableModel extends AbstractTableModel{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCancel;
     private javax.swing.JLabel btnClose;
     private javax.swing.JButton btnDelete;
@@ -962,6 +1058,7 @@ class AppointmentTableModel extends AbstractTableModel{
     private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnUpdateAppointment;
     public javax.swing.JComboBox<String> cmbState;
+    private javax.swing.JComboBox<String> cmbStatus;
     public javax.swing.JComboBox<String> cmbVaccinationCenter;
     private javax.swing.JDialog dialogEditAppointment;
     public com.github.lgooddatepicker.components.DatePicker dpAppointmentDate;
@@ -1002,4 +1099,3 @@ class AppointmentTableModel extends AbstractTableModel{
     public javax.swing.JTextField txtVaccineType;
     // End of variables declaration//GEN-END:variables
 }
-

@@ -8,7 +8,6 @@ public class Registration {
         super();
         this.email = email;
         this.password = password;
-    
     }
     
     public String getEmail() {

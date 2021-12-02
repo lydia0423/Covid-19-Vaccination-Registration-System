@@ -40,14 +40,4 @@ public class FileHandler {
             return myFile;
         }
     }
-    
-    public static File readFile(String filePath){
-        if(!filePath.equals("null")){
-           String path = filePath;
-        }else{
-            System.out.println("The file is not exist in your directory");
-        }
-        
-        return new File(filePath);
-    }
 }
