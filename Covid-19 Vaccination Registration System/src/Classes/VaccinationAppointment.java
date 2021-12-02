@@ -1,14 +1,16 @@
 package Classes;
 
+import HelperClasses.EmailGenerator;
 import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import HelperClasses.FileHandler;
 import HelperClasses.FileMethods;
+import javax.mail.MessagingException;
 
 public class VaccinationAppointment implements FileMethods{
 
-    protected String appointmentId, patientName, patientIdentification, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus;
+    protected String appointmentId, patientName, patientIdentification, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus, userId;
 
     public VaccinationAppointment(String appointmentId, String patientName, String patientIdentification, String state, String vaccinationCenter, String vaccineType, String registeredDate, String appointmentDate, String appointmentTime, String healthCondition, String closeContact, String appointmentStatus) {
         this.appointmentId = appointmentId;
@@ -24,6 +26,8 @@ public class VaccinationAppointment implements FileMethods{
         this.closeContact = closeContact;
         this.appointmentStatus = appointmentStatus;
     }
+
+    public VaccinationAppointment() {}
    
     public String getAppointmentId() {
         return appointmentId;
@@ -120,8 +124,6 @@ public class VaccinationAppointment implements FileMethods{
     public void setAppointmentStatus(String appointmentStatus) {
         this.appointmentStatus = appointmentStatus;
     }
-    
-    
 
     //Generate random combination of number and alphabet for appointment Id
     public static String generateAppointmentId() {
@@ -226,12 +228,57 @@ public class VaccinationAppointment implements FileMethods{
         
         if(type == "Add"){
             JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Register Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        }else if(type == "Update"){
             JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Update Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
+        }else if(type == "Confirm"){
+            JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully confirmed.", "Confirm Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully cencelled.", "Cancel Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
         }
                 
                 
     }
+    
+//    public static void generateEmail(VaccinationAppointment appointment, String userType, String email) throws MessagingException{
+//        String message = null;
+//        if(userType == "Personnel"){
+//            message = "Hi " + appointment.getPatientName() + "\n" 
+//                + "Thank you for registering vaccination programme." 
+//                + "\n\n"
+//                + "Please take a look at the vaccination appointment deatils below and let us know if you have any questions "
+//                + " You can call us at 03-6653458 or simply email admin@helpacquire.com"
+//                + "\n\nPlease confirm the appointment within 2 days if you don't have any enquires. "
+//                + "\n\n\n\n"
+//                + "Vaccination Appointment Id: " + appointment.getAppointmentId()
+//                + "Name: " + appointment.getPatientName()
+//                + "IC/Passport: " + appointment.getPatientIdentification()
+//                + "State: " + appointment.getState()
+//                + "Vaccination Center: " + appointment.getVaccinationCenter()
+//                + "Vaccine Type: " + appointment.getVaccineType()
+//                + "Appointment Date: " + appointment.getAppointmentDate()
+//                + "Appointment Time: " + appointment.getAppointmentTime()
+//                + "Appointment Status: " + appointment.getAppointmentStatus();
+//        }else{
+//            message = "Hi " + appointment.getPatientName() + "\n" 
+//                + "Thank you for registering vaccination programme." 
+//                + "\n\n"
+//                + "Please take a look at the vaccination programme details below and let us know if you have any questions "
+//                + " You can call us at 03-6653458 or simply email admin@helpacquire.com"
+//                + "\n\nKindly wait for the appointment to be approved."
+//                + "\n\n\n\n"
+//                + "Vaccination Appointment Id: " + appointment.getAppointmentId()
+//                + "Name: " + appointment.getPatientName()
+//                + "IC/Passport: " + appointment.getPatientIdentification()
+//                + "State: " + appointment.getState()
+//                + "Vaccination Center: " + appointment.getVaccinationCenter()
+//                + "Vaccine Type: " + appointment.getVaccineType()
+//                + "Appointment Date: " + appointment.getAppointmentDate()
+//                + "Appointment Time: " + appointment.getAppointmentTime()
+//                + "Appointment Status: " + appointment.getAppointmentStatus();
+//        }
+//        
+//        EmailGenerator.sendEmail(email, message);             
+//    }
 
     @Override
     public String setFileName() {

@@ -226,7 +226,7 @@ public class PersonnelVaccineDetailsMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void btnVaccineSupplyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVaccineSupplyMouseClicked
-        PersonnelVaccineCenter a = new PersonnelVaccineCenter();
+        PersonnelVaccinationCenter a = new PersonnelVaccinationCenter();
         a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVaccineSupplyMouseClicked

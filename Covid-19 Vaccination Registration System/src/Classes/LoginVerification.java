@@ -1,23 +1,15 @@
-/**
- * Does not pop out dialog box when credentials is invalid.
- *
- * Although successful login, the login page will still be there.
- * (How to make it disappear?)
- *
- * line 103 to 105 does not work!
- */
 package Classes;
 
-import HelperClasses.FileHandler;
 import PersonnelGUI.PersonnelMainMenu;
 import PeopleGUI.PeopleMainMenu;
 import CommonGUI.Login;
-import java.io.File;
-import java.util.Scanner;
+import HelperClasses.EncryptAndDecrypt;
+import HelperClasses.Logging;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import java.io.FileNotFoundException;
 
-public class LoginVerification {
+public class LoginVerification{
 
     protected String userName, userPassword, userRole;
 
@@ -41,75 +33,80 @@ public class LoginVerification {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
-
-    public static void setRole(LoginVerification credentials) {
-
-        try {
-
-            // Set role as personnel if User Id contains "helpacquire.com"
-            if ((credentials.userName).contains("helpacquire.com")) {
-
-                String fileName = "personnelcredentials.txt";
-                File readcredentials = FileHandler.retrievePath("Credentials", fileName);
-
-                Scanner scan = new Scanner(readcredentials);
-
-                // personnel have 5 kinds of details
-                while (readcredentials != null) {
-                    String personnelrole = scan.nextLine();
-                    String personnelid = scan.nextLine();
-                    String personnelname = scan.nextLine();
-                    String personnelemail = scan.nextLine();
-                    String personnelpassword = scan.nextLine();
-
-                    // if username and password matches, allow login to personnel menu
-                    if (personnelemail.equals(credentials.userName) && personnelpassword.equals(credentials.userPassword)) {
-                        credentials.userRole = "Personnel";
-                        PersonnelMainMenu personnelmenu = new PersonnelMainMenu();
-                        personnelmenu.setVisible(true);
-                        Login login = new Login();
-                        login.setVisible(false);
-                    }
+    
+    public static void verifyLogin(String userName, String password) throws SecurityException, IOException {
+        ArrayList<PersonnelAccRegistration> allPersonnelAccounts = new ArrayList<>();
+        ArrayList<PeopleAccRegistration> allPeopleAccounts = new ArrayList<>();
+        
+        if(userName.contains("helpacquire.com")){
+            allPersonnelAccounts = PersonnelAccRegistration.getAllPersonnelAccounts();
+            
+            for(PersonnelAccRegistration account : allPersonnelAccounts){
+                String decoderPassword = EncryptAndDecrypt.decryptPassword(account.getPassword());
+                if(userName.equals(account.getEmail()) && password.equals(decoderPassword)){
+                    new PersonnelMainMenu(account.getName(), account.getPersonnelId()).setVisible(true);
+                    Logging.loginLog(account.getPersonnelId(), "Personnel");
                 }
-            } // if it does not contain "helpacquire.com", then read credentials from people txt file
-            else if (!(credentials.userName.contains("helpacquire.com"))) {
-                String fileName = "peoplecredentials.txt";
-                File readcredentials = FileHandler.retrievePath("Credentials", fileName);
-
-                Scanner scan = new Scanner(readcredentials);
-                
-                // personnel have 9 kinds of details
-                while (readcredentials != null) {
-                    String peoplerole = scan.nextLine();
-                    String peoplenationality = scan.nextLine();
-                    String peoplename = scan.nextLine();
-                    String peopleidentification = scan.nextLine();
-                    String peoplecontact = scan.nextLine();
-                    String peopleladdress = scan.nextLine();
-                    String peopledob = scan.nextLine();
-                    String peopleemail = scan.nextLine();
-                    String peoplepassword = scan.nextLine();
-                    
-                    // if username and password matches, allow login to people menu
-                    if (peopleemail.equals(credentials.userName) && peoplepassword.equals(credentials.userPassword)) {
-                        credentials.userRole = "People";
-                        Login login = new Login();
-                        login.setVisible(false);
-                        PeopleMainMenu peoplemenu = new PeopleMainMenu();
-                        peoplemenu.setVisible(true);
-                    }
+            }       
+        }else{
+            allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
+            
+            for(PeopleAccRegistration account : allPeopleAccounts){
+                String decoderPassword = EncryptAndDecrypt.decryptPassword(account.getPassword());
+                if(userName.equals(account.getEmail()) && password.equals(decoderPassword)){
+                    new PeopleMainMenu(account.getName(), account.getPeopleId(), account.getIcOrPassport()).setVisible(true);
+                    Logging.loginLog(account.getPeopleId(), "People");
                 }
-            } // no matching email and password in personnel credential or people credential
-            else {
-                JOptionPane.showMessageDialog(null, "Invalid Credentials.", "Login Failed", JOptionPane.ERROR_MESSAGE);
-                return;
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File Not Found.");
-            e.printStackTrace();
         }
-
     }
-;
+    
+    public static void updatePassword(String userName, String password){
+        ArrayList<PersonnelAccRegistration> allPersonnelAccounts = new ArrayList<>();
+        ArrayList<PeopleAccRegistration> allPeopleAccounts = new ArrayList<>();
+        
+        String userId, name, icOrPassport, dob, contact, address, citizen;
+        
+        if(userName.contains("helpacquire.com")){
+            allPersonnelAccounts = PersonnelAccRegistration.getAllPersonnelAccounts();
+            
+            for(PersonnelAccRegistration account : allPersonnelAccounts){
+                if(userName.equals(account.getEmail())){
+                    userId = account.getPersonnelId();
+                    name = account.getName();
+                    icOrPassport = account.getIc();
+                    userName = account.getEmail();
+                    
+                    PersonnelAccRegistration updatePassword = new PersonnelAccRegistration(userId, name, icOrPassport, userName, password);
+                    PersonnelAccRegistration.savePersonnelRegistration(updatePassword, "update");
+                    
+                    JOptionPane.showMessageDialog(null, "Password successfully saved.", "Update Password Success!", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }       
+        }else{
+            allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
+            
+            for(PeopleAccRegistration account : allPeopleAccounts){
+                if(userName.equals(account.getEmail())){
+                    userId = account.getPeopleId();
+                    name = account.getName();
+                    icOrPassport = account.getIcOrPassport();
+                    dob = account.getDob();
+                    contact = account.getContact();
+                    address = account.getAddress();
+                    citizen = account.getCitizen();
+                    userName = account.getEmail();
+                    
+                    PeopleAccRegistration updatePassword = new PeopleAccRegistration(userId, name, icOrPassport, dob, contact, address, citizen, userName, password);
+                    PeopleAccRegistration.saveRegistration(updatePassword, "update"); 
+                    
+                    JOptionPane.showMessageDialog(null, "Password successfully saved.", "Update Password Success!", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        }
+        
+    }
+
+
 
 }

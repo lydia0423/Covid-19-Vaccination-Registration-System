@@ -102,6 +102,40 @@ public class VaccinationCenter implements FileMethods{
     }
     
     //Retrieve all vaccination center created
+    public static ArrayList<VaccinationCenter> getAllVaccinationCentersForTable() { 
+        String[] stateList = {"Johor", "Negeri Sembilan", "Malacca", "Selangor", "Kuala Lumpur", 
+            "Labuan", "Putrajaya", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan",
+            "Pahang", "Sabah","Sarawak"};
+        ArrayList<VaccinationCenter> allVaccinationCenters = new ArrayList<>();
+        
+        for (String state : stateList) {
+            String folderDirectory = State.getStateFileDirectory(state, "VaccinationCenter");
+            //Retrive from folder
+            File vaccinationCenterFolder = FileHandler.retrievePath(folderDirectory, "null");
+            File[] vaccinationCenterFiles = vaccinationCenterFolder.listFiles();
+            for (File vaccinationCenterFile : vaccinationCenterFiles) {
+                try ( Scanner readFile = new Scanner(vaccinationCenterFile)) {
+                    while (readFile.hasNext()) {
+                        allVaccinationCenters.add(new VaccinationCenter(
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine()
+                        ));
+                    }
+                } catch (FileNotFoundException e) {
+                    System.err.println(e);
+                }
+            }
+        } 
+        return allVaccinationCenters;
+    }
+    
+    //Retrieve all vaccination center created
     public static ArrayList<VaccinationCenter> getAllVaccinationCenters(String filePath) {  
         //Retrive from folder
         File vaccinationCenterFolder = FileHandler.retrievePath(filePath, "null");
@@ -155,7 +189,7 @@ public class VaccinationCenter implements FileMethods{
     }
 
     //Save Vaccination Center
-    public static void saveVaccinationCenter(VaccinationCenter center) {
+    public static void saveVaccinationCenter(VaccinationCenter center, String type) {
         String fileName = center.setFileName() + ".txt";
         String vaccinationCenterState = center.getState();
         String folderDirectory = State.setStateFileDirectory(vaccinationCenterState, "VaccinationCenter");
@@ -181,8 +215,13 @@ public class VaccinationCenter implements FileMethods{
             JOptionPane.showMessageDialog(null, "Failed to save vaccination center. Please try again.", "Register Vaccination Center Failed", JOptionPane.ERROR_MESSAGE);
             System.out.println("Error occurred: " + e);
         }
-
-        JOptionPane.showMessageDialog(null, "Vaccination Center successfully saved.", "Register Vaccination Center Success!", JOptionPane.INFORMATION_MESSAGE);
+        
+        if(type == "save"){
+            JOptionPane.showMessageDialog(null, "Vaccination Center successfully saved.", "Register Vaccination Center Success!", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Vaccination Center successfully saved.", "Update Vaccination Center Success!", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
     }
     
     @Override
@@ -194,5 +233,4 @@ public class VaccinationCenter implements FileMethods{
     public String getFileName() {
         return null;
     }
-    
 }

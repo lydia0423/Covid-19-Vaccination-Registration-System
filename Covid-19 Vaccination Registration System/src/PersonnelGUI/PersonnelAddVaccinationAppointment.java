@@ -1,5 +1,6 @@
 package PersonnelGUI;
 
+import Classes.PeopleAccRegistration;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePicker;
@@ -11,10 +12,21 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import Classes.VaccinationAppointment;
 import Classes.VaccinationCenter;
+import HelperClasses.EmailGenerator;
 import HelperClasses.State;
-import HelperClasses.Validation;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.DefaultComboBoxModel;
 
 public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
@@ -50,6 +62,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         TimePickerSettings appointmentTimeSettings = new TimePickerSettings();
         tpAppointmentTime = new TimePicker(appointmentTimeSettings);
         appointmentTimeSettings.generatePotentialMenuTimes(TimeIncrement.ThirtyMinutes, LocalTime.of(8, 00), LocalTime.of(19, 00));
+        appointmentTimeSettings.use24HourClockFormat();
         btnAddNewAppointment = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtVaccineType = new javax.swing.JTextField();
@@ -241,15 +254,15 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         txtHealthCondition.setRows(5);
         jScrollPane1.setViewportView(txtHealthCondition);
 
-        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel11.setText("State");
+        jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Johor", "Negeri Sembilan", "Malacca", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah ", "Sarawak" }));
+        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtName.setBorder(null);
         txtName.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -404,10 +417,10 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         }
 
         //Retrive data from form
-        String appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, healthCondition, closeContact, appointmentStatus, appointmentDateString, appointmentTimeString, registeredDateString;
+        String appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, healthCondition, closeContact, appointmentStatus, appointmentDateString, appointmentTimeString, registeredDateString, userId = null;
         LocalDate registeredDate, appointmentDate;
         LocalTime appointmentTime;
-
+           
         appointmentId = lblAppointmentId.getText();
         patientName = txtName.getText();
         patientId = txtIC.getText();
@@ -446,6 +459,14 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
         //Creates an instance of VaccinationAppointment and saves it to the database
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, registeredDateString, appointmentDateString, appointmentTimeString, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Add");
+        
+    
+        try {
+            sendEmail("lydia08248@yahoo.com");
+        } catch (MessagingException ex) {
+            System.out.println(ex);
+            Logger.getLogger(PersonnelAddVaccinationAppointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         int n = JOptionPane.showConfirmDialog(null, "Appointment has been saved. Add another appointment?", "Appointment created", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(n == JOptionPane.YES_NO_OPTION){
@@ -550,6 +571,62 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                 new PersonnelAddVaccinationAppointment().setVisible(true);
             }
         });
+    }
+    
+    public void sendEmail(String recepient) throws MessagingException {
+        System.out.println("Preparing to send email!");
+        Properties properties = new Properties();
+
+        //always require username and password to authenticate the account
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.port", "587");
+
+        String myAccountEmail = "slleeyifoo@gmail.com";
+        String password = "lydia@123456789";
+
+        Session session = Session.getInstance(properties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(myAccountEmail, password);
+            }
+        });
+
+        Message message = prepareMessage(session, myAccountEmail, recepient);
+
+        Transport.send(message);
+        System.out.println("Message send successfully!");
+    }
+    
+    public Message prepareMessage(Session session, String myAccountEmail, String recepient) {
+        VaccinationAppointment appointment = new VaccinationAppointment();
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(myAccountEmail));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.setSubject("Vaccination Appointment");
+            message.setText("Hi " + appointment.getPatientName() + "\n" 
+                + "Thank you for registering vaccination programme." 
+                + "\n\n"
+                + "Please take a look at the vaccination appointment deatils below and let us know if you have any questions "
+                + " You can call us at 03-6653458 or simply email admin@helpacquire.com"
+                + "\n\nPlease confirm the appointment within 2 days if you don't have any enquires. "
+                + "\n\n\n\n"
+                + "Vaccination Appointment Id: " + appointment.getAppointmentId()
+                + "Name: " + appointment.getPatientName()
+                + "IC/Passport: " + appointment.getPatientIdentification()
+                + "State: " + appointment.getState()
+                + "Vaccination Center: " + appointment.getVaccinationCenter()
+                + "Vaccine Type: " + appointment.getVaccineType()
+                + "Appointment Date: " + appointment.getAppointmentDate()
+                + "Appointment Time: " + appointment.getAppointmentTime()
+                + "Appointment Status: " + appointment.getAppointmentStatus());
+            return message;
+        } catch (MessagingException ex) {
+            Logger.getLogger(PersonnelAddVaccinationAppointment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

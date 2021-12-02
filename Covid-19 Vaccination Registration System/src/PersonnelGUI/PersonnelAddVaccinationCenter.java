@@ -159,7 +159,6 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--State--", "Johor", "Malacca", "Negeri Sembilan", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah", "Sarawak" }));
         cmbState.setAutoscrolls(true);
         cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-<<<<<<< HEAD
         cmbState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbStateActionPerformed(evt);
@@ -168,8 +167,6 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
             private void cmbStateActionPerformed(ActionEvent evt) {
             }
         });
-=======
->>>>>>> parent of af19265 (Merge branch 'main' into Test)
 
         tpStartTime.setMinimumSize(new java.awt.Dimension(80, 30));
         tpStartTime.setPreferredSize(new java.awt.Dimension(80, 30));
@@ -219,14 +216,6 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
-<<<<<<< HEAD
-        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mouseClicked(evt);
-            }
-        });
-=======
->>>>>>> parent of af19265 (Merge branch 'main' into Test)
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -387,7 +376,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         
         //Creates an instance VaccinationCenter and saves it to the database
         VaccinationCenter vc = new VaccinationCenter(vaccinationCenterId, vaccinationCenterName, vaccinationCenterStartTimeString, vaccinationCenterEndTimeString, state, address, vaccineType, vaccineSupplyQuantity);
-        VaccinationCenter.saveVaccinationCenter(vc);
+        VaccinationCenter.saveVaccinationCenter(vc, "save");
         
         
         //Update the vaccine stock
@@ -411,8 +400,9 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
             cmbVaccineType.setSelectedIndex(-1);
             spinQuantity.setValue(0);
             lblVaccinationCenterId.setText(VaccinationCenter.generateVaccinationId());
+            lblQuantityReminder.setText("");
         } else {
-            PersonnelVaccineCenter vaccinationSupplyManagementPage = new PersonnelVaccineCenter();
+            PersonnelVaccinationCenter vaccinationSupplyManagementPage = new PersonnelVaccinationCenter();
             vaccinationSupplyManagementPage.setVisible(true);
             this.setVisible(false);
         }
