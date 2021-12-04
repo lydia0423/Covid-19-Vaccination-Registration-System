@@ -2,11 +2,12 @@ package Classes;
 
 import PersonnelGUI.PersonnelMainMenu;
 import PeopleGUI.PeopleMainMenu;
-import CommonGUI.Login;
 import HelperClasses.EncryptAndDecrypt;
 import HelperClasses.Logging;
+import java.awt.Component;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class LoginVerification{
@@ -34,7 +35,7 @@ public class LoginVerification{
         this.userPassword = userPassword;
     }
     
-    public static void verifyLogin(String userName, String password) throws SecurityException, IOException {
+    public static void verifyLogin(String userName, String password, JFrame jframe) throws SecurityException, IOException {
         ArrayList<PersonnelAccRegistration> allPersonnelAccounts = new ArrayList<>();
         ArrayList<PeopleAccRegistration> allPeopleAccounts = new ArrayList<>();
         
@@ -46,8 +47,9 @@ public class LoginVerification{
                 if(userName.equals(account.getEmail()) && password.equals(decoderPassword)){
                     new PersonnelMainMenu(account.getName(), account.getPersonnelId()).setVisible(true);
                     Logging.loginLog(account.getPersonnelId(), "Personnel");
-                }
-            }       
+                }           
+            }
+            
         }else{
             allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
             
@@ -55,9 +57,10 @@ public class LoginVerification{
                 String decoderPassword = EncryptAndDecrypt.decryptPassword(account.getPassword());
                 if(userName.equals(account.getEmail()) && password.equals(decoderPassword)){
                     new PeopleMainMenu(account.getName(), account.getPeopleId(), account.getIcOrPassport()).setVisible(true);
+                    jframe.dispose();
                     Logging.loginLog(account.getPeopleId(), "People");
                 }
-            }
+            } 
         }
     }
     

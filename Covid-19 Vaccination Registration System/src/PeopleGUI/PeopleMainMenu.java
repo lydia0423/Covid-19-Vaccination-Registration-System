@@ -6,12 +6,12 @@ import CommonGUI.Login;
 import HelperClasses.Logging;
 
 public class PeopleMainMenu extends javax.swing.JFrame {
-    
+
     public PeopleMainMenu() {
         initComponents();
     }
-    
-    public PeopleMainMenu(String userName, String userId, String ic){
+
+    public PeopleMainMenu(String userName, String userId, String ic) {
         initComponents();
         lblUserName.setText(userName);
         lblUserId.setText(userId);
@@ -239,36 +239,39 @@ public class PeopleMainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-    int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
-    if(dialog == JOptionPane.YES_OPTION){
-        System.exit(0);
-    }
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
+            Logging.logoutLog(lblUserId.getText(), "People");
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
-        int n = JOptionPane.showConfirmDialog(null,"Would you like to logout?","Terminate System",JOptionPane.YES_NO_OPTION);
-        if(n==JOptionPane.YES_OPTION){
+        int n = JOptionPane.showConfirmDialog(null, "Would you like to logout?", "Terminate System", JOptionPane.YES_NO_OPTION);
+        if (n == JOptionPane.YES_OPTION) {
             Logging.logoutLog(lblUserId.getText(), "People");
-            System.exit(0);   
-        }   
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void btnVaccinationStatusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVaccinationStatusMouseClicked
-        VaccinationStatus status = new VaccinationStatus();
-        status.setVisible(true);
+        new VaccinationStatus(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVaccinationStatusMouseClicked
 
     private void btnVaccinationRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVaccinationRegisterMouseClicked
         new PeopleProgrammeMenu(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnVaccinationRegisterMouseClicked
 
     private void btnManageVaccinationAppointment3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageVaccinationAppointment3MouseClicked
         new PeopleViewAppointment(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnManageVaccinationAppointment3MouseClicked
 
     private void btnViewPersonalDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPersonalDetailsMouseClicked
         new PeopleViewPersonalDetails(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnViewPersonalDetailsMouseClicked
 
     public static void main(String args[]) {

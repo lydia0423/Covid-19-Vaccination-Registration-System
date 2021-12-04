@@ -4,6 +4,7 @@ import Classes.PeopleAccRegistration;
 import HelperClasses.FileHandler;
 import Classes.VaccinationAppointment;
 import Classes.VaccinationCenter;
+import HelperClasses.Logging;
 import HelperClasses.State;
 import HelperClasses.TableFilter;
 import com.github.lgooddatepicker.components.DatePicker;
@@ -45,8 +46,15 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
     public PersonnelVaccinationAppointment() {
         initComponents();
+    }
+    
+    public PersonnelVaccinationAppointment(String userName, String userId) {
+        initComponents();
         txtName.setEditable(false);
         txtIC.setEditable(false);
+        
+        lblUserName.setText(userName);
+        lblUserId.setText(userId);
     }
 
     @SuppressWarnings("unchecked")
@@ -87,7 +95,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -136,6 +143,8 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         btnClose = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         cmbStatus = new javax.swing.JComboBox<>();
+        lblUserName = new javax.swing.JLabel();
+        lblUserId = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
@@ -143,7 +152,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         btnPrint = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
-        dialogEditAppointment.setLocationByPlatform(true);
         dialogEditAppointment.setMinimumSize(new java.awt.Dimension(900, 530));
         dialogEditAppointment.setUndecorated(true);
 
@@ -308,14 +316,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         jLabel11.setText("State");
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel16.setText("X");
-        jLabel16.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -367,19 +367,13 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUpdateAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel16)
-                        .addGap(16, 16, 16))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16)
-                .addGap(1, 1, 1)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel7))
@@ -478,9 +472,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setText("Back");
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setText("Back");
         btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,13 +482,21 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
             }
         });
 
-        cmbStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Status-", "Registered", "Pending", "Confirmed", "Completed", "Cancelled" }));
+        cmbStatus.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbStatus.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbStatusItemStateChanged(evt);
             }
         });
+
+        lblUserName.setText("View Registrants");
+        lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(186, 221, 212));
+
+        lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserId.setForeground(new java.awt.Color(186, 221, 212));
+        lblUserId.setText("View Registrants");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -511,36 +513,39 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
                 .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnClose)
-                .addGap(28, 28, 28))
+                .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(btnClose))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnClose))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -650,11 +655,11 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         // Seach Appointment Table
         RowSorter rowSorter = new RowSorter();
         rowSorter.searchTable();
+        Logging.activityLog(lblUserId.getText(), "Personnel", "4");
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        PersonnelAddVaccinationAppointment addNewAppointment = new PersonnelAddVaccinationAppointment();
-        addNewAppointment.setVisible(true);
+        new PersonnelAddVaccinationAppointment(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -721,6 +726,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
             try {
                 toDelete.delete();
                 tblVaccinationAppointment.setModel(new AppointmentTableModel());
+                Logging.activityLog(lblUserId.getText(), "Personnel", "3");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Failed to delete appointment", "Delete Appointment", JOptionPane.INFORMATION_MESSAGE);
                 System.err.println(e);
@@ -785,10 +791,15 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         }
 
         doc.close();
+        Logging.activityLog(lblUserId.getText(), "Personnel", "25");
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        dispose();
+        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            Logging.logoutLog(lblUserId.getText(), "Personnel");
+            System.exit(0); 
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void cmbVaccinationCenterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterItemStateChanged
@@ -894,23 +905,20 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         //Creates an instance of VaccinationAppointment and saves it to the database
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, registeredDateString, appointmentDateString, appointmentTimeString, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Update");
+        
+        Logging.activityLog(lblUserId.getText(), "Personnel", "2");
 
         dialogEditAppointment.setVisible(false);
         tblVaccinationAppointment.setModel(new AppointmentTableModel());
     }//GEN-LAST:event_btnUpdateAppointmentActionPerformed
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        dispose();
-    }//GEN-LAST:event_jLabel16MouseClicked
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        PersonnelAccountMenu accountmenu = new PersonnelAccountMenu();
-        accountmenu.setVisible(true);
-        this.setVisible(false);
+        new PersonnelMainMenu(lblUserName.getText(), lblUserId.getText()).setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbStatusItemStateChanged
         TableFilter.filter(tblVaccinationAppointment, "--Status--", cmbStatus.getSelectedItem().toString());
+        Logging.activityLog(lblUserId.getText(), "Personnel", "5");
     }//GEN-LAST:event_cmbStatusItemStateChanged
 
     public static void main(String args[]) {
@@ -1019,7 +1027,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         public void searchTable() {
             txtSearch.getDocument().addDocumentListener(new DocumentListener() {
-
+            
                 @Override
                 public void insertUpdate(DocumentEvent e) {
                     String searchText = txtSearch.getText();
@@ -1069,7 +1077,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1086,6 +1093,8 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JLabel lblAppointmentId;
+    private javax.swing.JLabel lblUserId;
+    private javax.swing.JLabel lblUserName;
     public javax.swing.JRadioButton rbtnNo;
     public javax.swing.JRadioButton rbtnYes;
     public javax.swing.JTable tblVaccinationAppointment;

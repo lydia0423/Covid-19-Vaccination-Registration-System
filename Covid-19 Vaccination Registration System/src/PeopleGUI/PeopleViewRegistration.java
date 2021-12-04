@@ -41,6 +41,8 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                 lblRegisteredDate.setText(appointment.getRegisteredDate());
             }
         }
+        
+        Logging.activityLog(userId, "People", "32");
 
     }
 
@@ -61,7 +63,7 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        btnClose = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -167,11 +169,11 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtName.setBorder(null);
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
-        jLabel1.setText("X");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnClose.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        btnClose.setText("X");
+        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                btnCloseMouseClicked(evt);
             }
         });
 
@@ -276,7 +278,7 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(btnback)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
+                        .addComponent(btnClose)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(263, 263, 263)
@@ -288,7 +290,7 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(btnClose)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(btnback)))
@@ -353,28 +355,25 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
         int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
         if (dialog == JOptionPane.YES_OPTION) {
             Logging.logoutLog(lblUserId.getText(), "People");
             System.exit(0); 
         }
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
-        PeopleMainMenu peoplemenu = new PeopleMainMenu();
-        peoplemenu.setVisible(true);
+        new PeopleMainMenu(lblUserId.getText(), txtName.getText(), txtICOrPassport.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         new PeopleModifyRegistration(lblUserId.getText(), lblAppointmentId.getText(), txtName.getText(), txtICOrPassport.getText(), txtState.getText(), txtVaccinationCenter.getText(), txtHealthCondition.getText(), txtCloseContact.getText(), lblRegisteredDate.getText()).setVisible(true);
-
+        this.setVisible(false);
     }//GEN-LAST:event_btnEditActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -409,9 +408,9 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnClose;
     private javax.swing.JButton btnEdit;
     private javax.swing.JLabel btnback;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

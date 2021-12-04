@@ -105,7 +105,7 @@ public class VaccinationCenter implements FileMethods{
     public static ArrayList<VaccinationCenter> getAllVaccinationCentersForTable() { 
         String[] stateList = {"Johor", "Negeri Sembilan", "Malacca", "Selangor", "Kuala Lumpur", 
             "Labuan", "Putrajaya", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan",
-            "Pahang", "Sabah","Sarawak"};
+            "Pahang", "Sabah", "Sarawak"};
         ArrayList<VaccinationCenter> allVaccinationCenters = new ArrayList<>();
         
         for (String state : stateList) {

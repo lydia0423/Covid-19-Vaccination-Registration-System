@@ -2,12 +2,11 @@ package PersonnelGUI;
 
 import Classes.VaccinationCenter;
 import Classes.Vaccine;
-
+import HelperClasses.Logging;
+import HelperClasses.Validation;
 import com.github.lgooddatepicker.components.TimePicker;
 import com.github.lgooddatepicker.components.TimePickerSettings;
 import com.github.lgooddatepicker.components.TimePickerSettings.TimeIncrement;
-
-import java.awt.event.ActionEvent;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,6 +21,12 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
     public PersonnelAddVaccinationCenter() {
         initComponents();
     }
+    
+    public PersonnelAddVaccinationCenter(String userName, String userId) {
+        initComponents();
+        lblUserName.setText(userName);
+        lblUserId.setText(userId);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,6 +39,8 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         jLabel11 = new javax.swing.JLabel();
         lblVaccineId = new javax.swing.JLabel();
         lblVaccinationCenterId = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        lblUserId = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -53,7 +60,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         jLabel9 = new javax.swing.JLabel();
         cmbVaccineType = new javax.swing.JComboBox<>();
         btnAddNewSupply = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        btnClose = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblQuantityReminder = new javax.swing.JLabel();
         spinQuantity = new javax.swing.JSpinner();
@@ -92,6 +99,16 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         lblVaccinationCenterId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblVaccinationCenterId.setForeground(new java.awt.Color(255, 255, 255));
 
+        lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserName.setText("Center");
+        lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblUserId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserId.setText("Center");
+        lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserId.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -105,11 +122,17 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblVaccineId, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblVaccinationCenterId, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblVaccinationCenterId, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(14, 14, 14))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -121,7 +144,11 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(47, 47, 47)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(lblVaccinationCenterId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblVaccineId)
@@ -155,18 +182,15 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         txtVaccinationCenterName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtVaccinationCenterName.setBorder(null);
         txtVaccinationCenterName.setPreferredSize(new java.awt.Dimension(1, 30));
+        txtVaccinationCenterName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtVaccinationCenterNameKeyReleased(evt);
+            }
+        });
 
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--State--", "Johor", "Malacca", "Negeri Sembilan", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah", "Sarawak" }));
         cmbState.setAutoscrolls(true);
         cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        cmbState.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbStateActionPerformed(evt);
-            }
-
-            private void cmbStateActionPerformed(ActionEvent evt) {
-            }
-        });
 
         tpStartTime.setMinimumSize(new java.awt.Dimension(80, 30));
         tpStartTime.setPreferredSize(new java.awt.Dimension(80, 30));
@@ -204,11 +228,11 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
             }
         });
 
-        jLabel10.setText("X");
-        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
-        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnClose.setText("X");
+        btnClose.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
+        btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel10MouseClicked(evt);
+                btnCloseMouseClicked(evt);
             }
         });
 
@@ -234,7 +258,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel10)
+                        .addComponent(btnClose)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(56, 56, 56)
@@ -275,7 +299,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel10)
+                .addComponent(btnClose)
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -330,12 +354,17 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        new PersonnelVaccinationCenter(lblUserName.getText(), lblUserId.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        dispose();
-    }//GEN-LAST:event_jLabel10MouseClicked
+    private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
+        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            Logging.logoutLog(lblUserId.getText(), "Personnel");
+            System.exit(0); 
+        }
+    }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnAddNewSupplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewSupplyActionPerformed
         //Retrieve data from form
@@ -377,6 +406,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
         //Creates an instance VaccinationCenter and saves it to the database
         VaccinationCenter vc = new VaccinationCenter(vaccinationCenterId, vaccinationCenterName, vaccinationCenterStartTimeString, vaccinationCenterEndTimeString, state, address, vaccineType, vaccineSupplyQuantity);
         VaccinationCenter.saveVaccinationCenter(vc, "save");
+        Logging.activityLog(lblUserId.getText(), "Personnel", "6");
         
         
         //Update the vaccine stock
@@ -402,8 +432,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
             lblVaccinationCenterId.setText(VaccinationCenter.generateVaccinationId());
             lblQuantityReminder.setText("");
         } else {
-            PersonnelVaccinationCenter vaccinationSupplyManagementPage = new PersonnelVaccinationCenter();
-            vaccinationSupplyManagementPage.setVisible(true);
+            new PersonnelVaccinationCenter(lblUserName.getText(), lblUserId.getText()).setVisible(true);
             this.setVisible(false);
         }
     }//GEN-LAST:event_btnAddNewSupplyActionPerformed
@@ -436,6 +465,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
                 continue;
             }
         }
+        reset = true;
     }//GEN-LAST:event_cmbVaccineTypeItemStateChanged
 
     private void cmbVaccineTypePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cmbVaccineTypePopupMenuWillBecomeVisible
@@ -451,9 +481,12 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
 
     }//GEN-LAST:event_cmbVaccineTypePopupMenuWillBecomeVisible
 
-    /**
-     * @param args the command line arguments
-     */
+    private void txtVaccinationCenterNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVaccinationCenterNameKeyReleased
+        if(Validation.isWord(txtVaccinationCenterName.getText()) == false){
+            JOptionPane.showMessageDialog(null, "Only word is allowed", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_txtVaccinationCenterNameKeyReleased
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -477,9 +510,6 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
             java.util.logging.Logger.getLogger(PersonnelAddVaccinationCenter.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -492,10 +522,10 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewSupply;
     private javax.swing.JButton btnBack;
+    private javax.swing.JLabel btnClose;
     private javax.swing.JComboBox<String> cmbState;
     private javax.swing.JComboBox<String> cmbVaccineType;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -509,6 +539,8 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblQuantityReminder;
+    private javax.swing.JLabel lblUserId;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblVaccinationCenterId;
     private javax.swing.JLabel lblVaccineId;
     private javax.swing.JSpinner spinQuantity;

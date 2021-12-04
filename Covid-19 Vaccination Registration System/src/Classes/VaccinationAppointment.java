@@ -232,53 +232,54 @@ public class VaccinationAppointment implements FileMethods{
             JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully saved.", "Update Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
         }else if(type == "Confirm"){
             JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully confirmed.", "Confirm Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        }else if(type == "Cancelled"){
             JOptionPane.showMessageDialog(null, "Vaccination Appointment successfully cencelled.", "Cancel Vaccination Appointment Success!", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            return;
         }
-                
-                
+  
     }
     
-//    public static void generateEmail(VaccinationAppointment appointment, String userType, String email) throws MessagingException{
-//        String message = null;
-//        if(userType == "Personnel"){
-//            message = "Hi " + appointment.getPatientName() + "\n" 
-//                + "Thank you for registering vaccination programme." 
-//                + "\n\n"
-//                + "Please take a look at the vaccination appointment deatils below and let us know if you have any questions "
-//                + " You can call us at 03-6653458 or simply email admin@helpacquire.com"
-//                + "\n\nPlease confirm the appointment within 2 days if you don't have any enquires. "
-//                + "\n\n\n\n"
-//                + "Vaccination Appointment Id: " + appointment.getAppointmentId()
-//                + "Name: " + appointment.getPatientName()
-//                + "IC/Passport: " + appointment.getPatientIdentification()
-//                + "State: " + appointment.getState()
-//                + "Vaccination Center: " + appointment.getVaccinationCenter()
-//                + "Vaccine Type: " + appointment.getVaccineType()
-//                + "Appointment Date: " + appointment.getAppointmentDate()
-//                + "Appointment Time: " + appointment.getAppointmentTime()
-//                + "Appointment Status: " + appointment.getAppointmentStatus();
-//        }else{
-//            message = "Hi " + appointment.getPatientName() + "\n" 
-//                + "Thank you for registering vaccination programme." 
-//                + "\n\n"
-//                + "Please take a look at the vaccination programme details below and let us know if you have any questions "
-//                + " You can call us at 03-6653458 or simply email admin@helpacquire.com"
-//                + "\n\nKindly wait for the appointment to be approved."
-//                + "\n\n\n\n"
-//                + "Vaccination Appointment Id: " + appointment.getAppointmentId()
-//                + "Name: " + appointment.getPatientName()
-//                + "IC/Passport: " + appointment.getPatientIdentification()
-//                + "State: " + appointment.getState()
-//                + "Vaccination Center: " + appointment.getVaccinationCenter()
-//                + "Vaccine Type: " + appointment.getVaccineType()
-//                + "Appointment Date: " + appointment.getAppointmentDate()
-//                + "Appointment Time: " + appointment.getAppointmentTime()
-//                + "Appointment Status: " + appointment.getAppointmentStatus();
-//        }
-//        
-//        EmailGenerator.sendEmail(email, message);             
-//    }
+    public static void generateEmail(VaccinationAppointment appointment, String userType, String email, String subject) throws MessagingException{
+        String message = null;
+        if(userType == "Personnel"){
+            message = "Hi " + appointment.getPatientName() + "\n" 
+                + "Thank you for registering vaccination programme." 
+                + "\n\n"
+                + "Please take a look at the vaccination appointment deatils below and let us know if you have any questions "
+                + " You can call us at 03-6653458 or simply email admin@helpacquire.com"
+                + "\n\nPlease confirm the appointment within 2 days if you don't have any enquires. "
+                + "\n\n\n\n"
+                + "Vaccination Appointment Id: " + appointment.getAppointmentId() + "\n"
+                + "Name: " + appointment.getPatientName() + "\n"
+                + "IC/Passport: " + appointment.getPatientIdentification() + "\n"
+                + "State: " + appointment.getState() + "\n"
+                + "Vaccination Center: " + appointment.getVaccinationCenter() + "\n"
+                + "Vaccine Type: " + appointment.getVaccineType() + "\n"
+                + "Appointment Date: " + appointment.getAppointmentDate() + "\n"
+                + "Appointment Time: " + appointment.getAppointmentTime() + "\n"
+                + "Appointment Status: " + appointment.getAppointmentStatus();
+        }else{
+            message = "Hi " + appointment.getPatientName() + "\n" 
+                + "Thank you for registering vaccination programme." 
+                + "\n\n"
+                + "Please take a look at the vaccination programme details below and let us know if you have any questions "
+                + " You can call us at 03-6653458 or simply email admin@helpacquire.com"
+                + "\n\nKindly wait for the appointment to be approved."
+                + "\n\n\n\n"
+                + "Vaccination Appointment Id: " + appointment.getAppointmentId() + "\n"
+                + "Name: " + appointment.getPatientName() + "\n"
+                + "IC/Passport: " + appointment.getPatientIdentification() + "\n"
+                + "State: " + appointment.getState() + "\n"
+                + "Vaccination Center: " + appointment.getVaccinationCenter()+ "\n"
+                + "Vaccine Type: " + appointment.getVaccineType() + "\n"
+                + "Appointment Date: " + appointment.getAppointmentDate() + "\n"
+                + "Appointment Time: " + appointment.getAppointmentTime() + "\n"
+                + "Appointment Status: " + appointment.getAppointmentStatus();
+        }
+        
+        EmailGenerator.sendEmail(email, message, subject);             
+    }
 
     @Override
     public String setFileName() {

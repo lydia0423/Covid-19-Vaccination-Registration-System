@@ -1,8 +1,10 @@
 package CommonGUI;
 
-
 import Classes.LoginVerification;
+import Classes.VaccinationAppointment;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,6 +13,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         txtPassword.setEchoChar('*');
+
     }
 
     @SuppressWarnings("unchecked")
@@ -228,10 +231,20 @@ public class Login extends javax.swing.JFrame {
         password = String.valueOf(txtPassword.getPassword());
         
         try {
-            LoginVerification.verifyLogin(userName, password);
-            this.dispose();
+            LoginVerification.verifyLogin(userName, password, this);
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ArrayList<VaccinationAppointment> appointmentList = VaccinationAppointment.getAllVaccinationAppointments();
+        for(VaccinationAppointment appointment : appointmentList){
+            if(appointment.getAppointmentStatus().equals("Confirmed") && LocalDate.parse(appointment.getAppointmentDate()).isBefore(LocalDate.now())){
+                VaccinationAppointment a = new VaccinationAppointment(appointment.getAppointmentId(), appointment.getPatientName(), 
+                        appointment.getPatientIdentification(), appointment.getState(), appointment.getVaccinationCenter(), 
+                        appointment.getVaccineType(), appointment.getRegisteredDate(), appointment.getAppointmentDate(), 
+                        appointment.getAppointmentTime(), appointment.getHealthCondition(), appointment.getCloseContact(), "Completed");
+                VaccinationAppointment.saveAppointment(a, "system update");
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
