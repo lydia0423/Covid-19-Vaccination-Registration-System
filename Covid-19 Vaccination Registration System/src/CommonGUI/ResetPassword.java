@@ -214,11 +214,17 @@ public class ResetPassword extends javax.swing.JFrame {
             return;
         }
 
-        //Verify the password and comfirmed password
-        if(!(password.equals(confirmedPassword))){
-            JOptionPane.showMessageDialog(null, "Password provided are not same. Please try again", "Invalid Password Entered", JOptionPane.ERROR_MESSAGE);
-            return;
+        if(!(password.length() < 8)){
+            //Verify the password and comfirmed password
+            if(!(password.equals(confirmedPassword))){
+                JOptionPane.showMessageDialog(null, "Password provided are not same. Please try again!", "Invalid Password Entered", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }else{
+           JOptionPane.showMessageDialog(null, "Password must consist of at least 8 characters. Please try again!", "Invalid Password Entered", JOptionPane.ERROR_MESSAGE);
+           return; 
         }
+        
 
         //Encrypt the password
         encryptedPassword = EncryptAndDecrypt.encryptPassword(password);
@@ -236,9 +242,6 @@ public class ResetPassword extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCloseMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

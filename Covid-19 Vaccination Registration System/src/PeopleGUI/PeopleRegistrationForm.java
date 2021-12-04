@@ -9,6 +9,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -347,6 +350,14 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         //Creates an instance of VaccinationAppointment and saves it to the database
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, registeredDateString, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Add");
+        
+        try {
+            VaccinationAppointment.generateEmail(appointment, "People", txtEmail.getText(), "Vaccination Programme");
+        } catch (MessagingException ex) {
+            Logger.getLogger(PeopleRegistrationForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Logging.activityLog(lblUserId.getText(), "People", "28");
 
         //Reset the form
         txtName.setText("");
@@ -362,6 +373,7 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want cancel registration?", "Cancel Registration", JOptionPane.YES_NO_OPTION);
         if (dialog == JOptionPane.YES_OPTION) {
             new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText());
+            this.setVisible(false);
         }
     }//GEN-LAST:event_btnBackActionPerformed
 

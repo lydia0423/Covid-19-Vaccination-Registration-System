@@ -356,6 +356,7 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
         if(dialog == JOptionPane.YES_OPTION){
             new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
+            this.setVisible(false);
         }   
     }//GEN-LAST:event_btnCancelActionPerformed
 
@@ -401,6 +402,8 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         //Creates an instance of VaccinationAppointment and saves it to the database
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Update");
+        
+        Logging.activityLog(lblUserId.getText(), "People", "29");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void cmbVaccinationCenterPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterPopupMenuWillBecomeVisible
@@ -427,9 +430,6 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         cmbVaccinationCenter.setModel(centerSelector);
     }//GEN-LAST:event_cmbVaccinationCenterPopupMenuWillBecomeVisible
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -453,13 +453,7 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PeopleModifyRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

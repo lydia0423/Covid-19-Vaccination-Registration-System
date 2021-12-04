@@ -3,6 +3,7 @@ package PersonnelGUI;
 import Classes.PeopleAccRegistration;
 import Classes.PersonnelAccRegistration;
 import HelperClasses.FileHandler;
+import HelperClasses.Logging;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -33,8 +34,13 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
 
     public PersonnelManagePeople() {
         initComponents();
-
+    }
+    
+    public PersonnelManagePeople(String userName, String userId) {
+        initComponents();
         txtPersonnelId.setEditable(false);
+        lblUserName.setText(userName);
+        lblUserId.setText(userId);
     }
 
     @SuppressWarnings("unchecked")
@@ -172,6 +178,8 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         ((DefaultTableCellRenderer) tblPersonnel.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
         tblPersonnel.getTableHeader().setFont(new Font("Berlin Sans FB", Font.PLAIN,14));
         tblPersonnel.getTableHeader().setReorderingAllowed(false);
+        lblUserName = new javax.swing.JLabel();
+        lblUserId = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
@@ -191,15 +199,15 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel12.setText("Register");
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
+        lblPeopleId.setText("Account");
         lblPeopleId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblPeopleId.setForeground(new java.awt.Color(255, 255, 255));
-        lblPeopleId.setText("Account");
 
-        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel14.setText("Account");
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -235,23 +243,23 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 .addContainerGap(107, Short.MAX_VALUE))
         );
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel3.setText("Full Name as per IC / Passport");
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel4.setText("Email");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel5.setText("Contact Number");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel6.setText("Date of Birth");
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel7.setText("NRIC (Citizen) / Passport (Non-citizen)");
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel8.setText("Address");
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         dpPeopleDOB.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
@@ -272,34 +280,34 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         txtPeopleAddress.setRows(5);
         jScrollPane1.setViewportView(txtPeopleAddress);
 
+        btnPeopleCancel.setText("Cancel");
         btnPeopleCancel.setBackground(new java.awt.Color(82, 137, 128));
         btnPeopleCancel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnPeopleCancel.setText("Cancel");
         btnPeopleCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPeopleCancelActionPerformed(evt);
             }
         });
 
+        btnUpdatePeopleDetails.setText("Update");
         btnUpdatePeopleDetails.setBackground(new java.awt.Color(82, 137, 128));
         btnUpdatePeopleDetails.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnUpdatePeopleDetails.setText("Update");
         btnUpdatePeopleDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdatePeopleDetailsActionPerformed(evt);
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel13.setText("Citizen");
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
+        rbtnPeopleCitizenYes.setText("Yes");
         rbtnPeopleCitizenYes.setBackground(new java.awt.Color(186, 221, 212));
         rbtnPeopleCitizenYes.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        rbtnPeopleCitizenYes.setText("Yes");
 
+        rbtnPeopleCitizenNo.setText("No");
         rbtnPeopleCitizenNo.setBackground(new java.awt.Color(186, 221, 212));
         rbtnPeopleCitizenNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        rbtnPeopleCitizenNo.setText("No");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -409,10 +417,8 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         );
 
         dialogPersonnelEditPersonnelDetails.setLocationByPlatform(true);
-        dialogPersonnelEditPersonnelDetails.setMaximumSize(new java.awt.Dimension(900, 530));
         dialogPersonnelEditPersonnelDetails.setMinimumSize(new java.awt.Dimension(900, 530));
         dialogPersonnelEditPersonnelDetails.setUndecorated(true);
-        dialogPersonnelEditPersonnelDetails.setPreferredSize(new java.awt.Dimension(900, 530));
 
         jPanel5.setBackground(new java.awt.Color(186, 221, 212));
         jPanel5.setMaximumSize(new java.awt.Dimension(900, 530));
@@ -424,11 +430,11 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         jPanel6.setMaximumSize(new java.awt.Dimension(220, 530));
         jPanel6.setMinimumSize(new java.awt.Dimension(220, 530));
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel9.setText("Account");
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel15.setText("Update");
+        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -566,9 +572,9 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         });
         jPanel2.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 0, -1, 44));
 
+        btnBack.setText("Back");
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setText("Back");
         btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -621,39 +627,49 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
 
         jPanel2.add(userTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 630, 390));
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel1.setText("Manage People");
+        lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(186, 221, 212));
+        lblUserName.setText("Manage People");
+        jPanel2.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 80, 10));
 
+        lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserId.setForeground(new java.awt.Color(186, 221, 212));
+        lblUserId.setText("Manage People");
+        jPanel2.add(lblUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 80, 10));
+
+        jLabel1.setText("Manage People");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.setBackground(new java.awt.Color(82, 137, 128));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.setBackground(new java.awt.Color(82, 137, 128));
         btnEdit.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
 
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.setBackground(new java.awt.Color(82, 137, 128));
         btnDelete.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.setBackground(new java.awt.Color(82, 137, 128));
         btnPrint.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
@@ -723,15 +739,24 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         RowSorter rowSorter = new RowSorter();
         rowSorter.searchTable();
+        if(lblUserId.getText().contains("PLP")){
+            Logging.activityLog(lblUserId.getText(), "People", "18");
+        }else{
+            Logging.activityLog(lblUserId.getText(), "Personnel", "24");
+        }
+        
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        dispose();
+        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            Logging.logoutLog(lblUserId.getText(), "Personnel");
+            System.exit(0); 
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        PersonnelAccountMenu accountmenu = new PersonnelAccountMenu();
-        accountmenu.setVisible(true);
+        new PersonnelMainMenu(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -835,6 +860,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 try {
                     toDeletePeople.delete();
                     tblPeople.setModel(new PersonnelManagePeople.PeopleTableModel());
+                    Logging.activityLog(lblUserId.getText(), "People", "17");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Failed to delete account", "Delete Account", JOptionPane.INFORMATION_MESSAGE);
                     System.err.println(e);
@@ -843,6 +869,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 try {
                     toDeletePersonnel.delete();
                     tblPersonnel.setModel(new PersonnelManagePeople.PersonnelTableModel());
+                    Logging.activityLog(lblUserId.getText(), "Personnel", "22");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Failed to delete account", "Delete Account", JOptionPane.INFORMATION_MESSAGE);
                     System.err.println(e);
@@ -908,6 +935,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 Logger.getLogger(PersonnelManagePeople.class.getName()).log(Level.SEVERE, null, ex);
             }
             doc.close();
+            Logging.activityLog(lblUserId.getText(), "Personnel", "25");
         }else{
             fileName = System.getProperty("file.separator") + "PersonnelAccount " + LocalDate.now().toString() + ".pdf";
             headers = new String[]{"Personnel Id", "Name", "IC/Passport", "Email"};
@@ -941,7 +969,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 Logger.getLogger(PersonnelManagePeople.class.getName()).log(Level.SEVERE, null, ex);
             }
             doc.close();
-            
+            Logging.activityLog(lblUserId.getText(), "Personnel", "25");
         }
 
     }//GEN-LAST:event_btnPrintActionPerformed
@@ -987,6 +1015,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         //Creates an instance PeopleAccRegistration and saves it to the database
         PeopleAccRegistration update = new PeopleAccRegistration(peopleId, name, icOrPassport, contact, dob, address, citizen, email, password);
         PeopleAccRegistration.saveRegistration(update, "update");
+        Logging.activityLog(lblUserId.getText(), "Personnel", "16");
 
         dialogPersonnelEditPeopleDetails.setVisible(false);
         tblPeople.setModel(new PersonnelManagePeople.PeopleTableModel());
@@ -1024,6 +1053,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         //Creates an instance PersonnelAccRegistration and saves it to the database
         PersonnelAccRegistration update = new PersonnelAccRegistration(personnelId, name, ic, email, password);
         PersonnelAccRegistration.savePersonnelRegistration(update, "update");
+        Logging.activityLog(lblUserId.getText(), "Personnel", "21");
 
         dialogPersonnelEditPersonnelDetails.setVisible(false);
         tblPersonnel.setModel(new PersonnelManagePeople.PersonnelTableModel());
@@ -1256,6 +1286,8 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblPeopleId;
+    private javax.swing.JLabel lblUserId;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JPanel peoplePane;
     private javax.swing.JPanel personnelPane;
     private javax.swing.JRadioButton rbtnPeopleCitizenNo;

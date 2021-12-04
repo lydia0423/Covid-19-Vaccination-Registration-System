@@ -344,7 +344,10 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, name, icOrPassport, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Cancel");
         
+        Logging.activityLog(userId, "People", "27");
+        
         new PeopleMainMenu(txtName.getText(), userId, txtICOrPassport.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCancelAppointmentActionPerformed
 
     private void btnConfirmAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppointmentActionPerformed
@@ -363,12 +366,14 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, name, icOrPassport, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Confirm");
         
+        Logging.activityLog(userId, "People", "26");
+        
         new PeopleMainMenu(txtName.getText(), userId, txtICOrPassport.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnConfirmAppointmentActionPerformed
 
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
-        PeopleMainMenu peoplemenu = new PeopleMainMenu();
-        peoplemenu.setVisible(true);
+        new PeopleMainMenu(txtName.getText(), userId, txtICOrPassport.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnbackMouseClicked
 
