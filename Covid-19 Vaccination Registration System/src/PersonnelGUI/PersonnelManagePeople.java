@@ -35,7 +35,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
     public PersonnelManagePeople() {
         initComponents();
     }
-    
+
     public PersonnelManagePeople(String userName, String userId) {
         initComponents();
         txtPersonnelId.setEditable(false);
@@ -592,7 +592,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
             .addGroup(peoplePaneLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         peoplePaneLayout.setVerticalGroup(
             peoplePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -737,21 +737,33 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        RowSorter rowSorter = new RowSorter();
-        rowSorter.searchTable();
-        if(lblUserId.getText().contains("PLP")){
+        if (userTabbedPane.getSelectedIndex() == 0) {
+            AbstractTableModel model = (AbstractTableModel) tblPeople.getModel();
+            String search = txtSearch.getText();
+            TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(model);
+            tblPeople.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
+        } else {
+            AbstractTableModel model = (AbstractTableModel) tblPersonnel.getModel();
+            String search = txtSearch.getText();
+            TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(model);
+            tblPersonnel.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
+        }
+
+        if (lblUserId.getText().contains("PLP")) {
             Logging.activityLog(lblUserId.getText(), "People", "18");
-        }else{
+        } else {
             Logging.activityLog(lblUserId.getText(), "Personnel", "24");
         }
-        
+
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
             Logging.logoutLog(lblUserId.getText(), "Personnel");
-            System.exit(0); 
+            System.exit(0);
         }
     }//GEN-LAST:event_btnCloseMouseClicked
 
@@ -761,41 +773,46 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        PersonnelRegisterPeople registerpeople = new PersonnelRegisterPeople();
-        registerpeople.setVisible(true);
-        this.setVisible(false);
+        if (userTabbedPane.getSelectedIndex() == 0) {
+            new PersonnelRegisterPeople(lblUserName.getText(), lblUserId.getText()).setVisible(true);
+            this.setVisible(false);
+        } else {
+            new PersonnelRegisterPersonnel(lblUserName.getText(), lblUserId.getText()).setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        String peopleId = null, peopleName = null, peopleIC = null, peopleDob = null, peopleContact = null, peopleAddress = null, peopleCitizen = null, peopleEmail = null, personnelId = null,
+                personnelName = null, personnelIC = null, personnelEmail = null;
+
         //Retrieve selected row for editing
         int selectedRow;
 
         if (userTabbedPane.getSelectedIndex() == 0) {
             selectedRow = tblPeople.getSelectedRow();
+            //Retrieve from people table
+            peopleId = tblPeople.getValueAt(selectedRow, 0).toString();
+            peopleName = tblPeople.getValueAt(selectedRow, 1).toString();
+            peopleIC = tblPeople.getValueAt(selectedRow, 2).toString();
+            peopleDob = tblPeople.getValueAt(selectedRow, 3).toString();
+            peopleContact = tblPeople.getValueAt(selectedRow, 4).toString();
+            peopleAddress = tblPeople.getValueAt(selectedRow, 5).toString();
+            peopleCitizen = tblPeople.getValueAt(selectedRow, 6).toString();
+            peopleEmail = tblPeople.getValueAt(selectedRow, 7).toString();
         } else {
             selectedRow = tblPersonnel.getSelectedRow();
+            //Retrieve from personnel table
+            personnelId = tblPersonnel.getValueAt(selectedRow, 0).toString();
+            personnelName = tblPersonnel.getValueAt(selectedRow, 1).toString();
+            personnelIC = tblPersonnel.getValueAt(selectedRow, 2).toString();
+            personnelEmail = tblPersonnel.getValueAt(selectedRow, 3).toString();
         }
 
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(null, "Please select a row to edit", "Select Account", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-
-        //Retrieve from people table
-        String peopleId = tblPeople.getValueAt(selectedRow, 0).toString();
-        String peopleName = tblPeople.getValueAt(selectedRow, 1).toString();
-        String peopleIC = tblPeople.getValueAt(selectedRow, 2).toString();
-        String peopleDob = tblPeople.getValueAt(selectedRow, 3).toString();
-        String peopleContact = tblPeople.getValueAt(selectedRow, 4).toString();
-        String peopleAddress = tblPeople.getValueAt(selectedRow, 5).toString();
-        String peopleCitizen = tblPeople.getValueAt(selectedRow, 6).toString();
-        String peopleEmail = tblPeople.getValueAt(selectedRow, 7).toString();
-
-        //Retrieve from personnel table
-        String personnelId = tblPersonnel.getValueAt(selectedRow, 0).toString();
-        String personnelName = tblPersonnel.getValueAt(selectedRow, 1).toString();
-        String personnelIC = tblPersonnel.getValueAt(selectedRow, 2).toString();
-        String personnelEmail = tblPersonnel.getValueAt(selectedRow, 3).toString();
 
         //Open PersonnelEditPersonnelDetails or PersonnelEditPeopleDetails window
         if (userTabbedPane.getSelectedIndex() == 0) {
@@ -897,7 +914,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         if (userTabbedPane.getSelectedIndex() == 0) {
             fileName = System.getProperty("file.separator") + "PeopleAccount " + LocalDate.now().toString() + ".pdf";
             headers = new String[]{"People Id", "Name", "IC/Passport", "DOB", "Contact", "Address", "Citizen", "Email"};
-            
+
             try {
                 PdfWriter.getInstance(doc, new FileOutputStream(folderDirectory + fileName));
 
@@ -936,10 +953,10 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
             }
             doc.close();
             Logging.activityLog(lblUserId.getText(), "Personnel", "25");
-        }else{
+        } else {
             fileName = System.getProperty("file.separator") + "PersonnelAccount " + LocalDate.now().toString() + ".pdf";
             headers = new String[]{"Personnel Id", "Name", "IC/Passport", "Email"};
-            
+
             try {
                 PdfWriter.getInstance(doc, new FileOutputStream(folderDirectory + fileName));
 
@@ -962,9 +979,9 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                     tbl.addCell(personnelContact);
                     tbl.addCell(personnelEmail);
                 }
-                
+
                 doc.add(tbl);
-                
+
             } catch (FileNotFoundException | DocumentException ex) {
                 Logger.getLogger(PersonnelManagePeople.class.getName()).log(Level.SEVERE, null, ex);
             }

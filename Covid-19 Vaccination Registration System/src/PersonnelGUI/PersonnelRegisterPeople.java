@@ -95,7 +95,7 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(13, 13, 13))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -153,30 +153,30 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
 
         dpDOB.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtName.setBorder(null);
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNameKeyPressed(evt);
+        txtName.setBorder(null);
+        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameFocusLost(evt);
             }
         });
 
-        txtContact.setBorder(null);
         txtContact.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtContactKeyReleased(evt);
+        txtContact.setBorder(null);
+        txtContact.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtContactFocusLost(evt);
             }
         });
 
-        txtICOrPassport.setBorder(null);
         txtICOrPassport.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        txtICOrPassport.setBorder(null);
 
-        txtEmail.setBorder(null);
         txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtEmailKeyReleased(evt);
+        txtEmail.setBorder(null);
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
             }
         });
 
@@ -275,6 +275,11 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnClose)
                         .addGap(21, 21, 21)
                         .addComponent(jLabel7)
@@ -287,13 +292,8 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
+                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel6))
@@ -373,11 +373,15 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         int n = JOptionPane.showConfirmDialog(null, "Registration has been saved. Add another people account?", "people account added", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (n == JOptionPane.YES_NO_OPTION) {
             //If yes, reset the form
+            txtName.setText("");
+            txtICOrPassport.setText("");
+            dpDOB.setDateToToday();
+            txtContact.setText("");
+            txtAddress.setText("");
+            txtEmail.setText("");
             lblPeopleId.setText(VaccinationCenter.generateVaccinationId());
         } else {
-            PersonnelMainMenu mainMenu = new PersonnelMainMenu();
-            mainMenu.setVisible(true);
-            this.setVisible(false);
+            new PersonnelManagePeople(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
@@ -386,23 +390,23 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
         System.out.println(lblPeopleId.getText());
     }//GEN-LAST:event_formComponentShown
 
-    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
-        if(Validation.isWord(txtICOrPassport.getText()) == false){
-            JOptionPane.showMessageDialog(null, "Only word is allowed", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
+    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+        if(!Validation.isWord(txtName.getText())){
+            JOptionPane.showMessageDialog(null, "Only character is allowed", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_txtNameKeyPressed
+    }//GEN-LAST:event_txtNameFocusLost
 
-    private void txtContactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyReleased
-        if(Validation.isInteger(txtContact.getText()) == false){
+    private void txtContactFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContactFocusLost
+        if(!Validation.isInteger(txtContact.getText())){
             JOptionPane.showMessageDialog(null, "Only number is allowed", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_txtContactKeyReleased
+    }//GEN-LAST:event_txtContactFocusLost
 
-    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-        if(Validation.isEmail(txtEmail.getText()) == false){
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        if(!Validation.isEmail(txtEmail.getText())){
             JOptionPane.showMessageDialog(null, "Wrong email format. Please try again!", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_txtEmailKeyReleased
+    }//GEN-LAST:event_txtEmailFocusLost
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

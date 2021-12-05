@@ -1,22 +1,33 @@
 package PeopleGUI;
 
+import Classes.VaccinationAppointment;
 import javax.swing.JOptionPane;
 import CommonGUI.Login;
 import HelperClasses.Logging;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class PeopleProgrammeMenu extends javax.swing.JFrame {
-    
+
     private String userName = null, userId = null, ic = null;
-    
+
     public PeopleProgrammeMenu() {
         initComponents();
     }
-    
-    public PeopleProgrammeMenu(String userName, String userId, String ic){
+
+    public PeopleProgrammeMenu(String userName, String userId, String ic) {
         initComponents();
         lblUserName.setText(userName);
         lblUserId.setText(userId);
         lblIC.setText(ic);
+        
+        ArrayList<VaccinationAppointment> appointmentList = VaccinationAppointment.getAllVaccinationAppointments();
+        
+        for(VaccinationAppointment appointment : appointmentList){
+            if(lblUserName.getText().equals(appointment.getPatientName()) && lblIC.getText().equals(appointment.getPatientIdentification())){
+               btnNewRegistration.setVisible(false);
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -228,10 +239,10 @@ public class PeopleProgrammeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
-        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
             Logging.logoutLog(lblUserId.getText(), "People");
-            System.exit(0); 
+            System.exit(0);
         }
     }//GEN-LAST:event_btnLogoutMouseClicked
 
@@ -241,13 +252,14 @@ public class PeopleProgrammeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnViewRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewRegistrationMouseClicked
-        new PeopleViewRegistration(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);  
+        new PeopleViewRegistration(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnViewRegistrationMouseClicked
 
     private void btnNewRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNewRegistrationMouseClicked
         new PeopleRegistrationForm(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
         this.setVisible(false);
+
     }//GEN-LAST:event_btnNewRegistrationMouseClicked
 
     public static void main(String args[]) {

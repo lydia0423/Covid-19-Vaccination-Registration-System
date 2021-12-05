@@ -458,8 +458,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
                     originCountry = vaccine.getOriginCountry();
                     supplyDate = vaccine.getSupplyDate();
                     dosRequired = vaccine.getDosRequired();
-                    requiredWaitTime = vaccine.getRequiredWaitTime();
-                    
+                    requiredWaitTime = vaccine.getRequiredWaitTime();                   
                     break;
                 }
                 continue;

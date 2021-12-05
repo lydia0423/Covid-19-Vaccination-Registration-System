@@ -1,8 +1,11 @@
 package CommonGUI;
 
 import Classes.LoginVerification;
+import Classes.PeopleAccRegistration;
 import HelperClasses.EncryptAndDecrypt;
 import javax.swing.JOptionPane;
+import Classes.PersonnelAccRegistration;
+import java.util.ArrayList;
 
 public class ResetPassword extends javax.swing.JFrame {
     
@@ -232,10 +235,24 @@ public class ResetPassword extends javax.swing.JFrame {
         //Creates an instance Login and saves it to the database
         LoginVerification.updatePassword(userName, encryptedPassword);
         
-        //Empty the text field
-        txtUserName.setText("");
-        txtNewPassword.setText("");
-        txtConfirmedPassword.setText("");
+        ArrayList<PersonnelAccRegistration> allPersonnelAccounts = PersonnelAccRegistration.getAllPersonnelAccounts();
+        for(PersonnelAccRegistration account : allPersonnelAccounts){
+            if(userName.equals(account.getEmail())){
+                Login login = new Login();
+                login.setVisible(true);
+                this.setVisible(false); 
+            }  
+        }
+        
+        ArrayList<PeopleAccRegistration> allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
+        for(PeopleAccRegistration account : allPeopleAccounts) {
+            if(userName.equals(account.getEmail())){
+                Login login = new Login();
+                login.setVisible(true);
+                this.setVisible(false); 
+            }  
+        }
+        
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked

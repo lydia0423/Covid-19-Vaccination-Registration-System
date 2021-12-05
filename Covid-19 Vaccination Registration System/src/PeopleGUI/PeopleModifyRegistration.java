@@ -404,6 +404,9 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         VaccinationAppointment.saveAppointment(appointment, "Update");
         
         Logging.activityLog(lblUserId.getText(), "People", "29");
+
+        new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void cmbVaccinationCenterPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cmbVaccinationCenterPopupMenuWillBecomeVisible

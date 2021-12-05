@@ -11,7 +11,12 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
 
     public PersonnelRegisterPersonnel() {
         initComponents();
-
+    }
+    
+    public PersonnelRegisterPersonnel(String userName, String userId) {
+        initComponents();
+        lblUserName.setText(userName);
+        lblUserId.setText(userId);
         txtPersonnelId.setEditable(false);
     }
 
@@ -63,21 +68,21 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         jPanel2.setMaximumSize(new java.awt.Dimension(220, 530));
         jPanel2.setMinimumSize(new java.awt.Dimension(220, 530));
 
-        jLabel4.setText("Account");
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel4.setText("Account");
 
-        jLabel5.setText("Register");
         jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel5.setText("Register");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        lblUserName.setText("Account");
         lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserName.setText("Account");
 
-        lblUserId.setText("Account");
         lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblUserId.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserId.setText("Account");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -169,18 +174,18 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
 
         txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtName.setBorder(null);
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtNameKeyReleased(evt);
+        txtName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameFocusLost(evt);
             }
         });
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 209, 260, 34));
 
         txtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         txtEmail.setBorder(null);
-        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtEmailKeyReleased(evt);
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
             }
         });
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 209, 260, 34));
@@ -204,11 +209,11 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setText("Password");
         jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel9.setText("Password");
 
-        jLabel10.setText("Confirm Password");
         jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
+        jLabel10.setText("Confirm Password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,9 +316,7 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             txtConfirmPassword.setText("");
             txtPersonnelId.setText(VaccinationCenter.generateVaccinationId());
         } else {
-            PersonnelMainMenu mainMenu = new PersonnelMainMenu();
-            mainMenu.setVisible(true);
-            this.setVisible(false);
+            new PersonnelManagePeople(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
@@ -330,17 +333,17 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPasswordMouseExited
 
-    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-        if(Validation.isWord(txtName.getText()) == false){
+    private void txtNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameFocusLost
+        if(!Validation.isWord(txtName.getText())){
             JOptionPane.showMessageDialog(null, "Only word is allowed", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_txtNameKeyReleased
+    }//GEN-LAST:event_txtNameFocusLost
 
-    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-        if(Validation.isEmail(txtEmail.getText()) == false){
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        if(!Validation.isEmail(txtEmail.getText())){
             JOptionPane.showMessageDialog(null, "Wrong email format. Please try again!", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_txtEmailKeyReleased
+    }//GEN-LAST:event_txtEmailFocusLost
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

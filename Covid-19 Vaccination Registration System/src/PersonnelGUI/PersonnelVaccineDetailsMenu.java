@@ -111,7 +111,7 @@ public class PersonnelVaccineDetailsMenu extends javax.swing.JFrame {
         btnAddNewVaccine.setBackground(new java.awt.Color(135, 196, 180));
         btnAddNewVaccine.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnAddNewVaccine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4280503_new_outlined_window_browser_new window_icon.png"))); // NOI18N
-        btnAddNewVaccine.setText("    New Vaccine");
+        btnAddNewVaccine.setText("    New Vaccine Supply");
         btnAddNewVaccine.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         btnAddNewVaccine.setOpaque(true);
         btnAddNewVaccine.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,7 +137,7 @@ public class PersonnelVaccineDetailsMenu extends javax.swing.JFrame {
         btnVaccineSupply.setBackground(new java.awt.Color(135, 196, 180));
         btnVaccineSupply.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         btnVaccineSupply.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/4172394_goods_merchandise_stock_supply_vendibles_icon.png"))); // NOI18N
-        btnVaccineSupply.setText("    Vaccine Supply");
+        btnVaccineSupply.setText("    Vaccination Centers");
         btnVaccineSupply.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         btnVaccineSupply.setOpaque(true);
         btnVaccineSupply.addMouseListener(new java.awt.event.MouseAdapter() {

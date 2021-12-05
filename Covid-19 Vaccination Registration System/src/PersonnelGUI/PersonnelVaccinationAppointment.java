@@ -1,6 +1,5 @@
 package PersonnelGUI;
 
-import Classes.PeopleAccRegistration;
 import HelperClasses.FileHandler;
 import Classes.VaccinationAppointment;
 import Classes.VaccinationCenter;
@@ -34,12 +33,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
@@ -68,6 +64,7 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         TimePickerSettings appointmentTimeSettings = new TimePickerSettings();
         tpAppointmentTime = new TimePicker(appointmentTimeSettings);
         appointmentTimeSettings.generatePotentialMenuTimes(TimeIncrement.ThirtyMinutes, LocalTime.of(8, 00), LocalTime.of(19, 00));
+        appointmentTimeSettings.use24HourClockFormat();
         jLabel14 = new javax.swing.JLabel();
         btnUpdateAppointment = new javax.swing.JButton();
         txtVaccineType = new javax.swing.JTextField();
@@ -178,9 +175,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
             }
         });
 
-        txtVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtVaccineType.setBorder(null);
         txtVaccineType.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtVaccineType.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
         jLabel6.setText("Date");
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -264,9 +261,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         jLabel8.setText("Name");
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtName.setBorder(null);
         txtName.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtName.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
         rbtnNo.setText("No");
         rbtnNo.setBackground(new java.awt.Color(186, 221, 212));
@@ -303,9 +300,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         jLabel7.setText("NRIC / Passport");
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        txtIC.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         txtIC.setBorder(null);
         txtIC.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtIC.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
 
         jLabel4.setText("Close Contact");
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -453,9 +450,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         jSeparator1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         txtSearch.setBackground(new java.awt.Color(186, 221, 218));
         txtSearch.setBorder(null);
+        txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
@@ -494,9 +491,9 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblUserName.setForeground(new java.awt.Color(186, 221, 212));
 
+        lblUserId.setText("View Registrants");
         lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblUserId.setForeground(new java.awt.Color(186, 221, 212));
-        lblUserId.setText("View Registrants");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -529,16 +526,18 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnClose))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btnClose))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -653,8 +652,11 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // Seach Appointment Table
-        RowSorter rowSorter = new RowSorter();
-        rowSorter.searchTable();
+        AbstractTableModel model = (AbstractTableModel)tblVaccinationAppointment.getModel();
+        String search = txtSearch.getText();
+        TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(model);
+        tblVaccinationAppointment.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
         Logging.activityLog(lblUserId.getText(), "Personnel", "4");
     }//GEN-LAST:event_txtSearchKeyReleased
 
@@ -691,8 +693,11 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
         txtIC.setText(patientId);
         cmbState.setSelectedItem(state);
         txtVaccineType.setText(vaccineType);
-        dpAppointmentDate.setDate(LocalDate.parse(appointmentDate));
-        tpAppointmentTime.setTime(LocalTime.parse(appointmentTime));
+        if(appointmentDate.equals(" ") || appointmentTime.equals(" ")){
+            dpAppointmentDate.setDate(LocalDate.now());
+            tpAppointmentTime.setTime(LocalTime.now());
+        }
+
         txtHealthCondition.setText(healthCondition);
 
         if (closeContact.equals("No")) {
@@ -1012,47 +1017,6 @@ public class PersonnelVaccinationAppointment extends javax.swing.JFrame {
 
         public void removeRow(int row) {
             appointmentList.remove(row);
-        }
-    }
-
-//RowSorter for searching the table
-    class RowSorter extends TableRowSorter<TableModel> {
-
-        final private TableRowSorter<TableModel> rowSorter;
-
-        RowSorter() {
-            rowSorter = new TableRowSorter<>(tblVaccinationAppointment.getModel());
-            tblVaccinationAppointment.setRowSorter(rowSorter);
-        }
-
-        public void searchTable() {
-            txtSearch.getDocument().addDocumentListener(new DocumentListener() {
-            
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    throw new UnsupportedOperationException("Not supported yet.");
-                }
-            });
         }
     }
 

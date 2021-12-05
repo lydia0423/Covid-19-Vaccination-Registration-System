@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class EmailGenerator {
 
     public static void sendEmail(String recepient, String msg, String subject) throws MessagingException {
-        System.out.println("Preparing to send enmail!");
+        System.out.println("Preparing to send email!");
         Properties properties = new Properties();
 
         //always require username and password to authenticate the account

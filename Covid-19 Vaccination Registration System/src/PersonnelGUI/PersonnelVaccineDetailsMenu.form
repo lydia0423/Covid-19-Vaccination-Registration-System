@@ -246,7 +246,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/image/4280503_new_outlined_window_browser_new window_icon.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="    New Vaccine"/>
+            <Property name="text" type="java.lang.String" value="    New Vaccine Supply"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3"/>
@@ -289,7 +289,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/image/4172394_goods_merchandise_stock_supply_vendibles_icon.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="    Vaccine Supply"/>
+            <Property name="text" type="java.lang.String" value="    Vaccination Centers"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3"/>

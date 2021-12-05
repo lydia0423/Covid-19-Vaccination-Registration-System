@@ -540,18 +540,18 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         });
         jPanel1.add(cmbVaccineType, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 34, 129, -1));
 
-        btnClose.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         btnClose.setText("X");
+        btnClose.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCloseMouseClicked(evt);
             }
         });
-        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, -1));
+        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, -1, -1));
 
         jScrollPane2.setViewportView(tblVaccinationCenter);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 640, 390));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 640, 390));
 
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -739,8 +739,11 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // Seach Vaccination Center Table
-        RowSorter rowSorter = new RowSorter();
-        rowSorter.searchTable();
+        AbstractTableModel model = (AbstractTableModel)tblVaccinationCenter.getModel();
+        String search = txtSearch.getText();
+        TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(model);
+        tblVaccinationCenter.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
         Logging.activityLog(lblUserId.getText(), "Personnel", "9");
     }//GEN-LAST:event_txtSearchKeyReleased
 
@@ -926,47 +929,6 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
 
         public void removeRow(int row) {
             vaccinationCenterList.remove(row);
-        }
-    }
-
-//RowSorter for searching the table
-    class RowSorter extends TableRowSorter<TableModel> {
-
-        final private TableRowSorter<TableModel> rowSorter;
-
-        RowSorter() {
-            rowSorter = new TableRowSorter<>(tblVaccinationCenter.getModel());
-            tblVaccinationCenter.setRowSorter(rowSorter);
-        }
-
-        public void searchTable() {
-            txtSearch.getDocument().addDocumentListener(new DocumentListener() {
-
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    throw new UnsupportedOperationException("Not supported yet.");
-                }
-            });
         }
     }
 
