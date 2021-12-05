@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class LoginVerification{
+public class LoginVerification {
 
     protected String userName, userPassword, userRole;
 
@@ -18,7 +18,7 @@ public class LoginVerification{
         this.userName = userName;
         this.userPassword = userPassword;
     }
-    
+
     public String getUserName() {
         return userName;
     }
@@ -34,64 +34,69 @@ public class LoginVerification{
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
-    
+
     public static void verifyLogin(String userName, String password, JFrame jframe) throws SecurityException, IOException {
         ArrayList<PersonnelAccRegistration> allPersonnelAccounts = new ArrayList<>();
         ArrayList<PeopleAccRegistration> allPeopleAccounts = new ArrayList<>();
-        
-        if(userName.contains("helpacquire.com")){
+        boolean valid = false;
+
+        if (userName.contains("helpacquire.com")) {
             allPersonnelAccounts = PersonnelAccRegistration.getAllPersonnelAccounts();
-            
-            for(PersonnelAccRegistration account : allPersonnelAccounts){
+            valid = true;
+            for (PersonnelAccRegistration account : allPersonnelAccounts) {
                 String decoderPassword = EncryptAndDecrypt.decryptPassword(account.getPassword());
-                if(userName.equals(account.getEmail()) && password.equals(decoderPassword)){
+                if (userName.equals(account.getEmail()) && password.equals(decoderPassword)) {
                     new PersonnelMainMenu(account.getName(), account.getPersonnelId()).setVisible(true);
                     jframe.dispose();
                     Logging.loginLog(account.getPersonnelId(), "Personnel");
-                }           
+                }
             }
-            
-        }else{
+
+        } else if (valid != true) {
+            valid = false;
+            JOptionPane.showMessageDialog(null, "Invalid Credentials", "Login Failed!", JOptionPane.ERROR_MESSAGE);
+        } else {
+            valid = true;
             allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
-            
-            for(PeopleAccRegistration account : allPeopleAccounts){
+
+            for (PeopleAccRegistration account : allPeopleAccounts) {
                 String decoderPassword = EncryptAndDecrypt.decryptPassword(account.getPassword());
-                if(userName.equals(account.getEmail()) && password.equals(decoderPassword)){
+                if (userName.equals(account.getEmail()) && password.equals(decoderPassword)) {
                     new PeopleMainMenu(account.getName(), account.getPeopleId(), account.getIcOrPassport()).setVisible(true);
                     jframe.dispose();
                     Logging.loginLog(account.getPeopleId(), "People");
                 }
-            } 
+            }
         }
     }
-    
-    public static void updatePassword(String userName, String password){
+
+    public static void updatePassword(String userName, String password) {
         ArrayList<PersonnelAccRegistration> allPersonnelAccounts = new ArrayList<>();
         ArrayList<PeopleAccRegistration> allPeopleAccounts = new ArrayList<>();
-        
+
         String userId, name, icOrPassport, dob, contact, address, citizen;
-        
-        if(userName.contains("helpacquire.com")){
+
+        if (userName.contains("helpacquire.com")) {
             allPersonnelAccounts = PersonnelAccRegistration.getAllPersonnelAccounts();
-            
-            for(PersonnelAccRegistration account : allPersonnelAccounts){
-                if(userName.equals(account.getEmail())){
+
+            for (PersonnelAccRegistration account : allPersonnelAccounts) {
+                if (userName.equals(account.getEmail())) {
                     userId = account.getPersonnelId();
                     name = account.getName();
                     icOrPassport = account.getIc();
                     userName = account.getEmail();
-                    
+
                     PersonnelAccRegistration updatePassword = new PersonnelAccRegistration(userId, name, icOrPassport, userName, password);
                     PersonnelAccRegistration.savePersonnelRegistration(updatePassword, "update");
-                    
+
                     JOptionPane.showMessageDialog(null, "Password successfully saved.", "Update Password Success!", JOptionPane.INFORMATION_MESSAGE);
                 }
-            }       
-        }else{
+            }
+        } else {
             allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
-            
-            for(PeopleAccRegistration account : allPeopleAccounts){
-                if(userName.equals(account.getEmail())){
+
+            for (PeopleAccRegistration account : allPeopleAccounts) {
+                if (userName.equals(account.getEmail())) {
                     userId = account.getPeopleId();
                     name = account.getName();
                     icOrPassport = account.getIcOrPassport();
@@ -100,17 +105,15 @@ public class LoginVerification{
                     address = account.getAddress();
                     citizen = account.getCitizen();
                     userName = account.getEmail();
-                    
+
                     PeopleAccRegistration updatePassword = new PeopleAccRegistration(userId, name, icOrPassport, dob, contact, address, citizen, userName, password);
-                    PeopleAccRegistration.saveRegistration(updatePassword, "update"); 
-                    
+                    PeopleAccRegistration.saveRegistration(updatePassword, "update");
+
                     JOptionPane.showMessageDialog(null, "Password successfully saved.", "Update Password Success!", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
-        
+
     }
-
-
 
 }

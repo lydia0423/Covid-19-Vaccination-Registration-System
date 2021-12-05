@@ -381,7 +381,7 @@ public class PersonnelRegisterPeople extends javax.swing.JFrame {
             txtEmail.setText("");
             lblPeopleId.setText(VaccinationCenter.generateVaccinationId());
         } else {
-            new PersonnelMainMenu(lblUserName.getText(), lblUserId.getText()).setVisible(true);
+            new PersonnelManagePeople(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 

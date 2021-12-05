@@ -316,9 +316,7 @@ public class PersonnelRegisterPersonnel extends javax.swing.JFrame {
             txtConfirmPassword.setText("");
             txtPersonnelId.setText(VaccinationCenter.generateVaccinationId());
         } else {
-            PersonnelMainMenu mainMenu = new PersonnelMainMenu();
-            mainMenu.setVisible(true);
-            this.setVisible(false);
+            new PersonnelManagePeople(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 

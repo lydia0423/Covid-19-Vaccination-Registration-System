@@ -199,15 +199,15 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel12.setText("Register");
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
+        lblPeopleId.setText("Account");
         lblPeopleId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblPeopleId.setForeground(new java.awt.Color(255, 255, 255));
-        lblPeopleId.setText("Account");
 
-        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel14.setText("Account");
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -243,23 +243,23 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 .addContainerGap(107, Short.MAX_VALUE))
         );
 
-        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel3.setText("Full Name as per IC / Passport");
+        jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel4.setText("Email");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel5.setText("Contact Number");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel6.setText("Date of Birth");
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel7.setText("NRIC (Citizen) / Passport (Non-citizen)");
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel8.setText("Address");
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
         dpPeopleDOB.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
@@ -280,34 +280,34 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         txtPeopleAddress.setRows(5);
         jScrollPane1.setViewportView(txtPeopleAddress);
 
+        btnPeopleCancel.setText("Cancel");
         btnPeopleCancel.setBackground(new java.awt.Color(82, 137, 128));
         btnPeopleCancel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnPeopleCancel.setText("Cancel");
         btnPeopleCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPeopleCancelActionPerformed(evt);
             }
         });
 
+        btnUpdatePeopleDetails.setText("Update");
         btnUpdatePeopleDetails.setBackground(new java.awt.Color(82, 137, 128));
         btnUpdatePeopleDetails.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnUpdatePeopleDetails.setText("Update");
         btnUpdatePeopleDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdatePeopleDetailsActionPerformed(evt);
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
         jLabel13.setText("Citizen");
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 19)); // NOI18N
 
+        rbtnPeopleCitizenYes.setText("Yes");
         rbtnPeopleCitizenYes.setBackground(new java.awt.Color(186, 221, 212));
         rbtnPeopleCitizenYes.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        rbtnPeopleCitizenYes.setText("Yes");
 
+        rbtnPeopleCitizenNo.setText("No");
         rbtnPeopleCitizenNo.setBackground(new java.awt.Color(186, 221, 212));
         rbtnPeopleCitizenNo.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        rbtnPeopleCitizenNo.setText("No");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -430,11 +430,11 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         jPanel6.setMaximumSize(new java.awt.Dimension(220, 530));
         jPanel6.setMinimumSize(new java.awt.Dimension(220, 530));
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel9.setText("Account");
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel15.setText("Update");
+        jLabel15.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
@@ -637,39 +637,39 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         lblUserId.setText("Manage People");
         jPanel2.add(lblUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 80, 10));
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel1.setText("Manage People");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.setBackground(new java.awt.Color(82, 137, 128));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.setBackground(new java.awt.Color(82, 137, 128));
         btnEdit.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
 
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.setBackground(new java.awt.Color(82, 137, 128));
         btnDelete.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.setBackground(new java.awt.Color(82, 137, 128));
         btnPrint.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
