@@ -464,6 +464,7 @@ public class PersonnelAddVaccinationCenter extends javax.swing.JFrame{
                 continue;
             }
         }
+        reset = true;
     }//GEN-LAST:event_cmbVaccineTypeItemStateChanged
 
     private void cmbVaccineTypePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cmbVaccineTypePopupMenuWillBecomeVisible
