@@ -1,10 +1,13 @@
 package CommonGUI;
 
-
 import Classes.LoginVerification;
+import Classes.VaccinationAppointment;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
@@ -228,15 +231,28 @@ public class Login extends javax.swing.JFrame {
         password = String.valueOf(txtPassword.getPassword());
         
         try {
-            LoginVerification.verifyLogin(userName, password);
-            this.dispose();
+            LoginVerification.verifyLogin(userName, password, this);
         } catch (IOException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ArrayList<VaccinationAppointment> appointmentList = VaccinationAppointment.getAllVaccinationAppointments();
+        for(VaccinationAppointment appointment : appointmentList){
+            if(appointment.getAppointmentStatus().equals("Confirmed") && LocalDate.parse(appointment.getAppointmentDate()).isBefore(LocalDate.now())){
+                VaccinationAppointment a = new VaccinationAppointment(appointment.getAppointmentId(), appointment.getPatientName(), 
+                        appointment.getPatientIdentification(), appointment.getState(), appointment.getVaccinationCenter(), 
+                        appointment.getVaccineType(), appointment.getRegisteredDate(), appointment.getAppointmentDate(), 
+                        appointment.getAppointmentTime(), appointment.getHealthCondition(), appointment.getCloseContact(), "Completed");
+                VaccinationAppointment.saveAppointment(a, "system update");
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        dispose();
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
+            dispose();
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnResetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswordActionPerformed

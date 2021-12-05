@@ -12,4 +12,8 @@ public class Validation {
     public static boolean isWord(String query){
         return Pattern.matches("[a-zA-Z]+", query);
     }
+    
+    public static boolean isEmail(String query){
+        return Pattern.matches("^(.+)@(.+)$", query);
+    }
 }

@@ -3,6 +3,7 @@ package PersonnelGUI;
 import Classes.PeopleAccRegistration;
 import Classes.PersonnelAccRegistration;
 import HelperClasses.FileHandler;
+import HelperClasses.Logging;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -33,8 +34,13 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
 
     public PersonnelManagePeople() {
         initComponents();
+    }
 
+    public PersonnelManagePeople(String userName, String userId) {
+        initComponents();
         txtPersonnelId.setEditable(false);
+        lblUserName.setText(userName);
+        lblUserId.setText(userId);
     }
 
     @SuppressWarnings("unchecked")
@@ -172,6 +178,8 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         ((DefaultTableCellRenderer) tblPersonnel.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
         tblPersonnel.getTableHeader().setFont(new Font("Berlin Sans FB", Font.PLAIN,14));
         tblPersonnel.getTableHeader().setReorderingAllowed(false);
+        lblUserName = new javax.swing.JLabel();
+        lblUserId = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
@@ -409,10 +417,8 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         );
 
         dialogPersonnelEditPersonnelDetails.setLocationByPlatform(true);
-        dialogPersonnelEditPersonnelDetails.setMaximumSize(new java.awt.Dimension(900, 530));
         dialogPersonnelEditPersonnelDetails.setMinimumSize(new java.awt.Dimension(900, 530));
         dialogPersonnelEditPersonnelDetails.setUndecorated(true);
-        dialogPersonnelEditPersonnelDetails.setPreferredSize(new java.awt.Dimension(900, 530));
 
         jPanel5.setBackground(new java.awt.Color(186, 221, 212));
         jPanel5.setMaximumSize(new java.awt.Dimension(900, 530));
@@ -566,9 +572,9 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         });
         jPanel2.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(651, 0, -1, 44));
 
+        btnBack.setText("Back");
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnBack.setText("Back");
         btnBack.setPreferredSize(new java.awt.Dimension(100, 40));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -586,7 +592,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
             .addGroup(peoplePaneLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         peoplePaneLayout.setVerticalGroup(
             peoplePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,6 +626,16 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         userTabbedPane.addTab("Personnel", personnelPane);
 
         jPanel2.add(userTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 630, 390));
+
+        lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(186, 221, 212));
+        lblUserName.setText("Manage People");
+        jPanel2.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 80, 10));
+
+        lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserId.setForeground(new java.awt.Color(186, 221, 212));
+        lblUserId.setText("Manage People");
+        jPanel2.add(lblUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 80, 10));
 
         jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel1.setText("Manage People");
@@ -721,56 +737,82 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        RowSorter rowSorter = new RowSorter();
-        rowSorter.searchTable();
+        if (userTabbedPane.getSelectedIndex() == 0) {
+            AbstractTableModel model = (AbstractTableModel) tblPeople.getModel();
+            String search = txtSearch.getText();
+            TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(model);
+            tblPeople.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
+        } else {
+            AbstractTableModel model = (AbstractTableModel) tblPersonnel.getModel();
+            String search = txtSearch.getText();
+            TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(model);
+            tblPersonnel.setRowSorter(tr);
+            tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
+        }
+
+        if (lblUserId.getText().contains("PLP")) {
+            Logging.activityLog(lblUserId.getText(), "People", "18");
+        } else {
+            Logging.activityLog(lblUserId.getText(), "Personnel", "24");
+        }
+
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        dispose();
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
+            Logging.logoutLog(lblUserId.getText(), "Personnel");
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        PersonnelAccountMenu accountmenu = new PersonnelAccountMenu();
-        accountmenu.setVisible(true);
+        new PersonnelMainMenu(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        PersonnelRegisterPeople registerpeople = new PersonnelRegisterPeople();
-        registerpeople.setVisible(true);
-        this.setVisible(false);
+        if (userTabbedPane.getSelectedIndex() == 0) {
+            new PersonnelRegisterPeople(lblUserName.getText(), lblUserId.getText()).setVisible(true);
+            this.setVisible(false);
+        } else {
+            new PersonnelRegisterPersonnel(lblUserName.getText(), lblUserId.getText()).setVisible(true);
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        String peopleId = null, peopleName = null, peopleIC = null, peopleDob = null, peopleContact = null, peopleAddress = null, peopleCitizen = null, peopleEmail = null, personnelId = null,
+                personnelName = null, personnelIC = null, personnelEmail = null;
+
         //Retrieve selected row for editing
         int selectedRow;
 
         if (userTabbedPane.getSelectedIndex() == 0) {
             selectedRow = tblPeople.getSelectedRow();
+            //Retrieve from people table
+            peopleId = tblPeople.getValueAt(selectedRow, 0).toString();
+            peopleName = tblPeople.getValueAt(selectedRow, 1).toString();
+            peopleIC = tblPeople.getValueAt(selectedRow, 2).toString();
+            peopleDob = tblPeople.getValueAt(selectedRow, 3).toString();
+            peopleContact = tblPeople.getValueAt(selectedRow, 4).toString();
+            peopleAddress = tblPeople.getValueAt(selectedRow, 5).toString();
+            peopleCitizen = tblPeople.getValueAt(selectedRow, 6).toString();
+            peopleEmail = tblPeople.getValueAt(selectedRow, 7).toString();
         } else {
             selectedRow = tblPersonnel.getSelectedRow();
+            //Retrieve from personnel table
+            personnelId = tblPersonnel.getValueAt(selectedRow, 0).toString();
+            personnelName = tblPersonnel.getValueAt(selectedRow, 1).toString();
+            personnelIC = tblPersonnel.getValueAt(selectedRow, 2).toString();
+            personnelEmail = tblPersonnel.getValueAt(selectedRow, 3).toString();
         }
 
         if (selectedRow == -1) {
             JOptionPane.showMessageDialog(null, "Please select a row to edit", "Select Account", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-
-        //Retrieve from people table
-        String peopleId = tblPeople.getValueAt(selectedRow, 0).toString();
-        String peopleName = tblPeople.getValueAt(selectedRow, 1).toString();
-        String peopleIC = tblPeople.getValueAt(selectedRow, 2).toString();
-        String peopleDob = tblPeople.getValueAt(selectedRow, 3).toString();
-        String peopleContact = tblPeople.getValueAt(selectedRow, 4).toString();
-        String peopleAddress = tblPeople.getValueAt(selectedRow, 5).toString();
-        String peopleCitizen = tblPeople.getValueAt(selectedRow, 6).toString();
-        String peopleEmail = tblPeople.getValueAt(selectedRow, 7).toString();
-
-        //Retrieve from personnel table
-        String personnelId = tblPersonnel.getValueAt(selectedRow, 0).toString();
-        String personnelName = tblPersonnel.getValueAt(selectedRow, 1).toString();
-        String personnelIC = tblPersonnel.getValueAt(selectedRow, 2).toString();
-        String personnelEmail = tblPersonnel.getValueAt(selectedRow, 3).toString();
 
         //Open PersonnelEditPersonnelDetails or PersonnelEditPeopleDetails window
         if (userTabbedPane.getSelectedIndex() == 0) {
@@ -835,6 +877,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 try {
                     toDeletePeople.delete();
                     tblPeople.setModel(new PersonnelManagePeople.PeopleTableModel());
+                    Logging.activityLog(lblUserId.getText(), "People", "17");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Failed to delete account", "Delete Account", JOptionPane.INFORMATION_MESSAGE);
                     System.err.println(e);
@@ -843,6 +886,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 try {
                     toDeletePersonnel.delete();
                     tblPersonnel.setModel(new PersonnelManagePeople.PersonnelTableModel());
+                    Logging.activityLog(lblUserId.getText(), "Personnel", "22");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Failed to delete account", "Delete Account", JOptionPane.INFORMATION_MESSAGE);
                     System.err.println(e);
@@ -870,7 +914,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         if (userTabbedPane.getSelectedIndex() == 0) {
             fileName = System.getProperty("file.separator") + "PeopleAccount " + LocalDate.now().toString() + ".pdf";
             headers = new String[]{"People Id", "Name", "IC/Passport", "DOB", "Contact", "Address", "Citizen", "Email"};
-            
+
             try {
                 PdfWriter.getInstance(doc, new FileOutputStream(folderDirectory + fileName));
 
@@ -908,10 +952,11 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                 Logger.getLogger(PersonnelManagePeople.class.getName()).log(Level.SEVERE, null, ex);
             }
             doc.close();
-        }else{
+            Logging.activityLog(lblUserId.getText(), "Personnel", "25");
+        } else {
             fileName = System.getProperty("file.separator") + "PersonnelAccount " + LocalDate.now().toString() + ".pdf";
             headers = new String[]{"Personnel Id", "Name", "IC/Passport", "Email"};
-            
+
             try {
                 PdfWriter.getInstance(doc, new FileOutputStream(folderDirectory + fileName));
 
@@ -934,14 +979,14 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
                     tbl.addCell(personnelContact);
                     tbl.addCell(personnelEmail);
                 }
-                
+
                 doc.add(tbl);
-                
+
             } catch (FileNotFoundException | DocumentException ex) {
                 Logger.getLogger(PersonnelManagePeople.class.getName()).log(Level.SEVERE, null, ex);
             }
             doc.close();
-            
+            Logging.activityLog(lblUserId.getText(), "Personnel", "25");
         }
 
     }//GEN-LAST:event_btnPrintActionPerformed
@@ -987,6 +1032,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         //Creates an instance PeopleAccRegistration and saves it to the database
         PeopleAccRegistration update = new PeopleAccRegistration(peopleId, name, icOrPassport, contact, dob, address, citizen, email, password);
         PeopleAccRegistration.saveRegistration(update, "update");
+        Logging.activityLog(lblUserId.getText(), "Personnel", "16");
 
         dialogPersonnelEditPeopleDetails.setVisible(false);
         tblPeople.setModel(new PersonnelManagePeople.PeopleTableModel());
@@ -1024,6 +1070,7 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
         //Creates an instance PersonnelAccRegistration and saves it to the database
         PersonnelAccRegistration update = new PersonnelAccRegistration(personnelId, name, ic, email, password);
         PersonnelAccRegistration.savePersonnelRegistration(update, "update");
+        Logging.activityLog(lblUserId.getText(), "Personnel", "21");
 
         dialogPersonnelEditPersonnelDetails.setVisible(false);
         tblPersonnel.setModel(new PersonnelManagePeople.PersonnelTableModel());
@@ -1256,6 +1303,8 @@ public class PersonnelManagePeople extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblPeopleId;
+    private javax.swing.JLabel lblUserId;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JPanel peoplePane;
     private javax.swing.JPanel personnelPane;
     private javax.swing.JRadioButton rbtnPeopleCitizenNo;

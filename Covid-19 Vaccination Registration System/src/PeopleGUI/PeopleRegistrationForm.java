@@ -9,6 +9,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -316,10 +319,10 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         patientId = txtICOrPassport.getText();
         state = cmbState.getSelectedItem().toString();
         vaccinationCenter = cmbVaccinationCenter.getSelectedItem().toString();
-        vaccineType = "-";
+        vaccineType = " ";
         registeredDate = LocalDate.now();
-        appointmentDate = "-";
-        appointmentTime = "-";
+        appointmentDate = " ";
+        appointmentTime = " ";
         appointmentStatus = "Registered";
 
         if (rbtnCloseNo.isSelected()) {
@@ -334,6 +337,11 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
             healthCondition = txtReason.getText();
 
         }
+        
+        //Populates the combo box
+        DefaultComboBoxModel<String> centerSelectorList = new DefaultComboBoxModel<>();
+        centerSelectorList.addElement(vaccinationCenter);
+        cmbVaccinationCenter.setModel(centerSelectorList);
 
         //Verify that all input are filled
         if (state.isEmpty() || vaccineType.isEmpty() || healthCondition.isEmpty() || closeContact.isEmpty()) {
@@ -347,21 +355,25 @@ public class PeopleRegistrationForm extends javax.swing.JFrame {
         //Creates an instance of VaccinationAppointment and saves it to the database
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, registeredDateString, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Add");
+        
+        try {
+            VaccinationAppointment.generateEmail(appointment, "People", txtEmail.getText(), "Vaccination Programme");
+            
+        } catch (MessagingException ex) {
+            Logger.getLogger(PeopleRegistrationForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Logging.activityLog(lblUserId.getText(), "People", "28");
 
-        //Reset the form
-        txtName.setText("");
-        txtICOrPassport.setText("");
-        cmbState.setSelectedIndex(-1);
-        cmbVaccinationCenter.setSelectedIndex(-1);
-        txtReason.setText("");
-        lblAppointmentId.setText(VaccinationAppointment.generateAppointmentId());
-
+        new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want cancel registration?", "Cancel Registration", JOptionPane.YES_NO_OPTION);
         if (dialog == JOptionPane.YES_OPTION) {
-            new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText());
+            new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_btnBackActionPerformed
 

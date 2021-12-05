@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package PeopleGUI;
 
 import Classes.PeopleAccRegistration;
@@ -32,6 +28,8 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
 
             }
         }
+        
+        Logging.activityLog(userId, "People", "31");
     }
 
     @SuppressWarnings("unchecked")
@@ -298,11 +296,10 @@ public class PeopleViewPersonalDetails extends javax.swing.JFrame {
 
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
         new PeopleMainMenu(txtName.getText(), txtUserId.getText(), txtICOrPassport.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnbackMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -19,6 +19,8 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         allAppointments = VaccinationAppointment.getAllVaccinationAppointments();
         
         lblUserId.setText(userId);
+        lblUserName.setText(userName);
+        lblUserIc.setText(ic);
         
         for (VaccinationAppointment appointment : allAppointments) {
             if (userName.equals(appointment.getPatientName()) && ic.equals(appointment.getPatientIdentification())) {
@@ -43,9 +45,11 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                     txtName.setText(appointment.getPatientName());
                     txtICOrPassport.setText(appointment.getPatientIdentification());
                     txtVaccinationCenter.setText(appointment.getVaccinationCenter());
-                    txtVaccineType.setText(appointment.getVaccineType());
+                    txtVaccineType.setText("-");
                     txtAppointmentDate.setText("-");
                     txtAppointmentTime.setText("-");
+                    btnCancelAppointment.setEnabled(false);
+                    btnConfirmAppointment.setEnabled(false);
                 }
             }
         }
@@ -58,10 +62,12 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         lblUserId = new javax.swing.JLabel();
+        lblUserName = new javax.swing.JLabel();
+        lblUserIc = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -97,9 +103,6 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel6.setText("Appointment");
 
-        jLabel10.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        jLabel10.setText("Details");
-
         jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel13.setText("Vaccination");
 
@@ -108,6 +111,17 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         lblUserId.setForeground(new java.awt.Color(255, 255, 255));
         lblUserId.setText("Details");
+
+        lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserName.setText("Details");
+
+        lblUserIc.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserIc.setForeground(new java.awt.Color(255, 255, 255));
+        lblUserIc.setText("Details");
+
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        jLabel12.setText("Details");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -124,14 +138,21 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jLabel6))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addGap(69, 69, 69)
-                            .addComponent(jLabel10))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(lblUserIc, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(13, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(79, Short.MAX_VALUE)
+                    .addComponent(jLabel12)
+                    .addGap(74, 74, 74)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,11 +163,18 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addGap(11, 11, 11)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addGap(46, 46, 46)
+                .addGap(85, 85, 85)
                 .addComponent(lblUserId, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblUserIc, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(372, Short.MAX_VALUE)
+                    .addComponent(jLabel12)
+                    .addGap(131, 131, 131)))
         );
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -330,21 +358,28 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
 
     private void btnCancelAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelAppointmentActionPerformed
         //Retrieve data from form
-        String name, icOrPassport, vaccinationCenter, vaccineType, appointmentDate, appointmentTime, appointmentStatus;
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want cancel appointment?", "Cancel Appointment", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
+            String name, icOrPassport, vaccinationCenter, vaccineType, appointmentDate, appointmentTime, appointmentStatus;
         
-        name = txtName.getText();
-        icOrPassport = txtICOrPassport.getText();
-        vaccinationCenter = txtVaccinationCenter.getText();
-        vaccineType = txtVaccineType.getText();
-        appointmentDate = txtAppointmentDate.getText();
-        appointmentTime = txtAppointmentTime.getText();
-        appointmentStatus = "Cancelled";
+            name = txtName.getText();
+            icOrPassport = txtICOrPassport.getText();
+            vaccinationCenter = txtVaccinationCenter.getText();
+            vaccineType = txtVaccineType.getText();
+            appointmentDate = txtAppointmentDate.getText();
+            appointmentTime = txtAppointmentTime.getText();
+            appointmentStatus = "Cancelled";
         
-        //Creates an instance of VaccinationAppointment and saves it to the database
-        VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, name, icOrPassport, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
-        VaccinationAppointment.saveAppointment(appointment, "Cancel");
+            //Creates an instance of VaccinationAppointment and saves it to the database
+            VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, name, icOrPassport, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
+            VaccinationAppointment.saveAppointment(appointment, "Cancel");
         
-        new PeopleMainMenu(txtName.getText(), userId, txtICOrPassport.getText()).setVisible(true);
+            Logging.activityLog(userId, "People", "27");
+        
+            new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
+            this.setVisible(false);
+  
+        }
     }//GEN-LAST:event_btnCancelAppointmentActionPerformed
 
     private void btnConfirmAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmAppointmentActionPerformed
@@ -363,12 +398,14 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, name, icOrPassport, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Confirm");
         
-        new PeopleMainMenu(txtName.getText(), userId, txtICOrPassport.getText()).setVisible(true);
+        Logging.activityLog(userId, "People", "26");
+        
+        new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnConfirmAppointmentActionPerformed
 
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
-        PeopleMainMenu peoplemenu = new PeopleMainMenu();
-        peoplemenu.setVisible(true);
+        new PeopleMainMenu(lblUserName.getText(), lblUserId.getText(), lblUserIc.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnbackMouseClicked
 
@@ -413,8 +450,8 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
     private javax.swing.JLabel btnClose;
     private javax.swing.JButton btnConfirmAppointment;
     private javax.swing.JLabel btnback;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -425,7 +462,9 @@ public class PeopleViewAppointment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblUserIc;
     private javax.swing.JLabel lblUserId;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JTextField txtAppointmentDate;
     private javax.swing.JTextField txtAppointmentTime;
     private javax.swing.JTextField txtICOrPassport;

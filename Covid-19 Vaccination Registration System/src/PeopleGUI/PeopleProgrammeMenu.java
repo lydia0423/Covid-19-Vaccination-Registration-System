@@ -1,22 +1,33 @@
 package PeopleGUI;
 
+import Classes.VaccinationAppointment;
 import javax.swing.JOptionPane;
 import CommonGUI.Login;
 import HelperClasses.Logging;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class PeopleProgrammeMenu extends javax.swing.JFrame {
-    
+
     private String userName = null, userId = null, ic = null;
-    
+
     public PeopleProgrammeMenu() {
         initComponents();
     }
-    
-    public PeopleProgrammeMenu(String userName, String userId, String ic){
+
+    public PeopleProgrammeMenu(String userName, String userId, String ic) {
         initComponents();
         lblUserName.setText(userName);
         lblUserId.setText(userId);
         lblIC.setText(ic);
+        
+        ArrayList<VaccinationAppointment> appointmentList = VaccinationAppointment.getAllVaccinationAppointments();
+        
+        for(VaccinationAppointment appointment : appointmentList){
+            if(lblUserName.getText().equals(appointment.getPatientName()) && lblIC.getText().equals(appointment.getPatientIdentification())){
+               btnNewRegistration.setVisible(false);
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -220,37 +231,37 @@ public class PeopleProgrammeMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-    int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
-    if(dialog == JOptionPane.YES_OPTION){
-        System.exit(0);
-    }
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
+            Logging.logoutLog(lblUserId.getText(), "People");
+            System.exit(0);
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
-        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
             Logging.logoutLog(lblUserId.getText(), "People");
-            System.exit(0); 
+            System.exit(0);
         }
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     private void btnbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbackMouseClicked
-        PeopleMainMenu peoplemenu = new PeopleMainMenu();
-        peoplemenu.setVisible(true); 
-        this.setVisible(false);  
+        new PeopleMainMenu(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnViewRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewRegistrationMouseClicked
-        new PeopleViewRegistration(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);   
+        new PeopleViewRegistration(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnViewRegistrationMouseClicked
 
     private void btnNewRegistrationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNewRegistrationMouseClicked
         new PeopleRegistrationForm(lblUserName.getText(), lblUserId.getText(), lblIC.getText()).setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_btnNewRegistrationMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

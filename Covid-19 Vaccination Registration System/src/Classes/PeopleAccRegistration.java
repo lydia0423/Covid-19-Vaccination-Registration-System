@@ -17,7 +17,7 @@ public class PeopleAccRegistration extends Registration implements FileMethods{
     
    private String peopleId, citizen, name, icOrPassport, contact, address, dob;
     
-    public PeopleAccRegistration(String peopleId, String name, String icOrPassport, String contact, String address, String dob, String citizen, String email, String password) {
+    public PeopleAccRegistration(String peopleId, String name, String icOrPassport, String dob, String contact, String address, String citizen, String email, String password) {
         super(email, password);
         this.peopleId = peopleId;
         this.citizen = citizen;

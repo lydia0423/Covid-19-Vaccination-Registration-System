@@ -2,6 +2,7 @@ package Classes;
 
 import HelperClasses.FileHandler;
 import HelperClasses.FileMethods;
+import HelperClasses.State;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -89,6 +90,36 @@ public class Vaccine implements FileMethods {
         this.requiredWaitTime = requiredWaitTime;
     }
     
+    //Retrieve all vaccination center created
+    public static ArrayList<Vaccine> getAllVaccinesForTable() { 
+        String[] vaccineList = {"AstraZeneca", "Pfizer-BioNTech", "Sinovac"};
+        ArrayList<Vaccine> allVaccine = new ArrayList<>();
+        
+        for (String vaccine : vaccineList) {
+            String folderDirectory = "Vaccine/" + vaccine;
+            //Retrive from folder
+            File vaccineFolder = FileHandler.retrievePath(folderDirectory, "null");
+            File[] vaccineFiles = vaccineFolder.listFiles();
+            for (File vaccineFile : vaccineFiles) {
+                try ( Scanner readFile = new Scanner(vaccineFile)) {
+                    while (readFile.hasNext()) {
+                        allVaccine.add(new Vaccine(
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine(),
+                                readFile.nextLine()
+                        ));
+                    }
+                } catch (FileNotFoundException e) {
+                    System.err.println(e);
+                }
+            }
+        } 
+        return allVaccine;
+    }
     
     //Retrieve all vaccine created
     public static ArrayList<Vaccine> getAllVaccines(String folderName) {  

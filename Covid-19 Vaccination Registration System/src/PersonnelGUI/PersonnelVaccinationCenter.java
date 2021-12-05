@@ -4,6 +4,7 @@ import Classes.VaccinationAppointment;
 import Classes.VaccinationCenter;
 import Classes.Vaccine;
 import HelperClasses.FileHandler;
+import HelperClasses.Logging;
 import HelperClasses.State;
 import HelperClasses.TableFilter;
 import com.github.lgooddatepicker.components.TimePicker;
@@ -45,6 +46,12 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
 
     public PersonnelVaccinationCenter() {
         initComponents();
+    }
+    
+    public PersonnelVaccinationCenter(String userName, String userId) {
+        initComponents();
+        lblUserName.setText(userName);
+        lblUserId.setText(userId);
     }
 
     @SuppressWarnings("unchecked")
@@ -139,6 +146,8 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         tblVaccinationCenter.getTableHeader().setFont(new Font("Berlin Sans FB", Font.PLAIN,14));
         tblVaccinationCenter.getTableHeader().setReorderingAllowed(false);
         btnBack = new javax.swing.JButton();
+        lblUserName = new javax.swing.JLabel();
+        lblUserId = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,7 +162,6 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        dialogEditVaccinationCenter.setMaximumSize(new java.awt.Dimension(900, 530));
         dialogEditVaccinationCenter.setMinimumSize(new java.awt.Dimension(900, 530));
         dialogEditVaccinationCenter.setUndecorated(true);
 
@@ -161,25 +169,25 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Center");
+        jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("New Vaccination ");
+        jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
-        lblVaccineId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        lblVaccineId.setForeground(new java.awt.Color(255, 255, 255));
         lblVaccineId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVaccineId.setText("ID");
+        lblVaccineId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblVaccineId.setForeground(new java.awt.Color(255, 255, 255));
 
-        lblVaccinationCenterId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
-        lblVaccinationCenterId.setForeground(new java.awt.Color(255, 255, 255));
         lblVaccinationCenterId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblVaccinationCenterId.setText("ID");
+        lblVaccinationCenterId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblVaccinationCenterId.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -217,23 +225,23 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
                 .addGap(52, 52, 52))
         );
 
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel1.setText("Available Vaccine(s)");
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel7.setText("Vaccination Center Name");
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel8.setText("Address");
+        jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel9.setText("Operation Hours");
+        jLabel9.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel12.setText("Quantity");
+        jLabel12.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel13.setText("State");
+        jLabel13.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         txtAddress.setColumns(20);
         txtAddress.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -245,9 +253,9 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         txtVaccinationCenterName.setBorder(null);
         txtVaccinationCenterName.setPreferredSize(new java.awt.Dimension(1, 30));
 
-        cmbStateSelected.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         cmbStateSelected.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--State--", "Johor", "Malacca", "Negeri Sembilan", "Selangor", "Kuala Lumpur", "Putrajaya", "Labuan", "Perak", "Penang", "Kedah", "Perlis", "Terengganu", "Kelantan", "Pahang", "Sabah", "Sarawak" }));
         cmbStateSelected.setAutoscrolls(true);
+        cmbStateSelected.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         tpStartTime.setMinimumSize(new java.awt.Dimension(80, 30));
         tpStartTime.setPreferredSize(new java.awt.Dimension(80, 30));
@@ -255,9 +263,9 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         tpEndTime.setMinimumSize(new java.awt.Dimension(80, 30));
         tpEndTime.setPreferredSize(new java.awt.Dimension(80, 30));
 
-        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("to");
+        jLabel14.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
 
         cmbVaccineTypeSelected.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         cmbVaccineTypeSelected.addItemListener(new java.awt.event.ItemListener() {
@@ -275,9 +283,9 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
             }
         });
 
+        btnUpdate.setText("Update");
         btnUpdate.setBackground(new java.awt.Color(82, 137, 128));
         btnUpdate.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnUpdate.setText("Update");
         btnUpdate.setPreferredSize(new java.awt.Dimension(100, 40));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,9 +293,9 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
             }
         });
 
+        btnCancel.setText("Cancel");
         btnCancel.setBackground(new java.awt.Color(82, 137, 128));
         btnCancel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnCancel.setText("Cancel");
         btnCancel.setPreferredSize(new java.awt.Dimension(100, 40));
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,51 +412,51 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Center");
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/biglogo.png"))); // NOI18N
 
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.setBackground(new java.awt.Color(82, 137, 128));
         btnAdd.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/134224_add_plus_new_icon.png"))); // NOI18N
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
 
+        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.setBackground(new java.awt.Color(82, 137, 128));
         btnEdit.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/352547_edit_mode_icon.png"))); // NOI18N
         btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditActionPerformed(evt);
             }
         });
 
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.setBackground(new java.awt.Color(82, 137, 128));
         btnDelete.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669361_delete_ic_icon.png"))); // NOI18N
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
 
+        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.setBackground(new java.awt.Color(82, 137, 128));
         btnPrint.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        btnPrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/3669284_ic_print_icon.png"))); // NOI18N
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Vaccination ");
+        jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -457,13 +465,14 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(13, 13, 13)
-                            .addComponent(jLabel10))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addGap(21, 21, 21)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -502,8 +511,8 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/172546_search_icon.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 6, -1, -1));
 
-        txtSearch.setBackground(new java.awt.Color(186, 221, 212));
         txtSearch.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        txtSearch.setBackground(new java.awt.Color(186, 221, 212));
         txtSearch.setBorder(null);
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -513,8 +522,8 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         jPanel1.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 6, 222, 38));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 50, 222, 10));
 
-        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--States--", "Johor", "Kedah", "Kelantan", "Kuala Lumpur", "Labuan", "Malacca", "Negeri Sembilan", "Pahang", "Perak", "Perlis", "Putrajaya", "Sabah ", "Sarawak", "Terengganu" }));
+        cmbState.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         cmbState.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbStateItemStateChanged(evt);
@@ -531,18 +540,18 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         });
         jPanel1.add(cmbVaccineType, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 34, 129, -1));
 
-        btnClose.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         btnClose.setText("X");
+        btnClose.setFont(new java.awt.Font("Berlin Sans FB", 0, 26)); // NOI18N
         btnClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCloseMouseClicked(evt);
             }
         });
-        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, -1));
+        jPanel1.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, -1, -1));
 
         jScrollPane2.setViewportView(tblVaccinationCenter);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 640, 390));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 640, 390));
 
         btnBack.setBackground(new java.awt.Color(82, 137, 128));
         btnBack.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
@@ -554,6 +563,18 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, -1, -1));
+
+        lblUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserName.setText("Center");
+        lblUserName.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(186, 221, 212));
+        jPanel1.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 70, 20));
+
+        lblUserId.setFont(new java.awt.Font("Berlin Sans FB", 0, 24)); // NOI18N
+        lblUserId.setForeground(new java.awt.Color(186, 221, 212));
+        lblUserId.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserId.setText("Center");
+        jPanel1.add(lblUserId, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 490, 70, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -570,19 +591,20 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        PersonnelMainMenu a = new PersonnelMainMenu();
-        a.setVisible(true);
+        new PersonnelMainMenu(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         this.setVisible(false);
-
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        dispose();
+        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if(dialog == JOptionPane.YES_OPTION){
+            Logging.logoutLog(lblUserId.getText(), "Personnel");
+            System.exit(0); 
+        }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        PersonnelAddVaccinationCenter addVaccinationCenter = new PersonnelAddVaccinationCenter();
-        addVaccinationCenter.setVisible(true);
+        new PersonnelAddVaccinationCenter(lblUserName.getText(), lblUserId.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -642,6 +664,7 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
             try {
                 toDelete.delete();
                 tblVaccinationCenter.setModel(new VaccinationCenterTableModel());
+                Logging.activityLog(lblUserId.getText(), "Personnel", "8");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Failed to delete appointment", "Delete Appointment", JOptionPane.INFORMATION_MESSAGE);
                 System.err.println(e);
@@ -701,21 +724,27 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         }
 
         doc.close();
+        Logging.activityLog(lblUserId.getText(), "Personnel", "25");
     }//GEN-LAST:event_btnPrintActionPerformed
 
     private void cmbStateItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbStateItemStateChanged
         TableFilter.filterTwoQuery(tblVaccinationCenter, "--States--", "--Vaccine Type--", cmbState.getSelectedItem().toString(), cmbVaccineType.getSelectedItem().toString());
-
+        Logging.activityLog(lblUserId.getText(), "Personnel", "10");
     }//GEN-LAST:event_cmbStateItemStateChanged
 
     private void cmbVaccineTypeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVaccineTypeItemStateChanged
         TableFilter.filter(tblVaccinationCenter, "--Vaccine Type--", cmbVaccineType.getSelectedItem().toString());
+        Logging.activityLog(lblUserId.getText(), "Personnel", "10");
     }//GEN-LAST:event_cmbVaccineTypeItemStateChanged
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // Seach Vaccination Center Table
-        RowSorter rowSorter = new RowSorter();
-        rowSorter.searchTable();
+        AbstractTableModel model = (AbstractTableModel)tblVaccinationCenter.getModel();
+        String search = txtSearch.getText();
+        TableRowSorter<AbstractTableModel> tr = new TableRowSorter<>(model);
+        tblVaccinationCenter.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter("(?i)" + search));
+        Logging.activityLog(lblUserId.getText(), "Personnel", "9");
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void cmbVaccineTypeSelectedItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVaccineTypeSelectedItemStateChanged
@@ -795,6 +824,8 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         //Creates an instance VaccinationCenter and saves it to the database
         VaccinationCenter vc = new VaccinationCenter(vaccinationCenterId, vaccinationCenterName, vaccinationCenterStartTimeString, vaccinationCenterEndTimeString, state, address, vaccineType, vaccineSupplyQuantity);
         VaccinationCenter.saveVaccinationCenter(vc, "update");
+        
+        Logging.activityLog(lblUserId.getText(), "Personnel", "7");
 
         //Update the vaccine stock
         quantityReminder = lblQuantityReminder.getText();
@@ -851,7 +882,7 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
 
         final private String[] columnNames = {"Vaccination Center ID", "Name", "Start Time", "End Time", "State", "Address", "Vaccine Type", "Supply Quantity"};
         final private ArrayList<VaccinationCenter> vaccinationCenterList = VaccinationCenter.getAllVaccinationCentersForTable();
-
+        
         @Override
         public int getColumnCount() {
             return columnNames.length;
@@ -901,47 +932,6 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
         }
     }
 
-//RowSorter for searching the table
-    class RowSorter extends TableRowSorter<TableModel> {
-
-        final private TableRowSorter<TableModel> rowSorter;
-
-        RowSorter() {
-            rowSorter = new TableRowSorter<>(tblVaccinationCenter.getModel());
-            tblVaccinationCenter.setRowSorter(rowSorter);
-        }
-
-        public void searchTable() {
-            txtSearch.getDocument().addDocumentListener(new DocumentListener() {
-
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    String searchText = txtSearch.getText();
-                    if (searchText.trim().length() == 0) {
-                        rowSorter.setRowFilter(null);
-                    } else {
-                        rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + searchText));
-                    }
-                }
-
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    throw new UnsupportedOperationException("Not supported yet.");
-                }
-            });
-        }
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
@@ -980,6 +970,8 @@ public class PersonnelVaccinationCenter extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblQuantityReminder;
+    private javax.swing.JLabel lblUserId;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblVaccinationCenterId;
     private javax.swing.JLabel lblVaccineId;
     private javax.swing.JSpinner spinQuantity;
