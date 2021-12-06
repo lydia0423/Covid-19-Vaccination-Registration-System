@@ -39,15 +39,15 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                 txtVaccinationCenter.setText(appointment.getVaccinationCenter());
                 lblAppointmentId.setText(appointment.getAppointmentId());
                 lblRegisteredDate.setText(appointment.getRegisteredDate());
-            }else if(appointment.getPatientName().contains(userName) && appointment.getPatientIdentification().contains(ic)){
-                txtName.setText("");
-                txtICOrPassport.setText("");
-                txtCloseContact.setText("");
-                txtHealthCondition.setText("");
-                txtState.setText("");
-                txtVaccinationCenter.setText("");
-                lblAppointmentId.setText("");
-                lblRegisteredDate.setText("");
+            }else if(!(appointment.getPatientName().contains(userName) && appointment.getPatientIdentification().contains(ic))){
+                txtName.setText(userName);
+                txtICOrPassport.setText(ic);
+                txtCloseContact.setText("-");
+                txtHealthCondition.setText("-");
+                txtState.setText("-");
+                txtVaccinationCenter.setText("-");
+                lblAppointmentId.setText("-");
+                lblRegisteredDate.setText("-");
             }
         }
         
