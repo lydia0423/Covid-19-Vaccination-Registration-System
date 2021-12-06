@@ -15,11 +15,13 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
     public PeopleModifyRegistration() {
         initComponents();
     }
-    
-    public PeopleModifyRegistration(String userId, String appointmentId, String userName, String ic, String state, String vaccinationCenter, String healthCondition, String closeContact, String registeredDate) {
-        initComponents(); 
+
+    public PeopleModifyRegistration(String userId, String userName, String ic) {
+        initComponents();
         ArrayList<PeopleAccRegistration> allPeopleAccounts = new ArrayList<>();
         allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
+        ArrayList<VaccinationAppointment> allAppointments = new ArrayList<>();
+        allAppointments = VaccinationAppointment.getAllVaccinationAppointments();
 
         for (PeopleAccRegistration account : allPeopleAccounts) {
             if (userName.equals(account.getName()) && userId.equals(account.getPeopleId())) {
@@ -27,32 +29,36 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
                 txtEmail.setText(account.getEmail());
             }
         }
-        
-        lblUserId.setText(userId);
-        lblAppointmentId.setText(appointmentId);
-        lblRegisteredDate.setText(registeredDate);
-        txtName.setText(userName);
-        txtICOrPassport.setText(ic);
-        cmbState.setSelectedItem(state);
 
-        if(healthCondition.equals("No")){
-            rbtnHealthNo.setSelected(true);
-        }else{
-            rbtnHealthYes.setSelected(true);
-            txtReason.setText(healthCondition);
+        for (VaccinationAppointment appointment : allAppointments) {
+            if (userName.equals(appointment.getPatientName()) && ic.equals(appointment.getPatientIdentification())) {
+                lblUserId.setText(userId);
+                lblAppointmentId.setText(appointment.getAppointmentId());
+                lblRegisteredDate.setText(appointment.getRegisteredDate());
+                txtName.setText(userName);
+                txtICOrPassport.setText(ic);
+                cmbState.setSelectedItem(appointment.getState());
+
+                if (appointment.getHealthCondition().equals("No")) {
+                    rbtnHealthNo.setSelected(true);
+                } else {
+                    rbtnHealthYes.setSelected(true);
+                    txtReason.setText(appointment.getHealthCondition());
+                }
+
+                if (appointment.getCloseContact().equals("No")) {
+                    rbtnCloseNo.setSelected(true);
+                } else {
+                    rbtnCloseYes.setSelected(true);
+                }
+
+                //Populates the combo box
+                DefaultComboBoxModel<String> centerSelectorList = new DefaultComboBoxModel<>();
+                centerSelectorList.addElement(appointment.getVaccinationCenter());
+                cmbVaccinationCenter.setModel(centerSelectorList);
+            }
         }
-        
-        if(closeContact.equals("No")){
-            rbtnCloseNo.setSelected(true);
-        }else{
-            rbtnCloseYes.setSelected(true);
-        }
-        
-        //Populates the combo box
-        DefaultComboBoxModel<String> centerSelectorList = new DefaultComboBoxModel<>();
-        centerSelectorList.addElement(vaccinationCenter);
-        cmbVaccinationCenter.setModel(centerSelectorList);
-        
+
         txtName.setEditable(false);
         txtICOrPassport.setEditable(false);
         txtEmail.setEditable(false);
@@ -345,19 +351,19 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        int dialog = JOptionPane.showConfirmDialog (null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
+        int dialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit this application?", "Exit System", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
             Logging.logoutLog(lblUserId.getText(), "People");
-            System.exit(0); 
+            System.exit(0);
         }
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        int dialog = JOptionPane.showConfirmDialog (null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
-        if(dialog == JOptionPane.YES_OPTION){
+        int dialog = JOptionPane.showConfirmDialog(null, "Changes have not been saved! Cancel?", "Cancel Changes", JOptionPane.YES_NO_OPTION);
+        if (dialog == JOptionPane.YES_OPTION) {
             new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
             this.setVisible(false);
-        }   
+        }
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -369,7 +375,7 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
 
         //Retrive data from form
         String appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, healthCondition, closeContact, appointmentStatus, registeredDate, appointmentDate, appointmentTime;
-           
+
         appointmentId = lblAppointmentId.getText();
         patientName = txtName.getText();
         patientId = txtICOrPassport.getText();
@@ -380,21 +386,21 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         appointmentDate = "-";
         appointmentTime = "-";
         appointmentStatus = "Registered";
-        
-        if(rbtnCloseNo.isSelected()){
+
+        if (rbtnCloseNo.isSelected()) {
             closeContact = rbtnCloseNo.getText();
-        }else{
+        } else {
             closeContact = rbtnCloseYes.getText();
         }
-        
-        if(rbtnHealthNo.isSelected()){
+
+        if (rbtnHealthNo.isSelected()) {
             healthCondition = rbtnHealthNo.getText();
-        }else{
-            healthCondition = txtReason.getText();  
+        } else {
+            healthCondition = txtReason.getText();
         }
 
         //Verify that all input are filled
-        if(state.isEmpty() || vaccineType.isEmpty() || healthCondition.isEmpty() || closeContact.isEmpty()){
+        if (state.isEmpty() || vaccineType.isEmpty() || healthCondition.isEmpty() || closeContact.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please ensure that all fields have been filled in", "Invalid Data Entered", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -402,7 +408,7 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
         //Creates an instance of VaccinationAppointment and saves it to the database
         VaccinationAppointment appointment = new VaccinationAppointment(appointmentId, patientName, patientId, state, vaccinationCenter, vaccineType, registeredDate, appointmentDate, appointmentTime, healthCondition, closeContact, appointmentStatus);
         VaccinationAppointment.saveAppointment(appointment, "Update");
-        
+
         Logging.activityLog(lblUserId.getText(), "People", "29");
 
         new PeopleMainMenu(txtName.getText(), lblUserId.getText(), txtICOrPassport.getText()).setVisible(true);
@@ -424,8 +430,8 @@ public class PeopleModifyRegistration extends javax.swing.JFrame {
             //Add all relevant vaccination center name into array list
             centerList.add(vc.getVaccinationCenterName());
         }
-        
-        availableCenter = centerList; 
+
+        availableCenter = centerList;
 
         //Add Vaccination Center Name List to combo box
         DefaultComboBoxModel<String> centerSelector = new DefaultComboBoxModel();

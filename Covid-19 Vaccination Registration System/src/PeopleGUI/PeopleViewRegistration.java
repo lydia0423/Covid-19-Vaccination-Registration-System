@@ -39,7 +39,8 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
                 txtVaccinationCenter.setText(appointment.getVaccinationCenter());
                 lblAppointmentId.setText(appointment.getAppointmentId());
                 lblRegisteredDate.setText(appointment.getRegisteredDate());
-            }else if(!(appointment.getPatientName().contains(userName) && appointment.getPatientIdentification().contains(ic))){
+                break;
+            }else {
                 txtName.setText(userName);
                 txtICOrPassport.setText(ic);
                 txtCloseContact.setText("-");
@@ -378,7 +379,7 @@ public class PeopleViewRegistration extends javax.swing.JFrame {
     }//GEN-LAST:event_btnbackMouseClicked
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        new PeopleModifyRegistration(lblUserId.getText(), lblAppointmentId.getText(), txtName.getText(), txtICOrPassport.getText(), txtState.getText(), txtVaccinationCenter.getText(), txtHealthCondition.getText(), txtCloseContact.getText(), lblRegisteredDate.getText()).setVisible(true);
+        new PeopleModifyRegistration(lblUserId.getText(), txtName.getText(), txtICOrPassport.getText()).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnEditActionPerformed
 
