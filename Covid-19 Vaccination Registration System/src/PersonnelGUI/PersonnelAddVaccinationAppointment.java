@@ -496,7 +496,7 @@ public class PersonnelAddVaccinationAppointment extends javax.swing.JFrame {
                 VaccinationAppointment.saveAppointment(appointment, "Add");
 
                 try {
-                    VaccinationAppointment.generateEmail(appointment, "Personnel", "leeyi08248@gmail.com", "Vaccination Appointment");
+                    VaccinationAppointment.generateEmail(appointment, "Personnel", email, "Vaccination Appointment");
                 } catch (MessagingException ex) {
                     System.out.println(ex);
                     Logger.getLogger(PersonnelAddVaccinationAppointment.class.getName()).log(Level.SEVERE, null, ex);
