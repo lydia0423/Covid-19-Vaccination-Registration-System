@@ -8,5 +8,5 @@ Encore Melaka
 -
 -
 No
-No
+Yes
 Registered
