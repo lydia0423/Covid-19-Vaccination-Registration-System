@@ -1,2 +1,0 @@
-2021-12-05 14:35:17,937 [INFO|HelperClasses.Logging|Logging] People register vaccination programme. (PeopleId: Registration)
-2021-12-05 14:35:38,716 [INFO|HelperClasses.Logging|Logging] PeopleLogout. (PeopleId: Registration)

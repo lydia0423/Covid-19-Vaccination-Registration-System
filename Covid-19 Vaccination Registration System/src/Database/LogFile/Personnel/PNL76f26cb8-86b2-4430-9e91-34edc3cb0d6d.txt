@@ -23,3 +23,5 @@
 2021-12-05 22:57:11,000 [INFO|HelperClasses.Logging|Logging] PersonnelLogin. (PersonnelId: PNL76f26cb8-86b2-4430-9e91-34edc3cb0d6d)
 2021-12-05 22:58:10,964 [INFO|HelperClasses.Logging|Logging] Personnel register new people account (PersonnelId: PNL76f26cb8-86b2-4430-9e91-34edc3cb0d6d)
 2021-12-05 22:59:01,935 [INFO|HelperClasses.Logging|Logging] PersonnelLogout. (PersonnelId: PNL76f26cb8-86b2-4430-9e91-34edc3cb0d6d)
+2021-12-06 10:12:24,753 [INFO|HelperClasses.Logging|Logging] PersonnelLogin. (PersonnelId: PNL76f26cb8-86b2-4430-9e91-34edc3cb0d6d)
+2021-12-06 10:12:27,408 [INFO|HelperClasses.Logging|Logging] PersonnelLogout. (PersonnelId: PNL76f26cb8-86b2-4430-9e91-34edc3cb0d6d)
