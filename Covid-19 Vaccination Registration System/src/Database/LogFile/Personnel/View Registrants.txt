@@ -1,3 +1,0 @@
-2021-12-04 16:41:31,034 [INFO|HelperClasses.Logging|Logging] Personnel filter vaccination appointment. (PersonnelId: View Registrants)
-2021-12-04 16:41:31,037 [INFO|HelperClasses.Logging|Logging] Personnel filter vaccination appointment. (PersonnelId: View Registrants)
-2021-12-04 16:41:35,750 [INFO|HelperClasses.Logging|Logging] PersonnelLogout. (PersonnelId: View Registrants)

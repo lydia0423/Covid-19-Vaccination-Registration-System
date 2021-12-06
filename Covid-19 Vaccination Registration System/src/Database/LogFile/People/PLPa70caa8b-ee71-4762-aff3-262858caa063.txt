@@ -51,3 +51,6 @@
 2021-12-06 10:06:59,462 [INFO|HelperClasses.Logging|Logging] PeopleLogout. (PeopleId: PLPa70caa8b-ee71-4762-aff3-262858caa063)
 2021-12-06 10:10:40,321 [INFO|HelperClasses.Logging|Logging] PeopleLogin. (PeopleId: PLPa70caa8b-ee71-4762-aff3-262858caa063)
 2021-12-06 10:10:43,964 [INFO|HelperClasses.Logging|Logging] PeopleLogout. (PeopleId: PLPa70caa8b-ee71-4762-aff3-262858caa063)
+2021-12-06 10:28:33,666 [INFO|HelperClasses.Logging|Logging] PeopleLogin. (PeopleId: PLPa70caa8b-ee71-4762-aff3-262858caa063)
+2021-12-06 10:28:53,737 [INFO|HelperClasses.Logging|Logging] People view vaccination programme. (PeopleId: PLPa70caa8b-ee71-4762-aff3-262858caa063)
+2021-12-06 10:41:23,815 [INFO|HelperClasses.Logging|Logging] PeopleLogout. (PeopleId: PLPa70caa8b-ee71-4762-aff3-262858caa063)
