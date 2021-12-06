@@ -4,7 +4,6 @@ import PersonnelGUI.PersonnelMainMenu;
 import PeopleGUI.PeopleMainMenu;
 import HelperClasses.EncryptAndDecrypt;
 import HelperClasses.Logging;
-import java.awt.Component;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JFrame;
@@ -39,6 +38,7 @@ public class LoginVerification {
         ArrayList<PersonnelAccRegistration> allPersonnelAccounts = new ArrayList<>();
         ArrayList<PeopleAccRegistration> allPeopleAccounts = new ArrayList<>();
         boolean valid = false;
+        //valid = true;
 
         if (userName.contains("helpacquire.com")) {
             allPersonnelAccounts = PersonnelAccRegistration.getAllPersonnelAccounts();
@@ -46,27 +46,28 @@ public class LoginVerification {
             for (PersonnelAccRegistration account : allPersonnelAccounts) {
                 String decoderPassword = EncryptAndDecrypt.decryptPassword(account.getPassword());
                 if (userName.equals(account.getEmail()) && password.equals(decoderPassword)) {
+                    JOptionPane.showMessageDialog(null, "Valid Credentials", "Login Success!", JOptionPane.INFORMATION_MESSAGE);
                     new PersonnelMainMenu(account.getName(), account.getPersonnelId()).setVisible(true);
                     jframe.dispose();
                     Logging.loginLog(account.getPersonnelId(), "Personnel");
                 }
             }
-
-        } else if (valid != true) {
-            valid = false;
-            JOptionPane.showMessageDialog(null, "Invalid Credentials", "Login Failed!", JOptionPane.ERROR_MESSAGE);
-        } else {
+        } else if(userName.contains("mail.com")){
             valid = true;
             allPeopleAccounts = PeopleAccRegistration.getAllPeopleAccounts();
 
             for (PeopleAccRegistration account : allPeopleAccounts) {
                 String decoderPassword = EncryptAndDecrypt.decryptPassword(account.getPassword());
                 if (userName.equals(account.getEmail()) && password.equals(decoderPassword)) {
+                    JOptionPane.showMessageDialog(null, "Valid Credentials", "Login Success!", JOptionPane.INFORMATION_MESSAGE);
                     new PeopleMainMenu(account.getName(), account.getPeopleId(), account.getIcOrPassport()).setVisible(true);
                     jframe.dispose();
                     Logging.loginLog(account.getPeopleId(), "People");
                 }
             }
+        }else if(valid != true) {
+            valid = false;
+            JOptionPane.showMessageDialog(null, "Invalid Credentials", "Login Failed!", JOptionPane.ERROR_MESSAGE);
         }
     }
 
